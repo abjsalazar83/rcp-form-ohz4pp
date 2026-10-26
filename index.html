@@ -490,5 +490,15 @@ if(a){history.replaceState(null,"",location.pathname);setTimeout(()=>{
  else if(a==="viatura"){openSh("via");$("vMat").focus()}},250)}
 })();
 </script>
+<button id="instB" hidden style="position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom));z-index:99;padding:10px 18px;border-radius:12px;border:1px solid var(--ln2);background:var(--fg);color:var(--bg);font:inherit;font-weight:600">Instalar app</button>
+<div id="iosH" hidden style="position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:99;padding:12px 14px;border-radius:12px;border:1px solid var(--ln2);background:var(--s2);color:var(--fg);font:inherit">Para instalar: <b>Partilhar → Adicionar ao ecrã principal</b> <button id="iosX" aria-label="Fechar" style="float:right;background:none;border:0;color:var(--fg);font:inherit">✕</button></div>
+<script>(function(){var d,b=document.getElementById("instB"),h=document.getElementById("iosH");
+var sa=matchMedia("(display-mode: standalone)").matches||matchMedia("(display-mode: fullscreen)").matches||navigator.standalone;
+addEventListener("beforeinstallprompt",function(e){e.preventDefault();d=e;if(!sa)b.hidden=false});
+b.onclick=function(){if(!d)return;b.hidden=true;d.prompt();d.userChoice.finally(function(){d=null})};
+addEventListener("appinstalled",function(){b.hidden=true;d=null});
+var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+if(ios&&!sa&&!localStorage.getItem("rcp_ioshint")){h.hidden=false;localStorage.setItem("rcp_ioshint","1")}
+document.getElementById("iosX").onclick=function(){h.hidden=true};})();</script>
 <script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));</script>
 </body></html>
