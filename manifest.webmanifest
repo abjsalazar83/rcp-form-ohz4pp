@@ -32,5 +32,55 @@
    "type": "image/png",
    "purpose": "maskable"
   }
+ ],
+ "shortcuts": [
+  {
+   "name": "Nova ocorrência",
+   "short_name": "Nova ocorrência",
+   "url": "./?a=ocorrencia",
+   "icons": [
+    {
+     "src": "sc-ocorrencia.png",
+     "sizes": "96x96",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Gerar PDF",
+   "short_name": "Gerar PDF",
+   "url": "./?a=pdf",
+   "icons": [
+    {
+     "src": "sc-pdf.png",
+     "sizes": "96x96",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Adicionar colega",
+   "short_name": "Adicionar colega",
+   "url": "./?a=colega",
+   "icons": [
+    {
+     "src": "sc-colega.png",
+     "sizes": "96x96",
+     "type": "image/png"
+    }
+   ]
+  },
+  {
+   "name": "Adicionar viatura",
+   "short_name": "Adicionar viatura",
+   "url": "./?a=viatura",
+   "icons": [
+    {
+     "src": "sc-viatura.png",
+     "sizes": "96x96",
+     "type": "image/png"
+    }
+   ]
+  }
  ]
 }

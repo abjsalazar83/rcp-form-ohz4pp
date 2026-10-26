@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="RCP">
-<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 
@@ -99,6 +99,43 @@ select.pick,#vPick{display:none!important}
 .pkR{display:block;width:100%;padding:13px 16px;min-height:60px;border:0;border-bottom:1px solid #111;background:none;text-align:left;font:inherit;color:#ececec}
 .pkR:active{background:#111}.pkR b{display:block;font-size:16px;font-weight:600;color:#fff}.pkR small{display:block;margin-top:3px;font-size:13px;color:#7a7a7a}
 .pkE{padding:24px 16px;color:#7a7a7a;font-size:14px}
+/* campos azuis */
+input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea{background-color:#1e4fa3!important;color:#fff!important;-webkit-text-fill-color:#fff;border-color:#3d6fc6!important;color-scheme:dark;caret-color:#fff}
+input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{background-color:#2659b3!important;border-color:#9dbcf0!important}
+input::placeholder,textarea::placeholder{color:#c3d5f5!important;-webkit-text-fill-color:#c3d5f5;opacity:1}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,textarea:-webkit-autofill,select:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #1e4fa3 inset!important;box-shadow:0 0 0 1000px #1e4fa3 inset!important;-webkit-text-fill-color:#fff!important;caret-color:#fff;transition:background-color 99999s ease-out 0s}
+input[type=date]{-webkit-appearance:none;appearance:none;min-height:46px;display:block}
+input[type=date]::-webkit-date-and-time-value{text-align:left;color:#fff}
+input[type=date]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.85}
+select{background-image:linear-gradient(45deg,transparent 50%,#c3d5f5 50%),linear-gradient(135deg,#c3d5f5 50%,transparent 50%)!important}
+select option{background:#1e4fa3;color:#fff}
+#pkQ{background-color:#1e4fa3!important}
+header{padding-top:calc(50px + env(safe-area-inset-top))}
+/* botão Definições */
+#cfgB{position:fixed;top:calc(8px + env(safe-area-inset-top));right:48px;z-index:50;height:34px;padding:0 10px 0 8px;border:1px solid #1a1a1a;border-radius:10px;background:#090909;color:#9a9a9a;display:flex;align-items:center;gap:6px;font:inherit;font-size:13px}
+#cfgB svg{width:18px;height:18px}#cfgB:active{color:#ececec}
+#fs[hidden]~#cfgB{right:8px}
+/* folha Definições */
+body.noscroll{overflow:hidden}
+#shBg{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:59}
+#sheet{position:fixed;inset:0;z-index:60;background:#000;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
+#sheet[hidden],#shBg[hidden]{display:none}
+.shH{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #1a1a1a}
+.shH b{font-size:15px;letter-spacing:.04em;color:#fff}
+.shH button{min-height:40px;padding:0 16px;border:1px solid #262626;border-radius:10px;background:#111;color:#ececec;font:inherit}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;border-bottom:1px solid #1a1a1a;scrollbar-width:none}
+.tabs button{flex:0 0 auto;min-height:38px;padding:0 14px;border:1px solid #262626;border-radius:99px;background:#090909;color:#8d8d8d;font:inherit;font-size:14px}
+.tabs button.on{background:#ececec;color:#000;border-color:#ececec}
+.shB{flex:1;overflow-y:auto;padding:14px 14px calc(24px + env(safe-area-inset-bottom))}
+.tp{display:none}.tp.on{display:block}
+@media(min-width:760px){#sheet{inset:auto;top:6vh;left:50%;transform:translateX(-50%);width:680px;max-height:88vh;border:1px solid #262626;border-radius:16px;padding-top:0}}
+/* morada */
+.morw{display:flex;gap:8px;align-items:flex-end}.morw>label{flex:1}
+.sv{flex:0 0 46px;width:46px;height:46px;border:1px solid #262626;border-radius:10px;background:#111;color:#c3d5f5;display:flex;align-items:center;justify-content:center;padding:0}
+.sv svg{width:22px;height:22px}
+.acl{border:1px solid #3d6fc6;border-radius:10px;background:#0b1a33;margin-top:4px;overflow:hidden}
+.acl button{display:block;width:100%;text-align:left;padding:10px 12px;border:0;border-bottom:1px solid #1a2c4d;background:none;color:#fff;font:inherit;font-size:15px}
+.acl button small{display:block;color:#9dbcf0;font-size:12px}
 </style></head><body>
 <button id="fs" type="button" aria-label="Ecrã inteiro" title="Ecrã inteiro" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
 <script>(function(){var d=document,r=d.documentElement,b=d.getElementById("fs");
@@ -108,6 +145,7 @@ function cur(){return d.fullscreenElement||d.webkitFullscreenElement}
 function ico(){var f=!!cur();b.querySelector("svg").innerHTML=f?'<path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/>':'<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/>';b.setAttribute("aria-label",f?"Sair de ecrã inteiro":"Ecrã inteiro");b.title=b.getAttribute("aria-label")}
 b.onclick=function(){try{var p=cur()?ex.call(d):req.call(r);if(p&&p.catch)p.catch(function(){})}catch(e){}};
 d.addEventListener("fullscreenchange",ico);d.addEventListener("webkitfullscreenchange",ico);})();</script>
+<button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Definições</span></button>
 <header><h1>RELATÓRIO DE VIATURA</h1><small>RCP · Mod/RVP/COMETPOR/NO/V1.0/2022 · offline</small></header>
 <main>
 
@@ -116,7 +154,7 @@ d.addEventListener("fullscreenchange",ico);d.addEventListener("webkitfullscreenc
 <div><span class="sub" style="margin-top:0">Horário</span>
 <div class="seg" id="horSeg"><label><input type="radio" name="horR" value="0745"><span>Manhã</span></label><label><input type="radio" name="horR" value="1545"><span>Tarde</span></label><label><input type="radio" name="horR" value="2345"><span>Noite</span></label></div>
 <input type="hidden" id="hor"></div>
-<div class="g2"><label>Turno<select id="turno"><option value="">—</option><option>01º Turno</option><option>02º Turno</option><option>03º Turno</option><option>04º Turno</option></select></label>
+<div class="g2"><label>Turno<select id="turno"><option value="">—</option><option>01º Turno</option><option>02º Turno</option><option>03º Turno</option></select></label>
 <label>Indicativo<input id="indicativo" inputmode="decimal"></label></div>
 <label>Período (DATA/HORA)<input id="periodo" placeholder="15H45 - 00H00"></label>
 </div></section>
@@ -168,25 +206,20 @@ d.addEventListener("fullscreenchange",ico);d.addEventListener("webkitfullscreenc
 <details class="sec"><summary>Observações · linha 2<span class="sum" id="sumObs2"></span></summary><div class="in">
 <label>Após "VISIBILIDADES / ORDEM DE MISSÃO:"<input id="obs2"></label></div></details>
 
-<details class="sec"><summary>Unidade e assinaturas<span class="sum" id="sumFix"></span></summary><div class="in"><div class="g">
-<label>Divisão<input id="divisao"></label><label>Esquadra<input id="esquadra"></label>
-<label>Assinatura Arvorado/CP<input id="sigA" list="dlNomes"></label></div></div></details>
-
-<details class="sec"><summary>Equipa e viaturas<span class="sum" id="sumEq"></span></summary><div class="in">
-<span class="sub">Colegas</span><div class="lst" id="colList"></div>
+<div id="msg"></div>
+</main>
+<div id="shBg" hidden></div><div id="sheet" role="dialog" aria-modal="true" aria-label="Definições" hidden><div class="shH"><b>Definições</b><button id="shX" type="button">Fechar</button></div><div class="tabs" role="tablist"><button type="button" data-t="col" role="tab">Colegas</button><button type="button" data-t="via" role="tab">Viaturas</button><button type="button" data-t="cfg" role="tab">Configuração</button><button type="button" data-t="ei" role="tab">Exportar/Importar</button></div><div class="shB"><div class="tp" id="tp-col"><span class="sub">Colegas</span><div class="lst" id="colList"></div>
 <div class="g"><input id="cNome" placeholder="Nome"><input id="cPosto" list="postos" placeholder="Posto"><div class="g2"><input id="cNum" inputmode="numeric" placeholder="Nº matrícula"><input id="cSig" placeholder="Sigla (ex.: - ABCD)"></div>
 <button class="full" id="cAdd" type="button">Guardar colega</button></div>
 <datalist id="postos"><option>Agente</option><option>Agente Principal</option><option>Agente Coordenador</option><option>Chefe</option><option>Chefe Principal</option><option>Chefe Coordenador</option><option>Subcomissário</option><option>Comissário</option></datalist>
-<span class="sub">Viaturas patrulha</span><div class="lst" id="vList"></div>
+</div><div class="tp" id="tp-via"><span class="sub">Viaturas patrulha</span><div class="lst" id="vList"></div>
 <div class="g"><input id="vMat" placeholder="Matrícula" style="text-transform:uppercase"><input id="vMM" placeholder="Marca Modelo"><input id="vInt" placeholder="Nº interno (opcional)">
 <button class="full" id="vAdd" type="button">Guardar viatura</button></div>
-</div></details>
+</div><div class="tp" id="tp-cfg"><span class="sub">Unidade e assinaturas</span><div class="g">
+<label>Divisão<input id="divisao"></label><label>Esquadra<input id="esquadra"></label>
+<label>Assinatura Arvorado/CP<input id="sigA" list="dlNomes"></label></div><span class="sub">Moradas (Google Maps)</span><div class="g"><label>Chave Google Maps<input id="gkey" type="password" autocomplete="off" spellcheck="false" placeholder="Opcional — sem chave a morada é texto livre"></label><div class="prev">Guardada só neste dispositivo. Ativa as sugestões de morada (Places API New).</div></div></div><div class="tp" id="tp-ei"><span class="sub">Cópia de colegas e viaturas (JSON)</span><div class="g2">
+<button id="exp" type="button">Exportar</button><button id="imp" type="button">Importar</button></div><input type="file" id="impF" accept=".json,application/json" hidden></div></div></div>
 
-<details class="sec"><summary>Exportar / Importar<span class="sum">Cópia de colegas e viaturas (JSON)</span></summary><div class="in"><div class="g2">
-<button id="exp" type="button">Exportar</button><button id="imp" type="button">Importar</button></div><input type="file" id="impF" accept=".json,application/json" hidden></div></details>
-
-<div id="msg"></div>
-</main>
 <div class="bar"><button class="s" id="limpar" type="button">Limpar</button><button class="p" id="gerar" type="button">Gerar PDF</button></div>
 
 <script>!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports):"function"==typeof define&&define.amd?define(["exports"],e):e((t=t||self).PDFLib={})}(this,(function(t){"use strict";
@@ -211,7 +244,7 @@ const PDF_B64="JVBERi0xLjcKJYGBgYEKCjEgMCBvYmoKPDwKL1R5cGUgL0NhdGFsb2cKL1BhZ2VzI
 const $=id=>document.getElementById(id);
 const MESES=["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
 const CK="rcp_config_v1";let CFG={};try{CFG=JSON.parse(localStorage.getItem(CK))||{}}catch(e){}
-const HOR={"0745":{per:"07H45 - 16H00"},"1545":{per:"15H45 - 00H00"},"2345":{per:"23H45 - 08H00"}};
+const HOR={"0745":{per:"07H45 - 16H00",t:"02º Turno"},"1545":{per:"15H45 - 00H00",t:"03º Turno"},"2345":{per:"23H45 - 08H00",t:"01º Turno"}};
 const indOf=h=>((CFG.indicativos||{})[h])||"";
 let FREG=[];function cfgFreg(){const m=CFG.freguesias||{};FREG=Object.keys(m).map(k=>[k,m[k]])}cfgFreg();
 // Mapeamento por linha VISUAL (verificado pelos retângulos dos widgets)
@@ -241,7 +274,7 @@ function ocRow(o={},open=false){const d=document.createElement("details");d.clas
  <label${FREG.length?"":" hidden"}>Freguesia<select data-k="freg">${ecoOpts()}</select></label>
  <div class="g2"><label>ECO<input data-k="eco" inputmode="numeric" placeholder="ECO-"></label><label>NPP/NUIPC<input data-k="npp" inputmode="numeric"></label></div>
  <div class="g2"><label>Início<input data-k="ini" inputmode="numeric" placeholder="16 05"></label><label>Fim<input data-k="fim" inputmode="numeric" placeholder="16 57"></label></div>
- <label>Morada nº<input data-k="mor"></label><label>Tipo<input data-k="tipo"></label><label>Resultado<input data-k="res"></label>
+ <div class="morw"><label>Morada nº<input data-k="mor" autocomplete="off"></label><button type="button" class="sv" aria-label="Ver no Street View" title="Street View"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M9.5 10h5l-1 5h-3z"/><path d="M11 15l-.5 5M13 15l.5 5"/><ellipse cx="12" cy="20.5" rx="7" ry="1.6"/></svg></button></div><div class="acl" hidden></div><input type="hidden" data-k="lat"><input type="hidden" data-k="lng"><label>Tipo<input data-k="tipo"></label><label>Resultado<input data-k="res"></label>
  <label class="sw">Expediente<input type="checkbox" data-k="exp"></label><label class="sw">Presença do supervisor<input type="checkbox" data-k="sup"></label>
  <div class="prev"></div><button class="x" type="button">Remover ocorrência</button></div>`;
  d.querySelectorAll("[data-k]").forEach(i=>{if(o[i.dataset.k]!==undefined){i.type=="checkbox"?i.checked=o[i.dataset.k]:i.value=o[i.dataset.k]}});
@@ -249,7 +282,7 @@ function ocRow(o={},open=false){const d=document.createElement("details");d.clas
  const eco=d.querySelector("[data-k=eco]");eco.addEventListener("blur",()=>{const n=eco.value.replace(/\D/g,"");if(n)eco.value="ECO-"+n;upd()});
  d.querySelectorAll("[data-k=ini],[data-k=fim]").forEach(i=>i.addEventListener("blur",()=>{i.value=fmtHora(i.value);upd()}));
  d.querySelector(".x").onclick=()=>{if(confirm("Remover esta ocorrência?")){d.remove();upd()}};
- $("ocs").appendChild(d);}
+ $("ocs").appendChild(d);if(window.acSetup)acSetup(d);}
 function ocTxt(o){return[o.mor,o.tipo,o.res].map(s=>(s||"").trim()).filter(Boolean).join(" - ")}
 function upd(){
  [...document.querySelectorAll("#ocs .oc")].forEach((e,i)=>{const o={};e.querySelectorAll("[data-k]").forEach(x=>o[x.dataset.k]=x.type=="checkbox"?x.checked:x.value);
@@ -266,12 +299,12 @@ function sums(){if(!S)return;
  $("sumCl").textContent=(cl.every((v,i)=>v===CL[i][4])?"Predefinido · ":"")+`${c} C · ${nc} NC · ${na} N/A`;
  const na2=S.autos.filter((a,i)=>$("an"+i)&&($("an"+i).value||$("ar"+i).value||$("am"+i).value||$("al"+i).value)).length;$("sumAutos").textContent=na2?na2+" auto(s)":"Nenhum";
  $("sumObs2").textContent="VISIBILIDADES / ORDEM DE MISSÃO: "+($("obs2").value||"—");
- $("sumFix").textContent=[$("divisao").value,$("esquadra").value,$("sigA").value].filter(Boolean).join(" · ");
  $("sumT").textContent=$("nomeT").value||"—";
- try{$("sumEq").textContent=E.colegas.length+" colegas · "+E.viaturas.length+" viaturas"}catch(_){}}
+}
 function render(){FIELDS.forEach(k=>$(k).value=S.f[k]||"");
  $("ocs").innerHTML="";S.oc.length?S.oc.forEach(o=>ocRow(o,false)):ocRow({},true);
  document.querySelectorAll("input[name=horR]").forEach(r=>r.checked=r.value===S.f.hor);
+ {const h=HOR[S.f.hor];if(h)S.f.turno=h.t;else if(!Object.values(HOR).some(x=>x.t===S.f.turno))S.f.turno="";$("turno").value=S.f.turno||""}
  $("mat").innerHTML="";
  MAT.forEach((m,i)=>{$("mat").insertAdjacentHTML("beforeend",`<div class="mrow"><span>${m[0]}</span><input id="mq${i}" inputmode="numeric" aria-label="Quantidade"><label class="sw"><input type="checkbox" id="ms${i}" aria-label="${m[0]} Sim/Não"></label></div>`);$("ms"+i).checked=S.mat[i].s;$("mq"+i).value=S.mat[i].q});
  $("cl").innerHTML=CL.map((c,i)=>`<div class="cli"><span>${c[0]}</span><div class="seg">`+["C","NC","N/A"].map((l,v)=>`<label><input type="radio" name="cl${i}" value="${v}" ${S.cl[i]===v?"checked":""}><span>${l}</span></label>`).join("")+`</div></div>`).join("");
@@ -279,7 +312,8 @@ function render(){FIELDS.forEach(k=>$(k).value=S.f[k]||"");
  S.autos.forEach((a,i)=>{$("an"+i).value=a.n;$("ar"+i).value=a.r;$("am"+i).value=a.m;$("al"+i).value=a.l});
  upd()}
 document.querySelectorAll("input[name=horR]").forEach(r=>r.addEventListener("change",()=>{$("hor").value=r.value;$("hor").onchange()}));
-$("hor").onchange=()=>{const h=HOR[$("hor").value];if(h){const i=indOf($("hor").value);if(i)$("indicativo").value=i;$("periodo").value=h.per}save()};
+$("turno").onchange=()=>{const h=Object.keys(HOR).find(k=>HOR[k].t===$("turno").value);if(h){$("hor").value=h;document.querySelectorAll("input[name=horR]").forEach(r=>r.checked=r.value===h);$("hor").onchange()}else save()};
+$("hor").onchange=()=>{const h=HOR[$("hor").value];if(h){$("turno").value=h.t;const i=indOf($("hor").value);if(i)$("indicativo").value=i;$("periodo").value=h.per}save()};
 $("addOc").onclick=()=>{document.querySelectorAll("#ocs .oc").forEach(d=>d.open=false);ocRow({},true);upd();document.querySelector("#ocs .oc:last-child").scrollIntoView({block:"start",behavior:"smooth"})};
 document.addEventListener("input",()=>upd());document.addEventListener("change",()=>{save();sums()});
 $("limpar").onclick=()=>{if(confirm("Limpar o formulário? (mantém os valores fixos)")){localStorage.removeItem(KEY);S=blank();render()}};
@@ -379,6 +413,70 @@ O.onclick=e=>{if(e.target===O)close()};
 document.addEventListener("keydown",e=>{if(e.key=="Escape"&&mode)close()});
 Q.addEventListener("keydown",e=>{if(e.key=="Enter"){const f=L.querySelector(".pkR");if(f)f.click()}});
 window.addEventListener("popstate",()=>{if(mode)close(true)});
+})();
+</script>
+<script>(function(){
+/* ---- Definições (folha) ---- */
+const sh=$("sheet"),bg=$("shBg");let shOpen=false;
+function tab(t){document.querySelectorAll("#sheet .tabs button").forEach(b=>{const on=b.dataset.t===t;b.classList.toggle("on",on);b.setAttribute("aria-selected",on)});document.querySelectorAll("#sheet .tp").forEach(p=>p.classList.toggle("on",p.id==="tp-"+t))}
+function openSh(t){tab(t||"col");if(shOpen)return;shOpen=true;sh.hidden=false;bg.hidden=false;document.body.classList.add("noscroll");history.pushState({rcpSheet:1},"")}
+function hideSh(){shOpen=false;sh.hidden=true;bg.hidden=true;document.body.classList.remove("noscroll")}
+function closeSh(){if(shOpen)history.back()}
+window.rcpSheet={open:openSh,close:closeSh,isOpen:()=>shOpen};
+$("cfgB").onclick=()=>openSh("col");$("shX").onclick=closeSh;bg.onclick=closeSh;
+document.querySelectorAll("#sheet .tabs button").forEach(b=>b.onclick=()=>tab(b.dataset.t));
+addEventListener("popstate",()=>{if(shOpen)hideSh()});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&shOpen)closeSh()});
+/* ---- chave Google Maps (só localStorage) ---- */
+const GK="rcp_gmaps_key";const gk=()=>(localStorage.getItem(GK)||"").trim();
+$("gkey").value=gk();
+$("gkey").addEventListener("change",()=>{const v=$("gkey").value.trim();v?localStorage.setItem(GK,v):localStorage.removeItem(GK)});
+$("impF").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text());const k=j&&j.config&&j.config.gmapsKey;if(k){localStorage.setItem(GK,String(k).trim());$("gkey").value=gk()}}catch(_){}});
+/* ---- autocomplete de moradas (Places API New) ---- */
+const norm=x=>(x||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+const tok=()=>{try{return crypto.randomUUID()}catch(_){return Date.now().toString(36)+Math.random().toString(36).slice(2)}};
+function comp(c,t){const x=(c||[]).find(a=>(a.types||[]).includes(t));return x?(x.longText||x.long_name||""):""}
+function fregOf(c){return comp(c,"administrative_area_level_3")||comp(c,"sublocality_level_1")||comp(c,"sublocality")||comp(c,"locality")}
+function matchFreg(cands){for(const n of cands){if(!n)continue;const N=norm(n);
+  const ex=FREG.find(f=>norm(f[0])===N);if(ex)return{name:ex[0],eco:ex[1]};
+  const h=FREG.filter(f=>N.includes(norm(f[0])));if(h.length&&h.every(x=>x[1]===h[0][1]))return{name:h.length===1?h[0][0]:"",eco:h[0][1]};
+  if(h.length)return null}
+ return null}
+const API="https://places.googleapis.com/v1/";
+const LB=()=>CFG.mapsBias?{circle:{center:CFG.mapsBias,radius:CFG.mapsBiasRadius||12000}}:undefined;
+async function auto(q,st){const r=await fetch(API+"places:autocomplete",{method:"POST",headers:{"Content-Type":"application/json","X-Goog-Api-Key":gk()},body:JSON.stringify({input:q,includedRegionCodes:["pt"],languageCode:"pt-PT",sessionToken:st,locationBias:LB()})});if(!r.ok)throw Error(r.status);const j=await r.json();return(j.suggestions||[]).map(s=>s.placePrediction).filter(Boolean).slice(0,5)}
+async function det(id,st){const r=await fetch(API+"places/"+encodeURIComponent(id)+"?languageCode=pt-PT&sessionToken="+encodeURIComponent(st),{headers:{"X-Goog-Api-Key":gk(),"X-Goog-FieldMask":"id,formattedAddress,location,addressComponents"}});if(!r.ok)throw Error(r.status);return r.json()}
+window.acSetup=function(d){if(d.dataset.ac)return;d.dataset.ac=1;
+ const mor=d.querySelector("[data-k=mor]"),list=d.querySelector(".acl"),lat=d.querySelector("[data-k=lat]"),lng=d.querySelector("[data-k=lng]");
+ let tm=0,seq=0,st=tok();const hide=()=>{list.hidden=true;list.innerHTML=""};
+ mor.addEventListener("input",()=>{lat.value="";lng.value="";clearTimeout(tm);const q=mor.value.trim();
+  if(!gk()||q.length<3||!navigator.onLine){hide();return}
+  tm=setTimeout(async()=>{const my=++seq;try{const ps=await auto(q,st);if(my!==seq)return;
+   const ds=await Promise.all(ps.map(p=>det(p.placeId,st).catch(()=>null)));if(my!==seq)return;
+   const it=ps.map((p,i)=>({p,d:ds[i]})).filter(x=>x.d);if(!it.length){hide();return}
+   list.innerHTML="";it.forEach(({p,d:dd})=>{const c=dd.addressComponents,fr=fregOf(c),cp=comp(c,"postal_code"),mt=(p.structuredFormat&&p.structuredFormat.mainText&&p.structuredFormat.mainText.text)||(p.text&&p.text.text)||dd.formattedAddress;
+    const b=document.createElement("button");b.type="button";b.textContent=mt;const sm=document.createElement("small");sm.textContent=[fr,cp,comp(c,"locality")].filter((v,i,a)=>v&&a.indexOf(v)===i).join(" · ")||dd.formattedAddress||"";b.appendChild(sm);
+    b.addEventListener("pointerdown",e=>e.preventDefault());
+    b.onclick=()=>{const rt=comp(c,"route"),nr=comp(c,"street_number");let m=rt?(rt+(nr?" "+nr:"")):mt;if(!nr){const t=q.match(/\s(\d+[A-Za-z]?)\s*$/);if(t&&!/\d/.test(m))m+=" "+t[1]}
+     mor.value=m;if(dd.location){lat.value=dd.location.latitude;lng.value=dd.location.longitude}
+     const f=matchFreg([fr,comp(c,"sublocality_level_1"),comp(c,"locality")]);
+     if(f){const sel=d.querySelector("[data-k=freg]");if(f.name&&sel){sel.value=f.name}d.querySelector("[data-k=eco]").value="ECO-"+f.eco}
+     hide();st=tok();if(typeof upd=="function")upd();save()};
+    list.appendChild(b)});list.hidden=false}catch(_){hide()}},350)});
+ mor.addEventListener("blur",()=>setTimeout(hide,250));
+ d.querySelector(".sv").onclick=()=>{const la=lat.value,ln=lng.value,m=mor.value.trim();
+  if(!navigator.onLine){$("msg").textContent="Sem rede — Street View indisponível offline.";return}
+  let u;if(la&&ln)u="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint="+la+","+ln;
+  else{if(!m){$("msg").textContent="Escreva a morada primeiro.";return}const fr=(d.querySelector("[data-k=freg]")||{}).value;u="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent([m,fr,$("divisao").value,"Portugal"].filter(Boolean).join(", "))}
+  window.open(u,"_blank","noopener")}};
+document.querySelectorAll("#ocs .oc").forEach(acSetup);
+/* ---- atalhos PWA (?a=) ---- */
+const a=new URLSearchParams(location.search).get("a");
+if(a){history.replaceState(null,"",location.pathname);setTimeout(()=>{
+ if(a==="ocorrencia"){$("addOc").click();const i=document.querySelector("#ocs .oc:last-child [data-k=ini]");if(i)i.focus()}
+ else if(a==="pdf")$("gerar").click();
+ else if(a==="colega"){openSh("col");$("cNome").focus()}
+ else if(a==="viatura"){openSh("via");$("vMat").focus()}},250)}
 })();
 </script>
 <script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));</script>
