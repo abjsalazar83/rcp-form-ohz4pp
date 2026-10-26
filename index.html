@@ -135,6 +135,33 @@ body.noscroll{overflow:hidden}
 .acl{border:1px solid var(--ln2);border-radius:10px;background:var(--s1);margin-top:4px;overflow:hidden}
 .acl button{display:block;width:100%;text-align:left;padding:10px 12px;border:0;border-bottom:1px solid var(--ln);background:none;color:var(--fg);font:inherit;font-size:15px}
 .acl button small{display:block;color:var(--mu);font-size:12px}
+
+.cb{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:6px;min-width:0}
+.cbQ{width:100%}
+.chip{display:flex;align-items:center;gap:8px;min-height:46px;padding:4px 4px 4px 14px;border:1px solid var(--ln2);border-radius:12px;background:var(--s1);color:var(--fg)}
+.chip .ct{flex:1;min-width:0;font-size:15px;line-height:1.35;overflow-wrap:anywhere}
+.chip button{flex:none;border:0;background:none;color:var(--mu);font:inherit}
+.chip .cx{width:38px;height:38px;font-size:20px}.chip .sv2{font-size:12px;color:var(--ac);padding:0 6px}
+.cbL{max-height:50vh;overflow-y:auto;margin-top:0}
+.cbG{padding:6px 12px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}
+.cbL button b{font-weight:500}
+details.ed>summary{list-style:none;cursor:pointer;font-size:12px;color:var(--mu);padding:2px 0;width:max-content}
+details.ed>summary::-webkit-details-marker{display:none}
+details.ed>summary::before{content:"▸ "}details.ed[open]>summary::before{content:"▾ "}
+details.ed>.g{margin-top:8px}
+details.ed>summary::after{content:none!important}
+.chip[hidden],.cbQ[hidden],.sv2[hidden],.cbL[hidden]{display:none!important}
+.g>*,.cb>*{min-width:0}
+details.oc>summary .st{display:inline}
+details.oc>summary{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px;row-gap:2px}
+details.oc>summary .n{margin-right:0}
+.st{display:contents!important}
+.st .sa{white-space:nowrap}
+.st .sa{flex:none}
+.st .sm{flex:1 1 0;min-width:3em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st .sb{flex:1 1 100%;color:var(--fg2);display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.st .sb .bd:first-child{margin-left:0}
+.bd{flex:none;font-size:11px;margin-left:2px;padding:1px 6px;border:1px solid var(--ln2);border-radius:6px;color:var(--ac)}
 </style></head><body>
 <button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 <header><h1>RELATÓRIO DE VIATURA</h1><small>RCP · Mod/RVP/COMETPOR/NO/V1.0/2022 · offline</small></header>
@@ -152,29 +179,20 @@ body.noscroll{overflow:hidden}
 
 <section><h2>Equipa</h2>
 <span class="sub">Motorista</span><div class="g">
-<button type="button" class="pk" data-pk="M"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Escolher colega</span></button>
-<select class="pick" data-p="M" aria-label="Escolher colega motorista"></select>
-<div class="g2"><label>Categoria<input id="catM"></label><label>Matrícula<input id="matM" inputmode="numeric"></label></div><label>Nome<input id="nomeM"></label></div>
+<div class="cb" data-cb="M"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catM"></label><label>Matrícula<input id="matM" inputmode="numeric"></label></div><label>Nome<input id="nomeM"></label></div></details></div></div>
 <span class="sub">Arvorado</span><div class="g">
-<button type="button" class="pk" data-pk="A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Escolher colega</span></button>
-<select class="pick" data-p="A" aria-label="Escolher colega arvorado"></select>
-<div class="g2"><label>Categoria<input id="catA"></label><label>Matrícula<input id="matA" inputmode="numeric"></label></div><label>Nome<input id="nomeA"></label></div>
-<span class="sub">Graduado</span><label>Nome (assinatura)<input id="grad" list="dlNomes"></label>
+<div class="cb" data-cb="A"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catA"></label><label>Matrícula<input id="matA" inputmode="numeric"></label></div><label>Nome<input id="nomeA"></label></div></details></div></div>
+<span class="sub">Graduado (assinatura)</span><div class="cb" data-cb="G"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><label>Nome (assinatura)<input id="grad"></label></div></details></div>
 <details class="oc" style="margin-top:14px"><summary>Tripulante (opcional)<span class="sum" id="sumT"></span></summary><div class="in">
-<button type="button" class="pk" data-pk="T"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Escolher colega</span></button>
-<select class="pick" data-p="T" aria-label="Escolher colega tripulante"></select>
-<div class="g2"><label>Categoria<input id="catT"></label><label>Matrícula<input id="matT" inputmode="numeric"></label></div><label>Nome<input id="nomeT"></label></div></details>
+<div class="cb" data-cb="T"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catT"></label><label>Matrícula<input id="matT" inputmode="numeric"></label></div><label>Nome<input id="nomeT"></label></div></details></div></div></details>
 <datalist id="dlNomes"></datalist><datalist id="dlFull"></datalist>
 </section>
 
 <section><h2>Viatura</h2><div class="g">
-<button type="button" class="pk" data-pk="V"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Escolher viatura</span></button>
-<select id="vPick" aria-label="Escolher viatura"></select>
-<div class="g2"><label>Marca<input id="marca"></label><label>Modelo<input id="modelo"></label></div>
-<label>Matrícula<input id="matricula" style="text-transform:uppercase"></label>
+<div class="cb" data-cb="V"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Matrícula, marca ou modelo" aria-label="Matrícula, marca ou modelo"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Marca<input id="marca"></label><label>Modelo<input id="modelo"></label></div><label>Matrícula<input id="matricula" style="text-transform:uppercase"></label></div></details></div>
 <div class="g2"><label>KM iniciais<input id="kmi" inputmode="numeric"></label><label>KM finais<input id="kmf" inputmode="numeric"></label></div>
 <label>Combustível (Lt)<input id="comb" inputmode="decimal"></label>
-<label>Condutor/Tripulante<input id="condutor" list="dlFull" placeholder="(= motorista)"></label>
+<span class="sub" style="margin:0">Condutor/Tripulante <span style="text-transform:none">(vazio = motorista)</span></span><div class="cb" data-cb="C"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><label>Condutor/Tripulante<input id="condutor" placeholder="(= motorista)"></label></div></details></div>
 </div></section>
 
 <section><h2>Ocorrências</h2><div id="ocs"></div>
@@ -273,11 +291,14 @@ function ocRow(o={},open=false){const d=document.createElement("details");d.clas
  d.querySelectorAll("[data-k=ini],[data-k=fim]").forEach(i=>i.addEventListener("blur",()=>{i.value=fmtHora(i.value);upd()}));
  d.querySelector(".x").onclick=()=>{if(confirm("Remover esta ocorrência?")){d.remove();upd()}};
  $("ocs").appendChild(d);if(window.acSetup)acSetup(d);}
+function escH(t){return String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function ocTxt(o){return[o.mor,o.tipo,o.res].map(s=>(s||"").trim()).filter(Boolean).join(" - ")}
 function upd(){
  [...document.querySelectorAll("#ocs .oc")].forEach((e,i)=>{const o={};e.querySelectorAll("[data-k]").forEach(x=>o[x.dataset.k]=x.type=="checkbox"?x.checked:x.value);
   e.querySelector(".n").textContent=(i+1)+".";
-  const h=[o.ini,o.fim].filter(Boolean).join("–");e.querySelector(".st").textContent=[h,o.eco,(o.mor||"").trim()].filter(Boolean).join(" · ")+(o.exp?" · Exp.":"")||"(vazia)";
+  const h=[o.ini,o.fim].filter(Boolean).join("–");const st=e.querySelector(".st"),a=[h,o.eco].filter(Boolean).join(" · "),b=[(o.mor||"").trim(),(o.tipo||"").trim(),(o.res||"").trim()];
+  const tr=b.slice(1).filter(Boolean),bd=(o.exp?'<span class="bd">Exp.</span>':"")+(o.sup?'<span class="bd">Sup.</span>':"");
+  st.innerHTML=(a||b.some(Boolean)||o.exp||o.sup)?`<span class="sa">${escH(a)}</span>`+(b[0]?`<span class="sm">${a?"· ":""}${escH(b[0])}</span>`:"")+((tr.length||bd)?`<span class="sb">${tr.map(escH).join(" · ")}${bd}</span>`:""):"(vazia)";
   e.querySelector(".prev").textContent=ocTxt(o)?"PDF: "+ocTxt(o):""});
  $("addOc").disabled=document.querySelectorAll("#ocs .oc").length>=10;save();sums()}
 function sums(){if(!S)return;
@@ -320,11 +341,8 @@ function eqSave(){localStorage.setItem(EQ,JSON.stringify(E));eqRender()}
 function eqRender(){
  $("colList").innerHTML=E.colegas.map((c,i)=>`<div class="li"><span>${esc(c.posto)} · ${esc(c.num)} · ${esc(full(c))}</span><button data-ce="${i}">Editar</button><button data-cr="${i}">×</button></div>`).join("")||'<div class="prev">Sem colegas.</div>';
  $("vList").innerHTML=E.viaturas.map((v,i)=>`<div class="li"><span>${esc(v.mat)} · ${esc(v.mm)}${v.int?" · nº "+esc(v.int):""}</span><button data-ve="${i}">Editar</button><button data-vr="${i}">×</button></div>`).join("")||'<div class="prev">Sem viaturas.</div>';
- const co='<option value="">— escrever à mão —</option>'+E.colegas.map((c,i)=>`<option value="${i}">${esc(full(c))} (${esc(c.num)})</option>`).join("");
- document.querySelectorAll(".pick").forEach(s=>s.innerHTML=co);
  $("dlNomes").innerHTML=E.colegas.map(c=>`<option value="${esc(c.nome)}">`).join("");
  $("dlFull").innerHTML=E.colegas.map(c=>`<option value="${esc(full(c))}">`).join("");
- $("vPick").innerHTML='<option value="">— escrever à mão —</option>'+E.viaturas.map((v,i)=>`<option value="${i}">${esc(v.mat)} · ${esc(v.mm)}${v.int?" ("+esc(v.int)+")":""}</option>`).join("");
  $("cAdd").textContent=editC>=0?"Atualizar colega":"Guardar colega";$("vAdd").textContent=editV>=0?"Atualizar viatura":"Guardar viatura";sums()}
 $("cAdd").onclick=()=>{const c={nome:$("cNome").value.trim(),posto:$("cPosto").value.trim(),num:$("cNum").value.trim(),sigla:$("cSig").value.trim()};if(!c.nome)return;
  editC>=0?E.colegas[editC]=c:E.colegas.push(c);editC=-1;["cNome","cPosto","cNum","cSig"].forEach(k=>$(k).value="");eqSave()};
@@ -335,10 +353,6 @@ document.addEventListener("click",e=>{const d=e.target.dataset;if(!d)return;
  if(d.vr!==undefined&&confirm("Remover viatura?")){E.viaturas.splice(+d.vr,1);eqSave()}
  if(d.ce!==undefined){const c=E.colegas[editC=+d.ce];$("cNome").value=c.nome;$("cPosto").value=c.posto;$("cNum").value=c.num;$("cSig").value=c.sigla;eqRender()}
  if(d.ve!==undefined){const v=E.viaturas[editV=+d.ve];$("vMat").value=v.mat;$("vMM").value=v.mm;$("vInt").value=v.int;eqRender()}});
-document.addEventListener("change",e=>{const s=e.target;
- if(s.classList&&s.classList.contains("pick")&&s.value!==""){const c=E.colegas[+s.value],k=s.dataset.p;$("cat"+k).value=c.posto;$("mat"+k).value=c.num;$("nome"+k).value=full(c);
-  if(k=="A")$("sigA").value=c.nome;if(k=="M"&&!$("condutor").value)$("condutor").value=full(c);save()}
- if(s.id=="vPick"&&s.value!==""){const v=E.viaturas[+s.value],p=v.mm.split(/\s+/);$("matricula").value=v.mat;$("marca").value=p[0]||"";$("modelo").value=p.slice(1).join(" ");save()}},true);
 $("exp").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(Object.keys(CFG).length?{...E,config:CFG}:E,null,2)],{type:"application/json"}));a.download="equipa_viaturas.json";document.body.appendChild(a);a.click();a.remove()};
 $("imp").onclick=()=>$("impF").click();
 $("impF").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text());if(!Array.isArray(j.colegas)||!Array.isArray(j.viaturas))throw Error("formato inválido");E={colegas:j.colegas,viaturas:j.viaturas};eqSave();if(j.config&&typeof j.config=="object"){CFG=j.config;localStorage.setItem(CK,JSON.stringify(CFG));cfgFreg();collect();const d=defs();for(const k in d)if(!S.f[k])S.f[k]=d[k];if(S.f.hor&&!S.f.indicativo)S.f.indicativo=indOf(S.f.hor);render();save();$("rpl").textContent=radioPref()}$("msg").textContent="Importado: "+E.colegas.length+" colegas, "+E.viaturas.length+" viaturas"}catch(x){$("msg").textContent="Erro ao importar: "+x.message}e.target.value=""};
@@ -372,39 +386,60 @@ async function gerar(){collect();const{PDFDocument,StandardFonts,PDFName}=PDFLib
  const url=URL.createObjectURL(new Blob([out],{type:"application/pdf"}));const a=document.createElement("a");a.href=url;a.download=nomeFicheiro();document.body.appendChild(a);a.click();a.remove();
  $("msg").textContent="PDF gerado: "+nomeFicheiro()+" (editável)";return out}
 $("gerar").onclick=()=>gerar().catch(e=>{$("msg").textContent="Erro: "+e.message;console.error(e)});
-</script><div id="pkO" role="dialog" aria-modal="true"><div id="pkS"><div id="pkH"><div id="pkW"><input id="pkQ" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search"><button id="pkX" type="button" aria-label="Limpar pesquisa">×</button></div><button id="pkC" type="button">Fechar</button></div><div id="pkL"></div></div></div>
-<script>
-(function(){
-const RK="rcp_recentes_v1",O=$("pkO"),Q=$("pkQ"),L=$("pkL");let mode=null,hist=false;
+</script></script>
+<script>(function(){
+const RK="rcp_recentes_v1";
 const norm=t=>String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 const rec=()=>{try{return JSON.parse(localStorage.getItem(RK))||{c:[],v:[]}}catch(e){return{c:[],v:[]}}};
 function bump(t,key){const r=rec(),a=(r[t]||[]).filter(x=>x!==key);a.unshift(key);r[t]=a.slice(0,20);localStorage.setItem(RK,JSON.stringify(r))}
-const items=()=>mode=="V"?E.viaturas.map((v,i)=>({i,key:v.mat,t:v.mat,s:[v.mm,v.int?"nº "+v.int:""].filter(Boolean).join(" · "),h:norm(v.mat+" "+v.mat.replace(/-/g,"")+" "+v.mm+" "+v.int)}))
+const strip=n=>String(n||"").replace(/\s+-\s+\S+$/,"").trim();
+const R={M:{cat:"catM",mat:"matM",nome:"nomeM"},A:{cat:"catA",mat:"matA",nome:"nomeA"},T:{cat:"catT",mat:"matT",nome:"nomeT"},G:{nome:"grad",one:"nome"},C:{nome:"condutor",one:"full"},V:{veh:1}};
+const v=id=>$(id).value.trim();
+const findC=n=>{const k=norm(strip(n));return k?E.colegas.find(c=>norm(c.nome)===k):null};
+const findV=m=>{const k=norm(m).replace(/-/g,"");return k?E.viaturas.find(x=>norm(x.mat).replace(/-/g,"")===k):null};
+function chip(r){const c=R[r];
+ if(c.veh){const m=v("matricula").toUpperCase(),mm=[v("marca"),v("modelo")].filter(Boolean).join(" ");return{t:[m,mm].filter(Boolean).join(" · "),inList:!m||!!findV(m)}}
+ if(c.one){const n=v(c.nome),x=findC(n);return{t:x?[x.nome,x.posto,x.num].filter(Boolean).join(" · "):n,inList:!n||!!x}}
+ const n=v(c.nome);return{t:(n||v(c.cat)||v(c.mat))?[strip(n),v(c.cat),v(c.mat)].filter(Boolean).join(" · "):"",inList:!n||!!findC(n)}}
+const items=r=>r=="V"?E.viaturas.map((x,i)=>({i,key:x.mat,t:x.mat,s:[x.mm,x.int?"nº "+x.int:""].filter(Boolean).join(" · "),h:norm(x.mat+" "+x.mat.replace(/-/g,"")+" "+x.mm+" "+x.int)}))
  :E.colegas.map((c,i)=>({i,key:c.num||c.nome,t:c.nome,s:[c.posto,c.num?"nº "+c.num:""].filter(Boolean).join(" · "),h:norm(c.nome+" "+c.posto+" "+c.num+" "+c.sigla)}));
-function draw(){const q=norm(Q.value.trim()),all=items(),srt=a=>a.slice().sort((x,y)=>x.t.localeCompare(y.t,"pt"));
- const row=x=>`<button type="button" class="pkR" data-pi="${x.i}"><b>${esc(x.t)}</b><small>${esc(x.s)}</small></button>`;
- let h="";
- if(q){const m=srt(all.filter(x=>q.split(/\s+/).every(w=>x.h.includes(w))));h=m.map(row).join("")||'<div class="pkE">Sem resultados.</div>'}
- else{const rk=(rec()[mode=="V"?"v":"c"]||[]),R=[];rk.forEach(k=>{const x=all.find(y=>y.key===k);if(x&&R.length<5)R.push(x)});
-  const rest=srt(all.filter(x=>!R.includes(x)));
-  if(R.length)h+='<div class="pkG">Recentes</div>'+R.map(row).join("");
-  h+=(R.length?'<div class="pkG">Todos</div>':"")+rest.map(row).join("")||'<div class="pkE">Lista vazia. Adicione em Equipa e viaturas.</div>'}
- L.innerHTML=h;L.scrollTop=0}
-function open(m){mode=m;Q.value="";Q.placeholder=m=="V"?"Matrícula, marca ou modelo":"Nome, nº ou posto";O.classList.add("on");document.body.style.overflow="hidden";draw();Q.focus();
- history.pushState({pk:1},"");hist=true}
-function close(fromPop){if(!mode)return;O.classList.remove("on");document.body.style.overflow="";mode=null;if(hist&&!fromPop){hist=false;history.back()}hist=false}
-document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-pk]");if(b)open(b.dataset.pk)});
-L.onclick=e=>{const r=e.target.closest(".pkR");if(!r)return;const i=r.dataset.pi,m=mode;
- const sel=m=="V"?$("vPick"):document.querySelector('select.pick[data-p="'+m+'"]');sel.value=i;
- bump(m=="V"?"v":"c",m=="V"?E.viaturas[+i].mat:(E.colegas[+i].num||E.colegas[+i].nome));
- close();sel.dispatchEvent(new Event("change",{bubbles:true}))};
-Q.oninput=draw;$("pkX").onclick=()=>{Q.value="";draw();Q.focus()};$("pkC").onclick=()=>close();
-O.onclick=e=>{if(e.target===O)close()};
-document.addEventListener("keydown",e=>{if(e.key=="Escape"&&mode)close()});
-Q.addEventListener("keydown",e=>{if(e.key=="Enter"){const f=L.querySelector(".pkR");if(f)f.click()}});
-window.addEventListener("popstate",()=>{if(mode)close(true)});
-})();
-</script>
+function pick(r,i){const c=R[r];
+ if(r=="V"){const x=E.viaturas[i],p=x.mm.split(/\s+/);$("matricula").value=x.mat;$("marca").value=p[0]||"";$("modelo").value=p.slice(1).join(" ");bump("v",x.mat)}
+ else{const x=E.colegas[i];bump("c",x.num||x.nome);
+  if(c.one)$(c.nome).value=c.one=="full"?full(x):x.nome;
+  else{$(c.cat).value=x.posto;$(c.mat).value=x.num;$(c.nome).value=full(x);if(r=="A")$("sigA").value=x.nome;if(r=="M"&&!$("condutor").value)$("condutor").value=full(x)}}
+ done()}
+function manual(r,t){t=t.trim();if(!t)return;const c=R[r];
+ if(r=="V")$("matricula").value=t.toUpperCase();else $(c.nome).value=t;
+ done();const ed=document.querySelector(`[data-cb="${r}"] details.ed`);if(ed&&!c.one)ed.open=true}
+function done(){save();sums();cbAll()}
+function saveList(r){const c=R[r];
+ if(r=="V"){const m=v("matricula").toUpperCase();if(!m||findV(m))return;E.viaturas.push({mat:m,mm:[v("marca"),v("modelo")].filter(Boolean).join(" "),int:""})}
+ else{const n=v(c.nome);if(!n||findC(n))return;const sg=(n.match(/\s+(-\s+\S+)$/)||[])[1]||"";E.colegas.push({nome:strip(n),posto:c.cat?v(c.cat):"",num:c.mat?v(c.mat):"",sigla:sg})}
+ eqSave();cbAll();$("msg").textContent="Guardado na lista."}
+function clear(r){const c=R[r];(r=="V"?["matricula","marca","modelo"]:[c.nome,c.cat,c.mat].filter(Boolean)).forEach(k=>$(k).value="");done();const q=document.querySelector(`[data-cb="${r}"] .cbQ`);q.focus()}
+function draw(w){const r=w.dataset.cb,q=norm(w.querySelector(".cbQ").value.trim()),L=w.querySelector(".cbL"),all=items(r),srt=a=>a.slice().sort((x,y)=>x.t.localeCompare(y.t,"pt"));
+ const row=x=>`<button type="button" tabindex="-1" data-ci="${x.i}"><b>${esc(x.t)}</b><small>${esc(x.s)}</small></button>`;let h="";
+ if(q){h=srt(all.filter(x=>q.split(/\s+/).every(t=>x.h.includes(t)))).map(row).join("");h+=`<button type="button" tabindex="-1" data-man="1">Usar «${esc(w.querySelector(".cbQ").value.trim())}» (manual)</button>`}
+ else{const rk=rec()[r=="V"?"v":"c"]||[],Rc=[];rk.forEach(k=>{const x=all.find(y=>y.key===k);if(x&&Rc.length<5)Rc.push(x)});
+  const rest=srt(all.filter(x=>!Rc.includes(x)));if(Rc.length)h+='<div class="cbG">Recentes</div>'+Rc.map(row).join("");
+  h+=(Rc.length&&rest.length?'<div class="cbG">Todos</div>':"")+rest.map(row).join("");if(!h)h='<div class="cbG">Lista vazia — escreva para entrada manual.</div>'}
+ L.innerHTML=h;L.hidden=false}
+function sync(w){const r=w.dataset.cb,ch=chip(r),q=w.querySelector(".cbQ"),cp=w.querySelector(".chip");
+ if(ch.t){cp.hidden=false;q.hidden=true;cp.querySelector(".ct").textContent=ch.t;cp.querySelector(".sv2").hidden=ch.inList}else{cp.hidden=true;q.hidden=false}}
+function cbAll(){document.querySelectorAll("[data-cb]").forEach(sync)}
+window.cbAll=cbAll;
+document.querySelectorAll("[data-cb]").forEach(w=>{const r=w.dataset.cb,q=w.querySelector(".cbQ"),L=w.querySelector(".cbL");
+ q.addEventListener("focus",()=>draw(w));q.addEventListener("input",e=>{e.stopPropagation();draw(w)});
+ q.addEventListener("keydown",e=>{if(e.key=="Enter"){e.preventDefault();const f=L.querySelector("[data-ci]");f?f.click():manual(r,q.value)}if(e.key=="Escape"){L.hidden=true;q.blur()}});
+ q.addEventListener("blur",()=>setTimeout(()=>{if(L.contains(document.activeElement))return;L.hidden=true;if(q.value.trim()&&!q.hidden){manual(r,q.value);q.value=""}},150));
+ L.addEventListener("mousedown",e=>e.preventDefault());
+ L.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;L.hidden=true;if(b.dataset.man)manual(r,q.value);else pick(r,+b.dataset.ci);q.value=""});
+ w.querySelector(".cx").onclick=()=>clear(r);w.querySelector(".sv2").onclick=()=>saveList(r);
+ w.addEventListener("input",()=>sync(w));});
+const _r=render;render=function(){_r();cbAll()};const _e=eqRender;eqRender=function(){_e();cbAll()};
+cbAll();
+})();</script>
 <script>(function(){
 /* ---- Definições (folha) ---- */
 const sh=$("sheet"),bg=$("shBg");let shOpen=false;
