@@ -5,12 +5,12 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="RCP">
+<meta name="apple-mobile-web-app-title" content="Cooperativa">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 
-<title>RCP – Relatório de Viatura</title>
+<title>Cooperativa</title>
 <script>window.RCP_THEMES={"vantablack":{"n":"Vantablack (predefinido)","v":{"bg":"#000","s1":"#090909","s2":"#111","ln":"#1a1a1a","ln2":"#262626","fg":"#ececec","fg2":"#ffffff","mu":"#7a7a7a","ac":"#8d8d8d","dim":"#404040"}},"tokyo-night":{"n":"Tokyo Night","v":{"bg":"#1a1b26","s1":"#1f2230","s2":"#24283b","ln":"#292e42","ln2":"#414868","fg":"#a9b1d6","fg2":"#c0caf5","mu":"#777c98","ac":"#7aa2f7","dim":"#5a5e75"}},"catppuccin":{"n":"Catppuccin Mocha","v":{"bg":"#1e1e2e","s1":"#282839","s2":"#313244","ln":"#45475a","ln2":"#585b70","fg":"#cdd6f4","fg2":"#cdd6f4","mu":"#9096af","ac":"#89b4fa","dim":"#6d7187"}},"gruvbox":{"n":"Gruvbox","v":{"bg":"#282828","s1":"#32302f","s2":"#3c3836","ln":"#504945","ln2":"#665c54","fg":"#d4be98","fg2":"#d4be98","mu":"#988a71","ac":"#7daea3","dim":"#756c5a"}},"nord":{"n":"Nord","v":{"bg":"#2e3440","s1":"#343b49","s2":"#3b4252","ln":"#434c5e","ln2":"#4c566a","fg":"#d8dee9","fg2":"#d8dee9","mu":"#9ca2ae","ac":"#81a1c1","dim":"#7a808c"}},"everforest":{"n":"Everforest","v":{"bg":"#2d353b","s1":"#303a40","s2":"#343f44","ln":"#3d484d","ln2":"#475258","fg":"#d3c6aa","fg2":"#d3c6aa","mu":"#999383","ac":"#7fbbb3","dim":"#78766d"}},"rose-pine":{"n":"Rosé Pine Dawn (claro)","v":{"bg":"#faf4ed","s1":"#f6eee7","s2":"#f2e9e1","ln":"#dfdad9","ln2":"#cecacd","fg":"#575279","fg2":"#575279","mu":"#908ba2","ac":"#56949f","dim":"#b1abb9"},"l":1},"kanagawa":{"n":"Kanagawa","v":{"bg":"#1f1f28","s1":"#202838","s2":"#223249","ln":"#363646","ln2":"#54546D","fg":"#dcd7ba","fg2":"#dcd7ba","mu":"#9a9787","ac":"#dcd7ba","dim":"#74726a"}},"catppuccin-latte":{"n":"Catppuccin Latte (claro)","v":{"bg":"#eff1f5","s1":"#e6e8ee","s2":"#dce0e8","ln":"#ccd0da","ln2":"#acb0be","fg":"#4c4f69","fg2":"#4c4f69","mu":"#85889a","ac":"#1e66f5","dim":"#a6a8b6"},"l":1}};window.rcpTheme=function(k){var T=RCP_THEMES,t=T[k]||T.vantablack,r=document.documentElement;for(var p in t.v)r.style.setProperty("--"+p,t.v[p]);r.style.colorScheme=t.l?"light":"dark";if(t.l)r.setAttribute("data-l","");else r.removeAttribute("data-l");var m=document.querySelector('meta[name=theme-color]');if(m)m.content=t.v.bg};try{rcpTheme(localStorage.getItem("rcp_theme")||"vantablack")}catch(e){}</script>
 <style>
 /* Omarchy Vantablack: bg #000, dark_bg #090909, lighter_bg #1a1a1a, fg #fff/#ececec, muted #7a7a7a, accent #8d8d8d, color0 #404040 */
@@ -171,9 +171,49 @@ details.oc>summary .n{margin-right:0}
 .bar .p{border-radius:99px;min-height:50px;font-size:16px;letter-spacing:.02em}
 .bar .s{background:none;border:0;color:var(--mu);font-size:14px;padding:0 14px;min-height:44px;border-radius:99px}
 .bar .s:active{color:var(--fg2);background:var(--s2)}
+
+/* v8: layout plano — uma só camada, divisórias finas, menos caixas */
+main{padding:4px 20px 130px}
+header{padding-bottom:18px}header h1{font-size:20px;letter-spacing:.02em}
+section,details.sec{background:none;border:0;border-top:1px solid var(--ln);border-radius:0;margin:0}
+main>section:first-of-type{border-top:0}
+section{padding:26px 0 24px}
+h2{margin:0 0 18px}
+details.sec>summary{padding:22px 40px 22px 0;min-height:60px}
+details>summary::after{right:2px}
+details.sec>.in{padding:0 0 24px}
+.g,.g2{gap:16px}
+.sub{margin:24px 0 10px}
+input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea{background-color:var(--s2)!important;border-color:transparent!important;border-radius:12px}
+input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{border-color:var(--dim)!important;background-color:var(--s2)!important}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,textarea:-webkit-autofill,select:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px var(--s2) inset!important;box-shadow:0 0 0 1000px var(--s2) inset!important}
+.seg{background:var(--s2);border:0}
+details.oc{background:none;border:0;border-bottom:1px solid var(--ln);border-radius:0;margin:0}
+#ocs details.oc:first-child{border-top:1px solid var(--ln)}
+details.oc>summary{padding:16px 36px 16px 0}
+details.oc>.in{padding:4px 0 22px;gap:16px}
+.chip{background:var(--s2);border:0;border-radius:12px}
+.acl{border:0;background:var(--s1);box-shadow:0 8px 24px rgba(0,0,0,.35);border-radius:12px}
+.acl button{border-bottom:1px solid var(--ln)}
+.sv,.now{border:0;background:var(--s2)}
+.x,.pk{border:0;background:var(--s2)}
+button{border:0}
+main>section>button.full,#addOc{background:none;color:var(--fg2);border:1px dashed var(--ln2);margin-top:14px}
+.li{border:0;border-bottom:1px solid var(--ln);border-radius:0;padding:8px 0}
+.li button{background:none;color:var(--mu)}
+.lst{gap:0}
+.bd{border:0;background:var(--s2)}
+#cfgB{border:0;border-radius:99px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(6px)}
+details.oc:not(#ocs>details){border-bottom:0}
+.shH,.tabs{border-color:var(--ln)}
+.tabs button{border:0;background:var(--s2)}
+.shH button{border:0}
+.bar{border-top:0;background:color-mix(in srgb,var(--bg) 92%,transparent)}
+.afx{display:flex;align-items:center;gap:12px;min-height:46px}.afx span{flex:1;min-width:0;color:var(--fg);font-size:15px;overflow-wrap:anywhere}
+.afx button{min-height:40px;padding:0 14px;background:var(--s2);color:var(--mu);font-size:14px;border-radius:99px}
 </style></head><body>
 <button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
-<header><h1>RELATÓRIO DE VIATURA</h1><small>RCP · Mod/RVP/COMETPOR/NO/V1.0/2022 · offline</small></header>
+<header><h1>Cooperativa</h1><small>Relatório de Viatura · offline</small></header>
 <main>
 
 <section><h2>Turno</h2><div class="g">
@@ -235,7 +275,7 @@ details.oc>summary .n{margin-right:0}
 <button class="full" id="vAdd" type="button">Guardar viatura</button></div>
 </div><div class="tp" id="tp-cfg"><span class="sub">Unidade e assinaturas</span><div class="g">
 <label>Divisão<input id="divisao"></label><label>Esquadra<input id="esquadra"></label>
-<label>Assinatura Arvorado/CP<input id="sigA" list="dlNomes"></label></div><span class="sub">Aspeto</span><div class="g"><label>Tema (Omarchy)<select id="thSel"></select></label></div><span class="sub">Moradas</span><div class="g"><label>Chave Google Maps<input id="gkey" type="password" autocomplete="off" spellcheck="false" placeholder="Opcional — sem chave usa OpenStreetMap"></label><div class="prev">Sem chave, as sugestões vêm do OpenStreetMap (Nominatim). A chave Google, se definida, fica só neste dispositivo e passa a usar a Places API (New).</div></div></div><div class="tp" id="tp-ei"><span class="sub">Cópia de colegas e viaturas (JSON)</span><div class="g2">
+<label>Assinatura Arvorado/CP<input id="sigA" list="dlNomes"></label></div><span class="sub">Arvorado fixo</span><div class="g"><div class="afx"><span id="afN">—</span><button type="button" id="afF">Esquecer</button></div><div class="prev">A primeira escolha de arvorado fica guardada neste telemóvel e é preenchida em cada relatório novo. Mudar o arvorado atualiza esta escolha.</div></div><span class="sub">Aspeto</span><div class="g"><label>Tema (Omarchy)<select id="thSel"></select></label></div><span class="sub">Moradas</span><div class="g"><label>Chave Google Maps<input id="gkey" type="password" autocomplete="off" spellcheck="false" placeholder="Opcional — sem chave usa OpenStreetMap"></label><div class="prev">Sem chave, as sugestões vêm do OpenStreetMap (Nominatim). A chave Google, se definida, fica só neste dispositivo e passa a usar a Places API (New).</div></div></div><div class="tp" id="tp-ei"><span class="sub">Cópia de colegas e viaturas (JSON)</span><div class="g2">
 <button id="exp" type="button">Exportar</button><button id="imp" type="button">Importar</button></div><input type="file" id="impF" accept=".json,application/json" hidden></div></div></div>
 
 <div class="bar"><button class="s" id="limpar" type="button">Limpar</button><button class="p" id="gerar" type="button">Gerar PDF</button></div>
@@ -563,5 +603,19 @@ lastM=($("matricula").value||"").trim().toUpperCase();kmT();
 setInterval(()=>{const m=($("matricula").value||"").trim().toUpperCase();if(m!==lastM)save()},800);
 document.addEventListener("click",e=>{const b=e.target.closest(".now");if(!b)return;e.preventDefault();const i=b.parentNode.querySelector("input");const d=new Date();
  i.value=fmtHora(String(d.getHours()).padStart(2,"0")+String(d.getMinutes()).padStart(2,"0"));i.dispatchEvent(new Event("input",{bubbles:true}));i.dispatchEvent(new Event("change",{bubbles:true}));upd();save()});
+})();</script>
+<script>(function(){
+const AK="rcp_arvorado_fixo_v1",AF=["catA","matA","nomeA","sigA"];
+const get=()=>{try{return JSON.parse(localStorage.getItem(AK))||null}catch(e){return null}};
+const cur=()=>{const o={};AF.forEach(k=>o[k]=($(k).value||"").trim());return o};
+function lbl(){const a=get();$("afN").textContent=a?[a.nomeA,a.catA,a.matA].filter(Boolean).join(" · "):"Ainda não escolhido";$("afF").hidden=!a}
+function remember(){const c=cur();if(!c.nomeA&&!c.matA)return;const a=get();if(a&&AF.every(k=>(a[k]||"")===c[k]))return;localStorage.setItem(AK,JSON.stringify(c));lbl()}
+function apply(o,force){const a=get();if(!a)return o;if(force||(!(o.f.nomeA||"").trim()&&!(o.f.matA||"").trim()))AF.forEach(k=>{o.f[k]=a[k]||""});return o}
+const oB=blank;blank=function(){return apply(oB.apply(this,arguments),true)};
+const oS=save;save=function(){const r=oS.apply(this,arguments);try{remember()}catch(e){}return r};
+$("afF").onclick=()=>{if(confirm("Esquecer o arvorado fixo?")){localStorage.removeItem(AK);lbl()}};
+// rascunho antigo sem arvorado: preencher
+try{const c=cur();if(get()&&!c.nomeA&&!c.matA){apply(S);render();if(window.cbAll)cbAll();oS()}}catch(e){}
+lbl();
 })();</script>
 </body></html>

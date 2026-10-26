@@ -1,8 +1,8 @@
 {
  "id": "./",
- "name": "RCP",
- "short_name": "RCP",
- "description": "Relatório de viatura (RCP) — preenchimento offline",
+ "name": "Cooperativa",
+ "short_name": "Cooperativa",
+ "description": "Cooperativa — relatório de viatura, preenchimento offline",
  "lang": "pt-PT",
  "start_url": "./",
  "scope": "./",
