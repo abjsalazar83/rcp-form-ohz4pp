@@ -80,7 +80,6 @@ button:disabled{opacity:.4}
 .bar .s{flex:0 0 auto}
 #msg{text-align:center;font-size:13px;color:var(--mu);min-height:20px;padding:4px 0}
 .hint{font-size:12px;color:var(--mu);margin:-4px 0 0}
-#fs{position:fixed;top:calc(8px + env(safe-area-inset-top));right:8px;z-index:50;width:34px;height:34px;padding:7px;border:1px solid #1a1a1a;border-radius:10px;background:#090909;color:#7a7a7a;opacity:.7;display:flex;align-items:center;justify-content:center}#fs:active{opacity:1;color:#ececec}#fs[hidden]{display:none}#fs svg{width:18px;height:18px}
 .pk{width:100%;display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;background:#090909;border:1px solid #262626;border-radius:12px;color:#7a7a7a;font:inherit;font-size:15px;text-align:left}
 .pk svg{width:18px;height:18px;flex:none}.pk:active{border-color:#404040;color:#ececec}
 select.pick,#vPick{display:none!important}
@@ -112,9 +111,8 @@ select option{background:#1e4fa3;color:#fff}
 #pkQ{background-color:#1e4fa3!important}
 header{padding-top:calc(50px + env(safe-area-inset-top))}
 /* botão Definições */
-#cfgB{position:fixed;top:calc(8px + env(safe-area-inset-top));right:48px;z-index:50;height:34px;padding:0 10px 0 8px;border:1px solid #1a1a1a;border-radius:10px;background:#090909;color:#9a9a9a;display:flex;align-items:center;gap:6px;font:inherit;font-size:13px}
+#cfgB{position:fixed;top:calc(8px + env(safe-area-inset-top));right:8px;z-index:50;height:34px;padding:0 10px 0 8px;border:1px solid #1a1a1a;border-radius:10px;background:#090909;color:#9a9a9a;display:flex;align-items:center;gap:6px;font:inherit;font-size:13px}
 #cfgB svg{width:18px;height:18px}#cfgB:active{color:#ececec}
-#fs[hidden]~#cfgB{right:8px}
 /* folha Definições */
 body.noscroll{overflow:hidden}
 #shBg{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:59}
@@ -137,14 +135,6 @@ body.noscroll{overflow:hidden}
 .acl button{display:block;width:100%;text-align:left;padding:10px 12px;border:0;border-bottom:1px solid #1a2c4d;background:none;color:#fff;font:inherit;font-size:15px}
 .acl button small{display:block;color:#9dbcf0;font-size:12px}
 </style></head><body>
-<button id="fs" type="button" aria-label="Ecrã inteiro" title="Ecrã inteiro" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
-<script>(function(){var d=document,r=d.documentElement,b=d.getElementById("fs");
-var req=r.requestFullscreen||r.webkitRequestFullscreen,ex=d.exitFullscreen||d.webkitExitFullscreen;
-var en=d.fullscreenEnabled||d.webkitFullscreenEnabled;if(!req||!en)return;b.hidden=false;
-function cur(){return d.fullscreenElement||d.webkitFullscreenElement}
-function ico(){var f=!!cur();b.querySelector("svg").innerHTML=f?'<path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/>':'<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/>';b.setAttribute("aria-label",f?"Sair de ecrã inteiro":"Ecrã inteiro");b.title=b.getAttribute("aria-label")}
-b.onclick=function(){try{var p=cur()?ex.call(d):req.call(r);if(p&&p.catch)p.catch(function(){})}catch(e){}};
-d.addEventListener("fullscreenchange",ico);d.addEventListener("webkitfullscreenchange",ico);})();</script>
 <button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Definições</span></button>
 <header><h1>RELATÓRIO DE VIATURA</h1><small>RCP · Mod/RVP/COMETPOR/NO/V1.0/2022 · offline</small></header>
 <main>
