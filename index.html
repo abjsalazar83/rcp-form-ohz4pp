@@ -162,6 +162,15 @@ details.oc>summary .n{margin-right:0}
 .st .sb{flex:1 1 100%;color:var(--fg2);display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
 .st .sb .bd:first-child{margin-left:0}
 .bd{flex:none;font-size:11px;margin-left:2px;padding:1px 6px;border:1px solid var(--ln2);border-radius:6px;color:var(--ac)}
+
+.tw{display:flex;gap:6px;align-items:stretch}.tw input{flex:1;min-width:0}
+.now{flex:0 0 auto;min-height:0;padding:0 10px;border-radius:99px;font-size:12px;letter-spacing:.03em;background:none;border:1px solid var(--ln2);color:var(--mu)}
+.now:active{color:var(--fg2);border-color:var(--dim)}
+.kmt{margin-top:6px;font-size:13px;color:var(--mu)}.kmt b{color:var(--fg2);font-weight:600}.kmt[hidden]{display:none}
+.bar{gap:6px;align-items:center}
+.bar .p{border-radius:99px;min-height:50px;font-size:16px;letter-spacing:.02em}
+.bar .s{background:none;border:0;color:var(--mu);font-size:14px;padding:0 14px;min-height:44px;border-radius:99px}
+.bar .s:active{color:var(--fg2);background:var(--s2)}
 </style></head><body>
 <button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 <header><h1>RELATÓRIO DE VIATURA</h1><small>RCP · Mod/RVP/COMETPOR/NO/V1.0/2022 · offline</small></header>
@@ -190,7 +199,7 @@ details.oc>summary .n{margin-right:0}
 
 <section><h2>Viatura</h2><div class="g">
 <div class="cb" data-cb="V"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Matrícula, marca ou modelo" aria-label="Matrícula, marca ou modelo"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Marca<input id="marca"></label><label>Modelo<input id="modelo"></label></div><label>Matrícula<input id="matricula" style="text-transform:uppercase"></label></div></details></div>
-<div class="g2"><label>KM iniciais<input id="kmi" inputmode="numeric"></label><label>KM finais<input id="kmf" inputmode="numeric"></label></div>
+<div class="g2"><label>KM iniciais<input id="kmi" inputmode="numeric"></label><label>KM finais<input id="kmf" inputmode="numeric"></label></div><div class="kmt" id="kmt" hidden></div>
 <label>Combustível (Lt)<input id="comb" inputmode="decimal"></label>
 <span class="sub" style="margin:0">Condutor/Tripulante <span style="text-transform:none">(vazio = motorista)</span></span><div class="cb" data-cb="C"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><label>Condutor/Tripulante<input id="condutor" placeholder="(= motorista)"></label></div></details></div>
 </div></section>
@@ -282,7 +291,7 @@ function ocRow(o={},open=false){const d=document.createElement("details");d.clas
  d.innerHTML=`<summary><span class="n"></span><span class="st"></span></summary><div class="in">
  <label>Freguesia<input data-k="freg" list="fregL" autocomplete="off" placeholder="—"></label>
  <div class="g2"><label>ECO<input data-k="eco" inputmode="numeric" placeholder="ECO-"></label><label>NPP/NUIPC<input data-k="npp" inputmode="numeric"></label></div>
- <div class="g2"><label>Início<input data-k="ini" inputmode="numeric" placeholder="16 05"></label><label>Fim<input data-k="fim" inputmode="numeric" placeholder="16 57"></label></div>
+ <div class="g2"><label>Início<span class="tw"><input data-k="ini" inputmode="numeric" placeholder="16 05"><button type="button" class="now" tabindex="-1" aria-label="Hora atual" title="Agora">agora</button></span></label><label>Fim<span class="tw"><input data-k="fim" inputmode="numeric" placeholder="16 57"><button type="button" class="now" tabindex="-1" aria-label="Hora atual" title="Agora">agora</button></span></label></div>
  <div class="morw"><label>Morada nº<input data-k="mor" autocomplete="off"></label><button type="button" class="sv" aria-label="Ver no Street View" title="Street View"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M9.5 10h5l-1 5h-3z"/><path d="M11 15l-.5 5M13 15l.5 5"/><ellipse cx="12" cy="20.5" rx="7" ry="1.6"/></svg></button></div><div class="acl" hidden></div><input type="hidden" data-k="lat"><input type="hidden" data-k="lng"><label>Tipo<input data-k="tipo"></label><label>Resultado<input data-k="res"></label>
  <label class="sw">Expediente<input type="checkbox" data-k="exp"></label><label class="sw">Presença do supervisor<input type="checkbox" data-k="sup"></label>
  <div class="prev"></div><button class="x" type="button">Remover ocorrência</button></div>`;
@@ -536,4 +545,23 @@ var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==="Mac
 if(ios&&!sa&&!localStorage.getItem("rcp_ioshint")){h.hidden=false;localStorage.setItem("rcp_ioshint","1")}
 document.getElementById("iosX").onclick=function(){h.hidden=true};})();</script>
 <script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js"));</script>
+<script>(function(){
+const KK="rcp_km_v1";const KM=()=>{try{return JSON.parse(localStorage.getItem(KK))||{}}catch(e){return{}}};
+const num=v=>{const d=String(v||"").replace(/[^\d]/g,"");return d?parseInt(d,10):NaN};
+let lastM=null;
+function kmT(){const a=num($("kmi").value),b=num($("kmf").value),t=$("kmt");
+ if(!isNaN(a)&&!isNaN(b)){t.hidden=false;t.innerHTML=b>=a?"Total: <b>"+(b-a).toLocaleString("pt-PT")+" km</b>":"KM finais inferiores aos iniciais"}else t.hidden=true}
+function kmPre(){const m=($("matricula").value||"").trim().toUpperCase();
+ if(m!==lastM){if(lastM!==null&&m&&!$("kmi").value.trim()){const k=KM()[m];if(k){$("kmi").value=k}}lastM=m}
+ const f=num($("kmf").value);if(m&&!isNaN(f)){const o=KM();if(o[m]!==String(f)){o[m]=String(f);localStorage.setItem(KK,JSON.stringify(o))}}}
+const oS=save;save=function(){try{kmPre()}catch(e){}const r=oS.apply(this,arguments);try{kmT()}catch(e){}return r};
+const oU=upd;upd=function(){const r=oU.apply(this,arguments);try{kmT()}catch(e){}return r};
+const oR=render;render=function(){const r=oR.apply(this,arguments);try{lastM=($("matricula").value||"").trim().toUpperCase();kmT()}catch(e){}return r};
+lastM=($("matricula").value||"").trim().toUpperCase();kmT();
+// também ao escolher viatura na lista (sem esperar pelo save)
+
+setInterval(()=>{const m=($("matricula").value||"").trim().toUpperCase();if(m!==lastM)save()},800);
+document.addEventListener("click",e=>{const b=e.target.closest(".now");if(!b)return;e.preventDefault();const i=b.parentNode.querySelector("input");const d=new Date();
+ i.value=fmtHora(String(d.getHours()).padStart(2,"0")+String(d.getMinutes()).padStart(2,"0"));i.dispatchEvent(new Event("input",{bubbles:true}));i.dispatchEvent(new Event("change",{bubbles:true}));upd();save()});
+})();</script>
 </body></html>
