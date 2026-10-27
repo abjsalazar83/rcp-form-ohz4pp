@@ -353,6 +353,79 @@ html.night{--fg2:#e8d9c4;--fg:#d6c6b0}
 .pinI{font-size:22px!important;letter-spacing:.3em;text-align:center}
 .hist .rt b{font-weight:500;font-size:15px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* v12 */
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.g3>label,.g2>label{min-width:0}
+input,textarea,select{min-width:0}
+label.w-rad input{max-width:9.5em;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+input[inputmode=numeric],input[inputmode=decimal]{font-variant-numeric:tabular-nums}
+textarea.grow{resize:none;overflow:hidden;min-height:44px;line-height:1.35;width:100%;display:block}
+html.locked body>*:not(#lockO){visibility:hidden}
+#lockO{position:fixed;inset:0;z-index:2000;background:#000;color:#fff;display:none;align-items:center;justify-content:center;padding:24px}
+html.locked #lockO{display:flex}
+#lockO .lkC{width:100%;max-width:340px;text-align:center;display:flex;flex-direction:column;gap:14px}
+#lockO .lkI{width:64px;height:64px;margin:0 auto 4px;border-radius:18px;border:1px solid #2a2a2a;display:flex;align-items:center;justify-content:center}
+#lockO h1{font-size:22px;font-weight:700;margin:0}
+#lockO p{color:#9a9a9a;font-size:14px;margin:0;line-height:1.45}
+#lockO input{width:100%;text-align:center;font-size:22px;letter-spacing:.3em;padding:14px;border-radius:14px;border:1px solid #2a2a2a;background:#0b0b0b;color:#fff}
+#lockO input[type=password].pw{letter-spacing:.08em}
+#lockO .lkB{width:100%;padding:15px;border-radius:14px;border:0;background:#fff;color:#000;font-size:16px;font-weight:600}
+#lockO .lkB2{background:#141414;color:#fff;border:1px solid #2a2a2a}
+#lockO .lnk{background:none;border:0;color:#9a9a9a;font-size:14px;padding:8px;text-decoration:underline}
+#lockO .er{color:#ff453a;font-size:14px;min-height:18px}
+#lockO.shake .lkC{animation:lkS .35s}
+@keyframes lkS{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+/* anel */
+#rcpRing{position:fixed;top:calc(env(safe-area-inset-top) + 10px);left:12px;width:36px;height:36px;z-index:60;border:0;background:none;padding:0;-webkit-tap-highlight-color:transparent}
+#rcpRing svg{width:36px;height:36px;transform:rotate(-90deg)}
+#rcpRing .bg{stroke:#262626}
+#rcpRing .fg{stroke:#fff;transition:stroke-dashoffset .5s cubic-bezier(.2,.8,.2,1),stroke .3s}
+#rcpRing .t{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+#rcpRing.ok .fg{stroke:#30d158}
+#rcpRing.pop{animation:rgP .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes rgP{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
+html.nogam #rcpRing,html.nogam .rsC{display:none!important}
+/* resumo */
+.rsC{border:1px solid #262626;border-radius:16px;padding:16px;margin:4px 0 14px;background:#0a0a0a}
+.rsC .rsH{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9a9a9a;margin-bottom:10px}
+.rsC .rsG{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center}
+.rsC .rsG b{display:block;font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.rsC .rsG span{font-size:12px;color:#9a9a9a}
+.rsC .rsT{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.rsC .rsT span{border:1px solid #2a2a2a;border-radius:99px;padding:4px 10px;font-size:13px}
+.rsC .rsA{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+/* swipe */
+#ocs details.oc{position:relative;overflow:hidden}
+#ocs details.oc>summary.swR{touch-action:pan-y;padding:0!important;display:block;position:relative}
+#ocs details.oc>summary.swR>.swc{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:10px 40px 10px 17px;margin-left:-17px;min-height:56px;box-sizing:border-box;background:var(--bg);position:relative;z-index:1;will-change:transform}
+#ocs details.oc>summary.swR>.swc.anim{transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+#ocs details.oc>summary.swR::after{z-index:2}
+#ocs details.oc.sw>summary::after{opacity:0}
+#ocs details.oc .swA{position:absolute;top:0;bottom:0;left:-17px;right:0;display:none;z-index:0}
+#ocs details.oc.sw .swA{display:block}
+#ocs .swA button{position:absolute;top:0;bottom:0;width:100%;border:0;border-radius:0;color:#fff;font-size:15px;font-weight:600;display:flex;align-items:center;padding:0 22px;min-height:0}
+#ocs .swA .swS{left:0;background:#0a84ff;justify-content:flex-start}
+#ocs .swA .swD{right:0;background:#ff3b30;justify-content:flex-end}
+#ocs details.oc.gone{transition:opacity .2s,max-height .25s;opacity:0}
+#undoT{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:#1c1c1e;color:#fff;border:1px solid #2a2a2a;padding:8px 8px 8px 18px;border-radius:99px;font-size:14px;z-index:1500;display:flex;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+#undoT button{background:#fff;color:#000;border:0;border-radius:99px;padding:8px 14px;font-weight:700;font-size:14px}
+/* acesso */
+.acM{display:flex;flex-direction:column;border:1px solid #262626;border-radius:14px;overflow:hidden;margin:6px 0 10px}
+.acM button{display:flex;justify-content:space-between;align-items:center;background:none;border:0;border-bottom:1px solid #1d1d1d;color:#fff;font-size:15px;padding:14px 14px;text-align:left}
+.acM button:last-child{border-bottom:0}
+.acM button small{display:block;color:#8a8a8a;font-size:12px;margin-top:2px}
+.acM button .ck{color:#30d158;font-weight:700;opacity:0}
+.acM button.on .ck{opacity:1}
+.acM button:disabled{opacity:.4}
+.acW{border:1px solid #5a4500;background:#1a1400;color:#ffd60a;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.4;margin:6px 0}
+.sgF label{display:block;margin-bottom:10px}
+.sgF textarea{width:100%;min-height:80px}
+.morw{flex-wrap:wrap;justify-content:flex-end}.morw>label{flex:1 1 100%}
+#ocs details.oc>summary.swR{width:100%;max-width:100%;box-sizing:border-box;overflow:hidden;min-width:0}
+#ocs details.oc>summary.swR>.swc{width:calc(100% + 17px);min-width:0}
+#ocs details.oc>summary.swR>.swc>*{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#ocs details.oc .swA{background:linear-gradient(90deg,#0a84ff 50%,#ff3b30 50%)}
+#ocs .swA button{width:50%;background:transparent!important}
 </style></head><body>
 <button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 <div id="nav"><span>Cooperativa</span></div>
@@ -365,27 +438,26 @@ html.night{--fg2:#e8d9c4;--fg:#d6c6b0}
 <details class="oc" id="dTur"><summary>Detalhes do turno<span class="sum" id="sumTur"></span></summary><div class="in">
 <label>Data<input type="date" id="data"></label>
 <div class="g2"><label>Turno<select id="turno"><option value="">—</option><option>01º Turno</option><option>02º Turno</option><option>03º Turno</option></select></label>
-<label>Indicativo<input id="indicativo" inputmode="decimal"></label></div>
-<label>Período (DATA/HORA)<input id="periodo" placeholder="15H45 - 00H00"></label>
+<label>Indicativo<input id="indicativo" inputmode="decimal" maxlength="6" autocomplete="off" class="w-s"></label></div>
+<label>Período (DATA/HORA)<input id="periodo" placeholder="15H45 - 00H00" maxlength="15" autocomplete="off" autocapitalize="characters"></label>
 <div class="prev" id="autoT"></div>
 </div></details>
 </div></section>
 
 <section><h2>Equipa</h2>
 <span class="sub">Motorista</span><div class="g">
-<div class="cb" data-cb="M"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catM"></label><label>Matrícula<input id="matM" inputmode="numeric"></label></div><label>Nome<input id="nomeM"></label></div></details></div></div>
+<div class="cb" data-cb="M"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catM"></label><label>Matrícula<input id="matM" inputmode="numeric" maxlength="7" autocomplete="off" pattern="[0-9]*"></label></div><label>Nome<input id="nomeM"></label></div></details></div></div>
 <span class="sub">Arvorado</span><div class="g">
-<div class="cb" data-cb="A"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catA"></label><label>Matrícula<input id="matA" inputmode="numeric"></label></div><label>Nome<input id="nomeA"></label></div></details></div></div>
+<div class="cb" data-cb="A"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catA"></label><label>Matrícula<input id="matA" inputmode="numeric" maxlength="7" autocomplete="off" pattern="[0-9]*"></label></div><label>Nome<input id="nomeA"></label></div></details></div></div>
 <span class="sub">Graduado (assinatura)</span><div class="cb" data-cb="G"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><label>Nome (assinatura)<input id="grad"></label></div></details></div>
 <details class="oc" style="margin-top:14px"><summary>Tripulante (opcional)<span class="sum" id="sumT"></span></summary><div class="in">
-<div class="cb" data-cb="T"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catT"></label><label>Matrícula<input id="matT" inputmode="numeric"></label></div><label>Nome<input id="nomeT"></label></div></details></div></div></details>
+<div class="cb" data-cb="T"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Categoria<input id="catT"></label><label>Matrícula<input id="matT" inputmode="numeric" maxlength="7" autocomplete="off" pattern="[0-9]*"></label></div><label>Nome<input id="nomeT"></label></div></details></div></div></details>
 <datalist id="dlNomes"></datalist><datalist id="dlFull"></datalist>
 </section>
 
 <section><h2>Viatura</h2><div class="g">
-<div class="cb" data-cb="V"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Matrícula, marca ou modelo" aria-label="Matrícula, marca ou modelo"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Marca<input id="marca"></label><label>Modelo<input id="modelo"></label></div><label>Matrícula<input id="matricula" style="text-transform:uppercase"></label></div></details></div>
-<div class="g2"><label>KM iniciais<input id="kmi" inputmode="numeric"></label><label>KM finais<input id="kmf" inputmode="numeric"></label></div><div class="kmt" id="kmt" hidden></div>
-<label>Combustível (Lt)<input id="comb" inputmode="decimal"></label>
+<div class="cb" data-cb="V"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Matrícula, marca ou modelo" aria-label="Matrícula, marca ou modelo"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Marca<input id="marca"></label><label>Modelo<input id="modelo"></label></div><label>Matrícula<input id="matricula" style="text-transform:uppercase" maxlength="8" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="AA-00-AA" class="w-m"></label></div></details></div>
+<div class="g3"><label>KM iniciais<input id="kmi" inputmode="numeric" maxlength="7" autocomplete="off" pattern="[0-9]*"></label><label>KM finais<input id="kmf" inputmode="numeric" maxlength="7" autocomplete="off" pattern="[0-9]*"></label><label>Combust. (L)<input id="comb" inputmode="decimal" maxlength="5" autocomplete="off"></label></div><div class="kmt" id="kmt" hidden></div>
 <details class="oc" id="dCond"><summary>Condutor/Tripulante<span class="sum" id="sumCond"></span></summary><div class="in"><label class="sw">Condutor diferente do motorista<input type="checkbox" id="condSw"></label><input type="hidden" id="condDif"><div id="condBox" hidden><div class="cb" data-cb="C"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><label>Condutor/Tripulante<input id="condutor" placeholder="(= motorista)"></label></div></details></div></div><div class="prev">Desligado: o PDF usa o motorista como condutor/tripulante.</div></div></details>
 </div></section>
 
@@ -393,7 +465,7 @@ html.night{--fg2:#e8d9c4;--fg:#d6c6b0}
 <button class="full" id="addOc" type="button">+ Ocorrência</button></section>
 
 <section><h2>Observações</h2><div class="g">
-<label>Rádio nº<input id="radio" inputmode="numeric"></label>
+<label class="w-rad">Rádio nº<input id="radio" inputmode="numeric" pattern="[0-9]*" minlength="4" maxlength="6" autocomplete="off" placeholder="0000"></label>
 <label>Linha 1 <span>(após "<span id="rpl">PSP</span>, Radio …;")</span><input id="obs1"></label>
 <label>Linhas 3–5<textarea id="obs3" rows="3"></textarea></label>
 </div></section>
@@ -412,15 +484,15 @@ html.night{--fg2:#e8d9c4;--fg:#d6c6b0}
 <div id="msg"></div>
 </main>
 <datalist id="fregL"></datalist><div id="shBg" hidden></div><div id="sheet" role="dialog" aria-modal="true" aria-label="Definições" hidden><div class="shH"><b>Definições</b><button id="shX" type="button">Fechar</button></div><div class="tabs" role="tablist"><button type="button" data-t="col" role="tab">Colegas</button><button type="button" data-t="via" role="tab">Viaturas</button><button type="button" data-t="cfg" role="tab">Configuração</button><button type="button" data-t="ei" role="tab">Exportar/Importar</button></div><div class="shB"><div class="tp" id="tp-col"><span class="sub">Colegas</span><input id="colQ" type="search" autocomplete="off" placeholder="Procurar colega"><details class="oc eqd" id="colD"><summary>Lista de colegas<span class="sum" id="colN"></span></summary><div class="in"><div class="lst" id="colList"></div></div></details><span class="sub">Adicionar colega</span>
-<div class="g"><input id="cNome" placeholder="Nome"><input id="cPosto" list="postos" placeholder="Posto"><div class="g2"><input id="cNum" inputmode="numeric" placeholder="Nº matrícula"><input id="cSig" placeholder="Sigla (ex.: - ABCD)"></div>
+<div class="g"><input id="cNome" placeholder="Nome"><input id="cPosto" list="postos" placeholder="Posto"><div class="g2"><input id="cNum" inputmode="numeric" maxlength="7" autocomplete="off" placeholder="Nº matrícula"><input id="cSig" placeholder="Sigla (ex.: - ABCD)"></div>
 <button class="full" id="cAdd" type="button">Guardar colega</button></div>
 <datalist id="postos"><option>Agente</option><option>Agente Principal</option><option>Agente Coordenador</option><option>Chefe</option><option>Chefe Principal</option><option>Chefe Coordenador</option><option>Subcomissário</option><option>Comissário</option></datalist>
 </div><div class="tp" id="tp-via"><span class="sub">Viaturas patrulha</span><input id="vQ" type="search" autocomplete="off" placeholder="Procurar viatura"><details class="oc eqd" id="vD"><summary>Lista de viaturas<span class="sum" id="vN"></span></summary><div class="in"><div class="lst" id="vList"></div></div></details><span class="sub">Adicionar viatura</span>
-<div class="g"><input id="vMat" placeholder="Matrícula" style="text-transform:uppercase"><input id="vMM" placeholder="Marca Modelo"><input id="vInt" placeholder="Nº interno (opcional)">
+<div class="g"><input id="vMat" placeholder="Matrícula" style="text-transform:uppercase" maxlength="8" autocomplete="off" autocapitalize="characters"><input id="vMM" placeholder="Marca Modelo"><input id="vInt" placeholder="Nº interno (opcional)">
 <button class="full" id="vAdd" type="button">Guardar viatura</button></div>
 </div><div class="tp" id="tp-cfg"><span class="sub">Unidade e assinaturas</span><div class="g">
 <label>Divisão<input id="divisao"></label><label>Esquadra<input id="esquadra"></label>
-<label>Assinatura Arvorado/CP<input id="sigA" list="dlNomes"></label></div><span class="sub">Arvorado fixo</span><div class="g"><div class="afx"><span id="afN">—</span><button type="button" id="afF">Esquecer</button></div><div class="prev">A primeira escolha de arvorado fica guardada neste telemóvel e é preenchida em cada relatório novo. Mudar o arvorado atualiza esta escolha.</div></div><span class="sub">Apoio ao expediente</span><div class="g"><label>Apagar automaticamente ao fim de (dias)<input id="apDias" inputmode="numeric" type="number" min="1" max="60"></label><div class="g2"><button type="button" id="apLockB">Bloquear agora</button><button type="button" id="apWipeB">Apagar tudo</button></div><div class="prev">Intervenientes e relato ficam só neste telemóvel, cifrados com o PIN (AES-GCM). Nunca entram no PDF nem nas exportações.</div></div><span class="sub">Aspeto</span><div class="g"><label>Tema (Omarchy)<select id="thSel"></select></label></div><span class="sub">Moradas</span><div class="g"><label>Chave Google Maps<input id="gkey" type="password" autocomplete="off" spellcheck="false" placeholder="Opcional — sem chave usa OpenStreetMap"></label><div class="prev">Sem chave, as sugestões vêm do OpenStreetMap (Nominatim). A chave Google, se definida, fica só neste dispositivo e passa a usar a Places API (New).</div></div></div><div class="tp" id="tp-ei"><span class="sub">Cópia de colegas e viaturas (JSON)</span><div class="g2">
+<label>Assinatura Arvorado/CP<input id="sigA" list="dlNomes"></label></div><span class="sub">Arvorado fixo</span><div class="g"><div class="afx"><span id="afN">—</span><button type="button" id="afF">Esquecer</button></div><div class="prev">A primeira escolha de arvorado fica guardada neste telemóvel e é preenchida em cada relatório novo. Mudar o arvorado atualiza esta escolha.</div></div><span class="sub">Apoio ao expediente</span><div class="g"><label>Apagar automaticamente ao fim de (dias)<input id="apDias" inputmode="numeric" type="number" min="1" max="60"></label><div class="g2"><button type="button" id="apLockB">Bloquear app</button><button type="button" id="apWipeB">Apagar tudo</button></div><div class="prev">Intervenientes e relato ficam só neste telemóvel, cifrados (AES-GCM) com a chave protegida em Acesso. Nunca entram no PDF nem nas exportações.</div></div><span class="sub">Aspeto</span><div class="g"><label>Tema (Omarchy)<select id="thSel"></select></label></div><span class="sub">Moradas</span><div class="g"><label>Chave Google Maps<input id="gkey" type="password" autocomplete="off" spellcheck="false" placeholder="Opcional — sem chave usa OpenStreetMap"></label><div class="prev">Sem chave, as sugestões vêm do OpenStreetMap (Nominatim). A chave Google, se definida, fica só neste dispositivo e passa a usar a Places API (New).</div></div></div><div class="tp" id="tp-ei"><span class="sub">Cópia de colegas e viaturas (JSON)</span><div class="g2">
 <button id="exp" type="button">Exportar</button><button id="imp" type="button">Importar</button></div><input type="file" id="impF" accept=".json,application/json" hidden></div></div></div>
 
 <div class="bar"><button class="s" id="limpar" type="button">Limpar</button><button class="p" id="gerar" type="button">Gerar PDF</button></div>
@@ -475,9 +547,9 @@ function ecoOpts(){return '<option value="">—</option>'+FREG.map(f=>`<option>$
 function ocRow(o={},open=false){const d=document.createElement("details");d.className="oc";d.open=open;
  d.innerHTML=`<summary><span class="n"></span><span class="st"></span></summary><div class="in">
  <label>Freguesia<input data-k="freg" list="fregL" autocomplete="off" placeholder="—"></label>
- <div class="g2"><label>ECO<input data-k="eco" inputmode="numeric" placeholder="ECO-"></label><label>NPP/NUIPC<input data-k="npp" inputmode="numeric"></label></div>
- <div class="g2"><label>Início<span class="tw"><input data-k="ini" inputmode="numeric" placeholder="16 05"><button type="button" class="now" tabindex="-1" aria-label="Hora atual" title="Agora">agora</button></span></label><label>Fim<span class="tw"><input data-k="fim" inputmode="numeric" placeholder="16 57"><button type="button" class="now" tabindex="-1" aria-label="Hora atual" title="Agora">agora</button></span></label></div>
- <div class="morw"><label>Morada nº<input data-k="mor" autocomplete="off"></label><button type="button" class="sv" aria-label="Ver no Street View" title="Street View"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M9.5 10h5l-1 5h-3z"/><path d="M11 15l-.5 5M13 15l.5 5"/><ellipse cx="12" cy="20.5" rx="7" ry="1.6"/></svg></button></div><div class="acl" hidden></div><input type="hidden" data-k="lat"><input type="hidden" data-k="lng"><label>Tipo<input data-k="tipo"></label><label>Resultado<input data-k="res"></label>
+ <div class="g2"><label>ECO<input data-k="eco" inputmode="numeric" maxlength="8" autocomplete="off" placeholder="ECO-"></label><label>NPP/NUIPC<input data-k="npp" inputmode="numeric" maxlength="20" autocomplete="off"></label></div>
+ <div class="g2"><label>Início<span class="tw"><input data-k="ini" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="16 05"><button type="button" class="now" tabindex="-1" aria-label="Hora atual" title="Agora">agora</button></span></label><label>Fim<span class="tw"><input data-k="fim" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="16 57"><button type="button" class="now" tabindex="-1" aria-label="Hora atual" title="Agora">agora</button></span></label></div>
+ <div class="morw"><label>Morada nº<textarea data-k="mor" rows="1" class="grow" autocomplete="off" enterkeyhint="done" placeholder="Rua, nº, andar"></textarea></label><button type="button" class="sv" aria-label="Ver no Street View" title="Street View"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M9.5 10h5l-1 5h-3z"/><path d="M11 15l-.5 5M13 15l.5 5"/><ellipse cx="12" cy="20.5" rx="7" ry="1.6"/></svg></button></div><div class="acl" hidden></div><input type="hidden" data-k="lat"><input type="hidden" data-k="lng"><label>Tipo<input data-k="tipo" autocomplete="off"></label><label>Resultado<input data-k="res" autocomplete="off"></label>
  <label class="sw">Expediente<input type="checkbox" data-k="exp"></label><label class="sw">Presença do supervisor<input type="checkbox" data-k="sup"></label>
  <div class="prev"></div><button class="x" type="button">Remover ocorrência</button></div>`;
  d.querySelectorAll("[data-k]").forEach(i=>{if(o[i.dataset.k]!==undefined){i.type=="checkbox"?i.checked=o[i.dataset.k]:i.value=o[i.dataset.k]}});
@@ -510,9 +582,9 @@ function render(){FIELDS.forEach(k=>$(k).value=S.f[k]||"");
  document.querySelectorAll("input[name=horR]").forEach(r=>r.checked=r.value===S.f.hor);
  {const h=HOR[S.f.hor];if(h)S.f.turno=h.t;else if(!Object.values(HOR).some(x=>x.t===S.f.turno))S.f.turno="";$("turno").value=S.f.turno||""}
  $("mat").innerHTML="";
- MAT.forEach((m,i)=>{$("mat").insertAdjacentHTML("beforeend",`<div class="mrow"><span>${m[0]}</span><input id="mq${i}" inputmode="numeric" aria-label="Quantidade"><label class="sw"><input type="checkbox" id="ms${i}" aria-label="${m[0]} Sim/Não"></label></div>`);$("ms"+i).checked=S.mat[i].s;$("mq"+i).value=S.mat[i].q});
+ MAT.forEach((m,i)=>{$("mat").insertAdjacentHTML("beforeend",`<div class="mrow"><span>${m[0]}</span><input id="mq${i}" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="Quantidade"><label class="sw"><input type="checkbox" id="ms${i}" aria-label="${m[0]} Sim/Não"></label></div>`);$("ms"+i).checked=S.mat[i].s;$("mq"+i).value=S.mat[i].q});
  $("cl").innerHTML=CL.map((c,i)=>`<div class="cli"><span>${c[0]}</span><div class="seg">`+["C","NC","N/A"].map((l,v)=>`<label><input type="radio" name="cl${i}" value="${v}" ${S.cl[i]===v?"checked":""}><span>${l}</span></label>`).join("")+`</div></div>`).join("");
- $("autos").innerHTML=S.autos.map((a,i)=>`<span class="sub">Auto ${i+1}</span><div class="g"><input id="an${i}" inputmode="numeric" placeholder="NPP/NUIPC"><input id="ar${i}" placeholder="Responsável"><input id="am${i}" placeholder="Motivo"><input id="al${i}" placeholder="Local"></div>`).join("");
+ $("autos").innerHTML=S.autos.map((a,i)=>`<span class="sub">Auto ${i+1}</span><div class="g"><input id="an${i}" inputmode="numeric" maxlength="20" autocomplete="off" placeholder="NPP/NUIPC"><input id="ar${i}" placeholder="Responsável"><input id="am${i}" placeholder="Motivo"><input id="al${i}" placeholder="Local"></div>`).join("");
  S.autos.forEach((a,i)=>{$("an"+i).value=a.n;$("ar"+i).value=a.r;$("am"+i).value=a.m;$("al"+i).value=a.l});
  upd()}
 document.querySelectorAll("input[name=horR]").forEach(r=>r.addEventListener("change",()=>{$("hor").value=r.value;$("hor").onchange()}));
@@ -783,10 +855,18 @@ async function flush(){clearTimeout(tmr);if(!KEYC||!dirty.size)return;const o=st
  for(const a of [...dirty]){const d=D[a];dirty.delete(a);if(!d)continue;const e=await enc(KEYC,{iv:d.iv,rel:d.rel});o.items[a]={t:(o.items[a]&&o.items[a].t)||d.t||Date.now(),...e}}put(o)}
 function mark(a){D[a].t=D[a].t||Date.now();dirty.add(a);clearTimeout(tmr);tmr=setTimeout(flush,400)}
 async function lock(){try{await flush()}catch(e){}fRevoke();KEYC=null;D={};dirty.clear();clearTimeout(idle);document.querySelectorAll("details.ap").forEach(x=>{x.open=false;paint(x)})}
-function bump(){if(!KEYC)return;clearTimeout(idle);idle=setTimeout(lock,5*60e3)}
-["pointerdown","keydown","input","scroll"].forEach(ev=>addEventListener(ev,bump,{passive:true,capture:true}));
-document.addEventListener("visibilitychange",()=>{if(document.hidden&&KEYC)lock()});
-addEventListener("pagehide",()=>{if(KEYC)lock()});
+function bump(){}/* v12: o bloqueio é da app inteira (Definições › Acesso) */
+addEventListener("pagehide",()=>{try{flush()}catch(e){}});
+async function useKey(k){KEYC=k;let o=st();
+ if(o&&o.salt){KEYC=null;return false}
+ if(!o||!o.chk){o={v:2,days:(o&&o.days)||7,chk:await enc(k,"ok"),items:{}};put(o)}
+ else{try{if(await dec(k,o.chk)!=="ok")throw 0}catch(e){KEYC=null;return false}}
+ D={};for(const a in (o.items||{})){try{D[a]={...(await dec(k,o.items[a])),t:o.items[a].t}}catch(e){}}
+ document.querySelectorAll("details.ap").forEach(x=>{summ(x);if(x.open)paint(x)});return true}
+async function migrate(pin,nk){const o=st();if(!o||!o.salt)return true;const k=await derive(pin,ub(o.salt));try{if(await dec(k,o.chk)!=="ok")throw 0}catch(e){return false}
+ const items={};for(const a in (o.items||{})){try{const v=await dec(k,o.items[a]);items[a]={t:o.items[a].t,...(await enc(nk,v))}}catch(e){}}
+ try{const ks=await fKeys();for(const id of ks){const r=await fGet(id);try{const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(r.iv)},k,r.ct);const iv=crypto.getRandomValues(new Uint8Array(12));await fPut({id,iv:b64(iv),ct:await crypto.subtle.encrypt({name:"AES-GCM",iv},nk,pt)})}catch(e){await fDel(id)}}}catch(e){}
+ put({v:2,days:o.days||7,chk:await enc(nk,"ok"),items});return true}
 async function unlock(pin){const o=st();const k=await derive(pin,ub(o.salt));try{const c=await dec(k,o.chk);if(c!=="ok")throw 0}catch(e){return false}
  KEYC=k;D={};for(const a in (o.items||{})){try{D[a]={...(await dec(k,o.items[a])),t:o.items[a].t}}catch(e){}}bump();return true}
 window.rcpPinCheck=async function(pin){const o=st();if(!o||!o.salt||!o.chk)return false;try{const k=await derive(pin,ub(o.salt));return (await dec(k,o.chk))==="ok"}catch(e){return false}};window.rcpPinCheck.has=()=>{const o=st();return!!(o&&o.salt&&o.chk)};
@@ -824,28 +904,22 @@ function insAt(ta,txt,lineStart){const v=ta.value;let p=ta.selectionStart??v.len
  ta.value=v.slice(0,p)+txt+v.slice(p);const q=p+txt.length;ta.focus();ta.setSelectionRange(q,q);ta.dispatchEvent(new Event("input",{bubbles:true}))}
 // ---- render ----
 function summ(x){const a=x.dataset.aid,s=x.querySelector(".aps");const o=st();
- if(!o||!o.salt){s.textContent="Sem PIN definido";return}if(!KEYC){s.textContent=(o.items&&o.items[a])?"🔒 Bloqueado · com dados":"🔒 Bloqueado";return}
+ if(!KEYC){s.textContent=(o&&o.items&&o.items[a])?"🔒 Bloqueado · com dados":"🔒 Bloqueado";return}
  const d=D[a];if(!d||(!d.iv.length&&!d.rel.trim())){s.textContent="Vazio";return}
  s.textContent=[d.iv.length?d.iv.length+" interveniente(s)":"",d.rel.trim()?"relato":""].filter(Boolean).join(" · ")}
-function paint(x){const b=x.querySelector(".apb"),o=st();summ(x);if(!x.open){b.innerHTML="";return}
- if(!o||!o.salt){b.innerHTML=`<div class="lk"><p>Define um PIN de 4 a 6 algarismos para proteger os dados dos intervenientes neste telemóvel. Se o esqueceres, só é possível apagar tudo.</p><input class="p1" type="password" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="Novo PIN"><input class="p2" type="password" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="Repetir PIN"><button type="button" class="cpy go">Definir PIN</button></div>`;
-  b.querySelector(".go").onclick=async()=>{const p=b.querySelector(".p1").value,q=b.querySelector(".p2").value;if(!/^\d{4,6}$/.test(p))return toast("O PIN tem de ter 4 a 6 algarismos");if(p!==q)return toast("Os PIN não coincidem");await setPin(p);toast("PIN definido");document.querySelectorAll("details.ap").forEach(paint)};return}
- if(!KEYC){b.innerHTML=`<div class="lk"><p>Introduz o PIN para abrir o apoio ao expediente.</p><input class="p1" type="password" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="PIN"><button type="button" class="cpy go">Desbloquear</button><button type="button" class="lnk fg">Esqueci o PIN — apagar tudo</button></div>`;
-  const go=async()=>{const ok=await unlock(b.querySelector(".p1").value);if(!ok){b.querySelector(".p1").value="";return toast("PIN errado")}document.querySelectorAll("details.ap").forEach(paint)};
-  b.querySelector(".go").onclick=go;b.querySelector(".p1").onkeydown=e=>{if(e.key==="Enter")go()};
-  b.querySelector(".fg").onclick=()=>{if(confirm("Apagar TODOS os dados do apoio ao expediente e o PIN? (O relatório não é afetado.)"))wipeAll()};return}
+function paint(x){const b=x.querySelector(".apb");summ(x);if(!x.open){b.innerHTML="";return}
+ if(!KEYC){b.innerHTML='<div class="lk"><p>A app está bloqueada. Desbloqueia para ver os intervenientes e o relato.</p><button type="button" class="cpy go">Desbloquear</button></div>';b.querySelector(".go").onclick=()=>window.rcpLock&&rcpLock.show();return}
  edit(x)}
 function ivHTML(v,i){return `<details class="iv"${v._o?" open":""}><summary><b>${E(v.papel||"Interveniente")}</b><i>${E(v.nome||"(sem nome)")}</i>${(v.fotos||[]).length?`<i class="fc"> · 📷 ${v.fotos.length}</i>`:""}</summary><div class="ivb">
  <div class="pills">${PAP.map(p=>`<button type="button" data-p="${p}" class="${v.papel===p?"on":""}">${p}</button>`).join("")}</div>
- <label>Nome<input data-f="nome" autocomplete="off"></label>
+ <label>Nome<input data-f="nome" autocomplete="off" autocapitalize="words" spellcheck="false"></label>
  <span class="sub" style="margin:4px 0 0">Documento de identificação</span>
- <div class="g2"><label>Tipo<select data-f="dtipo"><option value="">—</option>${DOC.map(d=>`<option>${d}</option>`).join("")}</select></label><label>Número<input data-f="dnum" autocomplete="off"></label></div>
+ <div class="g2"><label>Tipo<select data-f="dtipo"><option value="">—</option>${DOC.map(d=>`<option>${d}</option>`).join("")}</select></label><label>Número<input data-f="dnum" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="20"></label></div>
  <div class="g2"><label>Validade<input data-f="dval" type="date"></label><label>Data de emissão<input data-f="demi" type="date"></label></div>
- <label>Data de nascimento<input data-f="nasc" type="date"></label>
+ <div class="g2"><label>Data de nascimento<input data-f="nasc" type="date"></label><label>Telefone<input data-f="tel" type="tel" inputmode="tel" autocomplete="off" maxlength="16" placeholder="9xx xxx xxx"></label></div>
  <span class="sub" style="margin:4px 0 0">Filiação</span>
  <div class="g2"><label>Pai<input data-f="pai" autocomplete="off"></label><label>Mãe<input data-f="mae" autocomplete="off"></label></div>
- <label>Morada<input data-f="mor" autocomplete="off"></label>
- <label>Telefone<input data-f="tel" type="tel" inputmode="tel" autocomplete="off"></label>
+ <label>Morada<textarea data-f="mor" rows="1" class="grow" autocomplete="off"></textarea></label>
  <div class="fts"><div class="thb"></div><label class="ftB">📷 Tirar foto<input type="file" class="ftI" accept="image/*" capture="environment" hidden></label></div>
  <details class="mais"><summary>mais</summary><div class="g"><label>Nacionalidade<input data-f="nac" autocomplete="off"></label><label>Notas<textarea data-f="notas" rows="2"></textarea></label></div></details>
  <button type="button" class="x rmIv">Remover interveniente</button></div></details>`}
@@ -903,12 +977,12 @@ const oR=ocRow;ocRow=function(o={},open=false){const r=oR.apply(this,arguments);
 $("limpar").onclick=()=>{if(confirm("Limpar o formulário? (mantém os valores fixos)")){localStorage.removeItem(KEY);S=blank();const o=st();const has=o&&o.items&&Object.keys(o.items).length;render();if(has&&confirm("Apagar também os dados do Apoio ao expediente (intervenientes e relatos)?")){window.apoioWipeItems();toast("Apoio ao expediente apagado")}}};
 // Definições
 const dI=$("apDias");dI.value=days();dI.onchange=()=>{const n=Math.max(1,Math.min(60,parseInt(dI.value)||7));dI.value=n;const o=st()||{};o.days=n;put(o);purge();document.querySelectorAll("details.ap").forEach(summ)};
-$("apLockB").onclick=()=>{lock();toast("Apoio bloqueado")};
-$("apWipeB").onclick=()=>{if(confirm("Apagar TODOS os dados do apoio ao expediente e o PIN?")){wipeAll();toast("Apoio ao expediente apagado")}};
+$("apLockB").onclick=()=>{if(window.rcpLock)rcpLock.lockNow();else lock()};
+$("apWipeB").onclick=()=>{if(confirm("Apagar TODOS os dados do apoio ao expediente (intervenientes, relatos e fotos)?")){window.apoioWipeItems();toast("Apoio ao expediente apagado")}};
 purge();
 // re-render com ids (rascunhos antigos ganham aid)
 try{collect();render();}catch(e){}
-window.__apoio={lock,flush,purge,st:()=>st(),unlocked:()=>!!KEYC};
+window.__apoio={lock,flush,purge,st:()=>st(),unlocked:()=>!!KEYC,useKey,migrate,wipeAll,del:a=>delItem(a),data:a=>D[a]?{iv:D[a].iv||[],rel:D[a].rel||""}:null};
 })();
 </script>
 <script>(function(){
@@ -1086,7 +1160,7 @@ function showVerify(L){const ne=L.filter(x=>x.lvl==="err").length;
  const b=openBS("Antes de gerar",`<p>${ne?ne+" "+(ne==1?"campo em falta ou incoerente":"campos em falta ou incoerentes"):"Só avisos"}. Toca num item para ir ao campo.</p><div class="grp vl">${L.map((x,i)=>`<button type="button" class="row ${x.lvl}" data-i="${i}"><span class="dot"></span><span class="rt">${E_(x.t)}</span><span class="ch">›</span></button>`).join("")}</div><div class="sbtn"><button type="button" class="sec2 fix">Corrigir</button><button type="button" class="tx any">Gerar mesmo assim</button></div>`);
  b.querySelector(".vl").onclick=e=>{const r=e.target.closest("[data-i]");if(r)goTo(L[+r.dataset.i].el)};
  b.querySelector(".fix").onclick=()=>goTo(L[0].el);b.querySelector(".any").onclick=()=>{closeBS(true);doGen()}}
-window.rcpVerify=verify;
+window.rcpVerify=verify;window.rcpShowVerify=showVerify;
 let LAST=null;
 async function doGen(){const g=$("gerar");g.disabled=true;try{await gerar()}catch(e){$("msg").textContent="Erro: "+e.message;console.error(e)}finally{g.disabled=false}}
 $("gerar").onclick=()=>{const L=verify();if(L.length)showVerify(L);else doGen()};
@@ -1106,13 +1180,10 @@ async function htx(mode,fn){const d=await hdb();return new Promise((res,rej)=>{c
 const hAll=async()=>((await htx("readonly",s=>s.getAll()))||[]).sort((a,b)=>b.t-a.t);
 async function hPurge(){const lim=Date.now()-DAYS*864e5;const all=await hAll();const del=all.filter((x,i)=>x.t<lim||i>=MAXH);if(del.length)await htx("readwrite",s=>{del.forEach(x=>s.delete(x.id))});return del.length}
 const hKeys=()=>LS(HK,null);
-async function hSetup(){const chk=window.rcpPinCheck,has=chk&&chk.has&&chk.has();
- const pin=await askPin("Ativar histórico",has?"Os PDFs ficam cifrados neste telemóvel. Introduz o PIN do Apoio ao expediente — vais precisar dele para abrir os PDFs guardados.":"Os PDFs ficam cifrados neste telemóvel. Escolhe um PIN (4 a 6 algarismos) para os abrir. Se usares o Apoio ao expediente, usa o mesmo PIN.",{confirm:!has,btn:"Ativar"});
- if(!pin)return false;if(has&&!(await chk(pin))){toast("PIN errado.");return false}
+async function hSetup(){const dk=window.rcpLock&&await rcpLock.need();if(!dk)return false;
  const kp=await crypto.subtle.generateKey({name:"RSA-OAEP",modulusLength:2048,publicExponent:new Uint8Array([1,0,1]),hash:"SHA-256"},true,["encrypt","decrypt","wrapKey","unwrapKey"]);
- const pub=await crypto.subtle.exportKey("jwk",kp.publicKey),pk=await crypto.subtle.exportKey("pkcs8",kp.privateKey);
- const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),k=await pbk(pin,salt);
- SV(HK,{v:1,pub,salt:b64(salt),iv:b64(iv),ct:b64(await crypto.subtle.encrypt({name:"AES-GCM",iv},k,pk))});PRIV=kp.privateKey;privT=Date.now();return true}
+ const pub=await crypto.subtle.exportKey("jwk",kp.publicKey),pk=await crypto.subtle.exportKey("pkcs8",kp.privateKey);const iv=crypto.getRandomValues(new Uint8Array(12));
+ SV(HK,{v:2,pub,iv:b64(iv),ct:b64(await crypto.subtle.encrypt({name:"AES-GCM",iv},dk,pk))});PRIV=kp.privateKey;privT=Date.now();return true}
 async function hAdd(bytes,name){const K=hKeys();if(!K)return false;
  const pub=await crypto.subtle.importKey("jwk",K.pub,{name:"RSA-OAEP",hash:"SHA-256"},false,["wrapKey"]);
  const ak=await crypto.subtle.generateKey({name:"AES-GCM",length:256},true,["encrypt"]),iv=crypto.getRandomValues(new Uint8Array(12));
@@ -1120,6 +1191,7 @@ async function hAdd(bytes,name){const K=hKeys();if(!K)return false;
  const id=Date.now().toString(36)+Math.random().toString(36).slice(2,6);
  await htx("readwrite",s=>s.put({id,name,t:Date.now(),size:bytes.byteLength,iv,wk,ct}));await hPurge();return true}
 async function unlockPriv(){if(PRIV&&Date.now()-privT<5*60e3)return PRIV;PRIV=null;const K=hKeys();if(!K)return null;
+ if(K.v===2){const dk=window.rcpLock&&await rcpLock.need();if(!dk)return null;try{const pk=await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(K.iv)},dk,ub(K.ct));PRIV=await crypto.subtle.importKey("pkcs8",pk,{name:"RSA-OAEP",hash:"SHA-256"},false,["unwrapKey"]);privT=Date.now();return PRIV}catch(e){toast("Chave do histórico inválida.");return null}}
  const pin=await askPin("Abrir histórico","Introduz o PIN para abrir o PDF guardado.");if(!pin)return null;
  try{const k=await pbk(pin,ub(K.salt));const pk=await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(K.iv)},k,ub(K.ct));PRIV=await crypto.subtle.importKey("pkcs8",pk,{name:"RSA-OAEP",hash:"SHA-256"},false,["unwrapKey"]);privT=Date.now();return PRIV}
  catch(e){toast("PIN errado.");return null}}
@@ -1129,12 +1201,12 @@ async function hGet(id){const r=await htx("readonly",s=>s.get(id));if(!r)throw E
 const fmtT=t=>{const d=new Date(t);return d.toLocaleDateString("pt-PT",{day:"2-digit",month:"2-digit"})+" "+d.toLocaleTimeString("pt-PT",{hour:"2-digit",minute:"2-digit"})};
 async function showHist(){await hPurge().catch(()=>{});const all=await hAll().catch(()=>[]),K=hKeys();
  const b=openBS("Histórico",K?`<p>Os últimos ${MAXH} PDFs gerados ficam cifrados neste telemóvel e apagam-se ao fim de ${DAYS} dias.</p>`+(all.length?`<div class="grp hist">${all.map(x=>`<div class="row" data-id="${x.id}"><span class="rt"><b>${E_(x.name)}</b><small>Gerado ${fmtT(x.t)} · apaga a ${new Date(x.t+DAYS*864e5).toLocaleDateString("pt-PT")}</small></span></div><div class="row" data-a="${x.id}" style="gap:8px;padding-top:0"><button type="button" class="sec2" data-o="${x.id}" style="flex:1;min-height:40px">Abrir</button><button type="button" class="sec2" data-s="${x.id}" style="flex:1;min-height:40px">Partilhar</button><button type="button" class="tx" data-d="${x.id}" style="min-height:40px;background:none;color:#ff453a">Apagar</button></div>`).join("")}</div>`:'<div class="grp"><div class="row"><span class="rt">Ainda não há PDFs guardados.</span></div></div>'):
-  `<p>O histórico está desligado. Ao ativar, cada PDF gerado fica guardado cifrado neste telemóvel (os últimos ${MAXH}, durante ${DAYS} dias). Só abre com o PIN.</p><div class="sbtn"><button type="button" class="pri act">Ativar histórico</button></div>`);
+  `<p>O histórico está desligado. Ao ativar, cada PDF gerado fica guardado cifrado neste telemóvel (os últimos ${MAXH}, durante ${DAYS} dias). Abre com o acesso da app.</p><div class="sbtn"><button type="button" class="pri act">Ativar histórico</button></div>`);
  const a=b.querySelector(".act");if(a)a.onclick=async()=>{if(await hSetup()){if(LAST)await hAdd(LAST.bytes,LAST.name);showHist()}};
  b.onclick=async e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
   try{if(d.d){if(confirm("Apagar este PDF do histórico?")){await htx("readwrite",s=>s.delete(d.d));showHist()}}
    else if(d.o||d.s){const r=await hGet(d.o||d.s);if(!r){showHist();return}if(d.o)viewPdf(r.bytes);else{const m=await share(r.bytes,r.name);if(m!=="cancelado")toast("PDF "+m)}showHist()}}catch(x){toast("Erro: "+x.message)}}}
-window.rcpHist={show:showHist,add:hAdd,all:hAll,purge:hPurge};
+window.rcpHist={show:showHist,add:hAdd,all:hAll,purge:hPurge,forget:()=>{PRIV=null},priv:()=>unlockPriv(),wipe:async()=>{PRIV=null;localStorage.removeItem(HK);try{await htx("readwrite",s=>s.clear())}catch(e){}}};
 hPurge().catch(()=>{});
 
 /* ---- resultado do PDF: folha com partilhar/guardar ---- */
@@ -1209,6 +1281,255 @@ $("bkE").onclick=()=>bkExport().catch(e=>toast("Erro: "+e.message));$("bkI").onc
 const oR=render;render=function(){const r=oR.apply(this,arguments);try{document.querySelectorAll("#ocs details.oc").forEach(deco);repUI();night()}catch(e){}return r};
 const oS=save;save=function(){const r=oS.apply(this,arguments);try{repUI()}catch(e){}return r};
 repUI();night();tick();
+})();
+</script>
+<script>(function(){"use strict";
+const APPV="v12";
+const $=id=>document.getElementById(id),te=new TextEncoder();
+const E_=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const LSg=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},LSs=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const b64=u=>{u=new Uint8Array(u);let s="";for(let i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s)},ub=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const rnd=n=>crypto.getRandomValues(new Uint8Array(n));
+const vib=p=>{try{window.rcpVib&&window.rcpVib(p)}catch(e){}};
+const toast=t=>{let e=$("apToast");if(!e){e=document.createElement("div");e.id="apToast";document.body.appendChild(e)}e.textContent=t;e.hidden=false;clearTimeout(e._t);e._t=setTimeout(()=>e.hidden=true,2600)};
+const BS=()=>window.rcpBS;
+const PK2="rcp_v12_prefs",PR=()=>Object.assign({gam:true},LSg(PK2,{})),setPR=(k,v)=>{const p=PR();p[k]=v;LSs(PK2,p)};
+
+/* ================= ACESSO À APP ================= */
+const AK="rcp_acesso_v1",ITER=310000;
+const A=()=>LSg(AK,null),setA=a=>LSs(AK,a);
+let DK=null,DKraw=null,waiters=[],hiddenAt=0;
+document.documentElement.classList.add("locked");
+const aes=raw=>crypto.subtle.importKey("raw",raw,{name:"AES-GCM"},false,["encrypt","decrypt"]);
+async function pbk(pw,salt){const k=await crypto.subtle.importKey("raw",te.encode(pw),"PBKDF2",false,["deriveKey"]);return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:ITER,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["encrypt","decrypt"])}
+async function wrapK(k,raw){const iv=rnd(12);return{iv:b64(iv),ct:b64(await crypto.subtle.encrypt({name:"AES-GCM",iv},k,raw))}}
+async function unwrapK(k,w){return new Uint8Array(await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(w.iv)},k,ub(w.ct)))}
+async function secWrap(kind,sec,raw){const salt=rnd(16);return Object.assign({kind,salt:b64(salt)},await wrapK(await pbk(sec,salt),raw))}
+async function secOpen(w,sec){return unwrapK(await pbk(sec,ub(w.salt)),w)}
+async function prfKey(out){const k=await crypto.subtle.importKey("raw",out,"HKDF",false,["deriveKey"]);return crypto.subtle.deriveKey({name:"HKDF",hash:"SHA-256",salt:new Uint8Array(32),info:te.encode("Cooperativa chave de dados v12")},k,{name:"AES-GCM",length:256},false,["encrypt","decrypt"])}
+/* chave do dispositivo (não exportável) em IndexedDB, para biometria sem PRF */
+function idb(){return new Promise((r,j)=>{const q=indexedDB.open("rcp_acesso",1);q.onupgradeneeded=()=>q.result.createObjectStore("k");q.onsuccess=()=>r(q.result);q.onerror=()=>j(q.error)})}
+async function devKey(create){const db=await idb();const get=()=>new Promise((r,j)=>{const t=db.transaction("k").objectStore("k").get("dev");t.onsuccess=()=>r(t.result||null);t.onerror=()=>j(t.error)});
+ let k=await get();if(!k&&create){k=await crypto.subtle.generateKey({name:"AES-GCM",length:256},false,["encrypt","decrypt"]);await new Promise((r,j)=>{const t=db.transaction("k","readwrite");t.objectStore("k").put(k,"dev");t.oncomplete=r;t.onerror=()=>j(t.error)})}db.close();return k}
+async function devDel(){try{const db=await idb();await new Promise(r=>{const t=db.transaction("k","readwrite");t.objectStore("k").delete("dev");t.oncomplete=r;t.onerror=r});db.close()}catch(e){}}
+/* WebAuthn */
+async function bioAvail(){try{return !!(window.PublicKeyCredential&&await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable())}catch(e){return false}}
+const uvOk=ad=>!!(new Uint8Array(ad)[32]&0x04);
+async function bioCreate(prfSalt){
+ const cred=await navigator.credentials.create({publicKey:{rp:{name:"Cooperativa"},user:{id:rnd(16),name:"cooperativa",displayName:"Cooperativa"},challenge:rnd(32),
+  pubKeyCredParams:[{type:"public-key",alg:-7},{type:"public-key",alg:-257}],timeout:60000,attestation:"none",
+  authenticatorSelection:{authenticatorAttachment:"platform",userVerification:"required",residentKey:"preferred"},extensions:{prf:{eval:{first:prfSalt}}}}});
+ const ad=cred.response.getAuthenticatorData?cred.response.getAuthenticatorData():null;if(ad&&!uvOk(ad))throw new Error("O telemóvel não confirmou a impressão digital/Face ID.");
+ const x=(cred.getClientExtensionResults()||{}).prf||{};return{id:b64(cred.rawId),prf:!!(x.enabled||(x.results&&x.results.first)),out:x.results&&x.results.first?new Uint8Array(x.results.first):null}}
+async function bioGet(id,prfSalt){
+ const as=await navigator.credentials.get({publicKey:{challenge:rnd(32),timeout:60000,userVerification:"required",allowCredentials:[{type:"public-key",id:ub(id),transports:["internal","hybrid"]}],extensions:prfSalt?{prf:{eval:{first:prfSalt}}}:undefined}});
+ if(!uvOk(as.response.authenticatorData))throw new Error("Verificação biométrica não confirmada.");
+ const x=(as.getClientExtensionResults()||{}).prf||{};return x.results&&x.results.first?new Uint8Array(x.results.first):null}
+
+/* dados legados (PIN do Apoio v11) */
+function legacy(){const a=LSg("rcp_apoio_v1",null),h=LSg("rcp_hist_k_v1",null);return{ap:!!(a&&a.salt),hk:!!(h&&h.v!==2&&h.salt),h}}
+
+/* ecrã de bloqueio */
+const LO=document.createElement("div");LO.id="lockO";LO.setAttribute("role","dialog");LO.setAttribute("aria-modal","true");LO.setAttribute("aria-label","App bloqueada");
+LO.innerHTML='<div class="lkC"><div class="lkI"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg></div><h1>Cooperativa</h1><p class="lkT"></p><div class="lkF"></div><div class="er" aria-live="polite"></div><button type="button" class="lnk fg">Esqueci-me</button></div>';
+document.body.appendChild(LO);
+const lkT=LO.querySelector(".lkT"),lkF=LO.querySelector(".lkF"),lkE=LO.querySelector(".er");
+const err=t=>{lkE.textContent=t;LO.classList.remove("shake");void LO.offsetWidth;LO.classList.add("shake");vib([30,40,30])};
+function secForm(kind,label,onOk){const pin=kind==="pin";
+ lkF.innerHTML=`<input type="password" class="${pin?"":"pw"}" ${pin?'inputmode="numeric" pattern="[0-9]*" maxlength="6"':'maxlength="64"'} autocomplete="current-password" aria-label="${label}" placeholder="${label}"><button type="button" class="lkB">Desbloquear</button>`;
+ const i=lkF.querySelector("input"),b=lkF.querySelector(".lkB");let busy=false;
+ const go=async()=>{if(busy||!i.value)return;busy=true;b.textContent="A verificar…";lkE.textContent="";try{await onOk(i.value)}catch(e){i.value="";err(e&&e.userMsg||(pin?"PIN errado":"Palavra-passe errada"))}finally{busy=false;b.textContent="Desbloquear"}};
+ b.onclick=go;i.onkeydown=e=>{if(e.key==="Enter")go()};setTimeout(()=>{try{i.focus()}catch(e){}},50)}
+const bad=m=>{const e=new Error(m);e.userMsg=m;return e};
+function show(){const a=A();try{BS()&&BS().close(true)}catch(e){}try{$("sheet")&&!$("sheet").hidden&&$("shX").click()}catch(e){}
+ document.documentElement.classList.add("locked");lkE.textContent="";LO.querySelector(".fg").hidden=false;
+ const L=legacy();
+ if(!a&&(L.ap||L.hk)){lkT.textContent="Atualização: o PIN do Apoio ao expediente passa a proteger a app inteira. Introduz o PIN antigo para migrar os dados.";
+  secForm("pin","PIN antigo",migrate);return}
+ if(!a)return;
+ if(a.mode==="none"){unlockRaw(ub(a.raw));return}
+ if(a.mode==="pin"||a.mode==="pass"){lkT.textContent=a.mode==="pin"?"Introduz o PIN.":"Introduz a palavra-passe.";secForm(a.mode,a.mode==="pin"?"PIN":"Palavra-passe",async v=>unlockRaw(await secOpen(a.w,v)));return}
+ if(a.mode==="bio"){const fb=a.fb.kind;lkT.textContent="Desbloqueia com impressão digital ou Face ID.";
+  lkF.innerHTML=`<button type="button" class="lkB bio">Usar impressão digital / Face ID</button><button type="button" class="lnk alt">Usar ${fb==="pin"?"PIN":"palavra-passe"}</button>`;
+  lkF.querySelector(".bio").onclick=bioUnlock;lkF.querySelector(".alt").onclick=()=>{lkT.textContent=fb==="pin"?"Introduz o PIN de recurso.":"Introduz a palavra-passe de recurso.";secForm(fb,fb==="pin"?"PIN":"Palavra-passe",async v=>unlockRaw(await secOpen(a.fb,v)))};
+  if(!show._auto&&document.visibilityState==="visible"){show._auto=1}}}
+async function bioUnlock(){const a=A();lkE.textContent="";try{let raw;
+  if(a.prf){const out=await bioGet(a.cred,ub(a.prfSalt));if(!out)throw bad("Este telemóvel não devolveu a chave biométrica. Usa o recurso.");raw=await unwrapK(await prfKey(out),a.wp)}
+  else{await bioGet(a.cred,null);const k=await devKey(false);if(!k)throw bad("Chave do dispositivo em falta. Usa o recurso.");raw=await unwrapK(k,a.wd)}
+  await unlockRaw(raw)}catch(e){err(e.userMsg||(e.name==="NotAllowedError"?"Cancelado ou não reconhecido.":"Falhou: "+(e.message||e)))}}
+async function unlockRaw(raw){const k=await aes(raw);
+ try{if(window.__apoio&&window.__apoio.useKey){const ok=await window.__apoio.useKey(k);if(ok===false)throw bad("Chave não corresponde aos dados guardados.")}}catch(e){throw e.userMsg?e:bad("Não foi possível abrir os dados.")}
+ DK=k;DKraw=raw;document.documentElement.classList.remove("locked");lkF.innerHTML="";lkE.textContent="";vib(10);
+ const w=waiters;waiters=[];w.forEach(f=>f(k));document.dispatchEvent(new Event("rcp-unlock"))}
+async function migrate(pin){const L=legacy();const raw=rnd(32),nk=await aes(raw);
+ let apOk=true;if(L.ap){apOk=await window.__apoio.migrate(pin,nk);if(!apOk)throw bad("PIN errado")}
+ let hkOk=true;if(L.hk){hkOk=false;try{const k=await pbk(pin,ub(L.h.salt));const pk=await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(L.h.iv)},k,ub(L.h.ct));const w=await wrapK(nk,new Uint8Array(pk));LSs("rcp_hist_k_v1",{v:2,pub:L.h.pub,iv:w.iv,ct:w.ct});hkOk=true}catch(e){}
+  if(!hkOk&&!L.ap)throw bad("PIN errado")}
+ setA({mode:/^\d{4,6}$/.test(pin)?"pin":"pass",to:1,w:await secWrap(/^\d{4,6}$/.test(pin)?"pin":"pass",pin,raw)});
+ await unlockRaw(raw);toast(hkOk?"Dados migrados. O mesmo PIN abre agora a app.":"Dados migrados. O histórico de PDFs continua com o PIN antigo.")}
+async function forgot(){const L=legacy();if(!confirm("Apagar os dados cifrados (intervenientes, relatos, fotografias e histórico de PDFs)?\n\nO relatório em curso, as listas e as definições ficam. Não é possível desfazer."))return;
+ try{window.__apoio&&window.__apoio.wipeAll&&await window.__apoio.wipeAll()}catch(e){}try{window.rcpHist&&window.rcpHist.wipe&&await window.rcpHist.wipe()}catch(e){}
+ localStorage.removeItem("rcp_hist_k_v1");await devDel();const raw=rnd(32);setA({mode:"none",to:(A()||{}).to||1,raw:b64(raw)});await unlockRaw(raw);
+ toast("Dados cifrados apagados. Escolhe um novo método de acesso.");setTimeout(()=>{try{$("cfgB").click();const t=document.querySelector('#sheet [data-t="cfg"]');t&&t.click();setTimeout(()=>{const g=$("acG");g&&g.scrollIntoView({block:"start"})},150)}catch(e){}},300)}
+LO.querySelector(".fg").onclick=forgot;
+function lockNow(){const a=A();if(!a||a.mode==="none"){toast("Escolhe primeiro um método de acesso");return false}
+ DK=null;DKraw=null;try{window.__apoio&&window.__apoio.lock&&window.__apoio.lock()}catch(e){}try{window.rcpHist&&window.rcpHist.forget&&window.rcpHist.forget()}catch(e){}show();return true}
+function need(){if(DK)return Promise.resolve(DK);show();return new Promise(r=>waiters.push(r))}
+document.addEventListener("visibilitychange",()=>{const a=A();if(!a||a.mode==="none")return;
+ if(document.visibilityState==="hidden"){hiddenAt=Date.now();if(+a.to===0&&DK)lockNow()}
+ else if(DK&&hiddenAt&&Date.now()-hiddenAt>=(+a.to||0)*60000)lockNow()});
+async function setMode(mode,o){o=o||{};if(!DKraw)throw new Error("App bloqueada");const cur=A()||{},to=cur.to==null?1:cur.to;let a;
+ if(mode==="none")a={mode,to,raw:b64(DKraw)};
+ else if(mode==="pin"||mode==="pass")a={mode,to,w:await secWrap(mode,o.sec,DKraw)};
+ else if(mode==="bio"){const salt=rnd(32);const c=await bioCreate(salt);a={mode,to,cred:c.id,fb:await secWrap(o.kind,o.sec,DKraw)};
+  let out=c.out;if(c.prf&&!out){try{out=await bioGet(c.id,salt)}catch(e){out=null}}
+  if(out){a.prf=true;a.prfSalt=b64(salt);Object.assign(a,{wp:await wrapK(await prfKey(out),DKraw)})}
+  else{a.prf=false;a.wd=await wrapK(await devKey(true),DKraw)}}
+ if(mode!=="bio")await devDel();setA(a);return a}
+window.rcpLock={show,lockNow,need,setMode,get mode(){return(A()||{}).mode||"none"},get unlocked(){return!!DK},bioAvail,_A:A};
+
+/* ---- definições: Acesso ---- */
+const MODES=[["none","Sem bloqueio","Qualquer pessoa com o telemóvel abre a app"],["pin","PIN","4 a 6 dígitos"],["pass","Palavra-passe","6 ou mais caracteres"],["bio","Impressão digital / Face ID","Com PIN ou palavra-passe de recurso"]];
+function ask(title,txt,kind,confirm2){return new Promise(res=>{let done=false;const pin=kind==="pin";
+ const b=BS().open(title,`<p>${E_(txt)}</p><div class="grp" style="padding:12px"><input type="password" class="a1" ${pin?'inputmode="numeric" pattern="[0-9]*" maxlength="6"':'maxlength="64"'} autocomplete="new-password" placeholder="${pin?"PIN (4 a 6 dígitos)":"Palavra-passe (mín. 6)"}">${confirm2?`<input type="password" class="a2" ${pin?'inputmode="numeric" pattern="[0-9]*" maxlength="6"':'maxlength="64"'} autocomplete="new-password" placeholder="Repetir" style="margin-top:10px">`:""}<div class="ae" style="color:#ff453a;font-size:13px;min-height:18px;margin-top:8px"></div></div><div class="sbtn"><button type="button" class="pri ok">Continuar</button></div>`,()=>{if(!done){done=true;res(null)}});
+ const a1=b.querySelector(".a1"),a2=b.querySelector(".a2"),ae=b.querySelector(".ae");setTimeout(()=>a1.focus(),80);
+ b.querySelector(".ok").onclick=()=>{const v=a1.value;if(pin&&!/^\d{4,6}$/.test(v)){ae.textContent="O PIN tem de ter 4 a 6 dígitos.";return}if(!pin&&v.length<6){ae.textContent="Mínimo 6 caracteres.";return}if(a2&&a2.value!==v){ae.textContent="Não coincidem.";return}done=true;BS().close(true);res(v)}})}
+function pick(title,txt,opts){return new Promise(res=>{let done=false;const b=BS().open(title,`<p>${E_(txt)}</p><div class="sbtn">${opts.map((o,i)=>`<button type="button" class="${i?"sec2":"pri"}" data-v="${o[0]}">${E_(o[1])}</button>`).join("")}</div>`,()=>{if(!done){done=true;res(null)}});
+ b.onclick=e=>{const x=e.target.closest("[data-v]");if(x){done=true;BS().close(true);res(x.dataset.v)}}})}
+async function chooseMode(m){if(m===(A()||{}).mode)return;await need();
+ try{if(m==="none"){if(!confirm("Sem bloqueio, qualquer pessoa com o teu telemóvel desbloqueado abre a app e vê os dados do Apoio, as fotografias e o histórico de PDFs. Continuar?"))return;await setMode("none")}
+  else if(m==="pin"||m==="pass"){const s=await ask(m==="pin"?"Definir PIN":"Definir palavra-passe","Vai ser pedido ao abrir a app.",m,true);if(!s)return;await setMode(m,{sec:s})}
+  else if(m==="bio"){const k=await pick("Recurso obrigatório","Se a biometria falhar ou mudares de dedo/rosto, desbloqueias com:",[["pin","PIN"],["pass","Palavra-passe"]]);if(!k)return;
+   const s=await ask(k==="pin"?"PIN de recurso":"Palavra-passe de recurso","Guarda-o bem: é a única alternativa à biometria.",k,true);if(!s)return;
+   toast("Confirma com a impressão digital ou Face ID");const a=await setMode("bio",{kind:k,sec:s});if(!a.prf)toast("Biometria ativa (chave guardada no dispositivo)");}
+  vib([12,60,12]);toast("Acesso: "+MODES.find(x=>x[0]===m)[1]);paintAc()}catch(e){console.error(e);toast(e.name==="NotAllowedError"?"Biometria cancelada. Nada mudou.":"Não foi possível: "+(e.message||e))}}
+async function paintAc(){const g=$("acG");if(!g)return;const a=A()||{mode:"none",to:1},bio=await bioAvail();
+ g.querySelector(".acM").innerHTML=MODES.map(([k,t,s])=>`<button type="button" data-m="${k}" class="${a.mode===k?"on":""}" ${k==="bio"&&!bio?"disabled":""}><span>${t}<small>${k==="bio"&&!bio?"Indisponível neste telemóvel/browser":s}</small></span><span class="ck">✓</span></button>`).join("");
+ g.querySelector(".acW").hidden=a.mode!=="none";$("acTo").value=String(a.to==null?1:a.to);$("acTo").disabled=a.mode==="none";$("acNow").disabled=a.mode==="none"}
+function acUI(){const cfg=$("tp-cfg");if(!cfg||$("acG"))return;
+ cfg.insertAdjacentHTML("afterbegin",`<div id="acG"><span class="sub">Acesso à app</span><div class="acM" role="radiogroup"></div>
+<div class="acW">Sem bloqueio: a chave que cifra o Apoio, as fotografias e o histórico fica guardada sem proteção neste telemóvel.</div>
+<div class="grp"><label class="row" style="flex-direction:row">Bloquear ao voltar à app<select id="acTo" style="width:auto;min-height:40px;margin-left:auto"><option value="0">Imediatamente</option><option value="1">Após 1 min</option><option value="5">Após 5 min</option><option value="15">Após 15 min</option></select></label>
+<button type="button" class="row" id="acNow" style="flex-direction:row">Bloquear agora<span style="margin-left:auto;color:#8a8a8a">›</span></button></div>
+<span class="sub">Gamificação</span><div class="grp"><label class="row sw" style="flex-direction:row">Anel de progresso e resumo do turno<input type="checkbox" id="gamSw"></label></div>
+<span class="sub">Ajuda a melhorar</span><div class="grp"><button type="button" class="row" id="sgB" style="flex-direction:row">Sugerir melhoria<span style="margin-left:auto;color:#8a8a8a">›</span></button></div></div>`);
+ $("acG").querySelector(".acM").onclick=e=>{const b=e.target.closest("[data-m]");if(b&&!b.disabled)chooseMode(b.dataset.m)};
+ $("acTo").onchange=e=>{const a=A();if(a){a.to=+e.target.value;setA(a)}};$("acNow").onclick=()=>lockNow();
+ $("gamSw").checked=PR().gam;$("gamSw").onchange=e=>{setPR("gam",e.target.checked);gam()};$("sgB").onclick=suggest;paintAc()}
+
+/* ================= ANEL DE PROGRESSO ================= */
+const RING=document.createElement("button");RING.id="rcpRing";RING.type="button";RING.setAttribute("aria-label","Progresso do relatório");
+RING.innerHTML='<svg viewBox="0 0 36 36"><circle class="bg" cx="18" cy="18" r="15.5" fill="none" stroke-width="3"/><circle class="fg" cx="18" cy="18" r="15.5" fill="none" stroke-width="3" stroke-linecap="round" stroke-dasharray="97.39" stroke-dashoffset="97.39"/></svg><span class="t"></span>';
+document.body.appendChild(RING);let rPrev=null;
+function ringCalc(){if(!window.rcpVerify)return null;const L=window.rcpVerify().filter(x=>x.lvl==="err");
+ const n=document.querySelectorAll("#ocs .oc").length;let tot=7;S.oc&&S.oc.forEach(o=>{if(Object.keys(o||{}).some(k=>k!=="id"&&String(o[k]||"").trim()&&!/^(lat|lng)$/.test(k)))tot+=4});
+ const p=Math.max(0,Math.min(1,(tot-L.length)/tot));return{p,L,n}}
+function ring(){if(!PR().gam)return;let r;try{r=ringCalc()}catch(e){return}if(!r)return;
+ RING.querySelector(".fg").style.strokeDashoffset=(97.39*(1-r.p)).toFixed(2);RING.querySelector(".t").textContent=r.p>=1?"✓":Math.round(r.p*100);
+ RING.classList.toggle("ok",r.p>=1);RING.setAttribute("aria-label","Relatório "+Math.round(r.p*100)+"% verificado");
+ if(rPrev!==null&&rPrev<1&&r.p>=1){RING.classList.remove("pop");void RING.offsetWidth;RING.classList.add("pop");vib([10,40,10,40,20])}rPrev=r.p}
+let rT=0;const ringSoon=()=>{clearTimeout(rT);rT=setTimeout(ring,250)};
+document.addEventListener("input",ringSoon,true);document.addEventListener("change",ringSoon,true);document.addEventListener("click",ringSoon,true);
+RING.onclick=()=>{const r=ringCalc();if(!r)return;vib(8);const all=window.rcpVerify();
+ if(all.length&&window.rcpShowVerify)window.rcpShowVerify(all);
+ else{const b=BS().open("Tudo pronto",`<p>Todos os campos obrigatórios estão preenchidos.</p><div class="sbtn"><button type="button" class="pri g">Gerar PDF</button></div>`);b.querySelector(".g").onclick=()=>{BS().close(true);$("gerar").click()}}};
+function gam(){document.documentElement.classList.toggle("nogam",!PR().gam);if(PR().gam){rPrev=null;ring()}}
+
+/* ================= RESUMO DO TURNO ================= */
+function hm(s){const m=/(\d{1,2})\D*(\d{2})/.exec(s||"");return m?(+m[1])*60+(+m[2]):null}
+function summary(){try{collect()}catch(e){}const f=S.f||{},oc=(S.oc||[]).filter(o=>o&&(o.tipo||o.ini||o.mor||o.res||o.eco));
+ const tp={};oc.forEach(o=>{const t=String(o.tipo||"Sem tipo").trim()||"Sem tipo";tp[t]=(tp[t]||0)+1});
+ const a=parseInt(String(f.kmi||"").replace(/\D/g,""),10),b=parseInt(String(f.kmf||"").replace(/\D/g,""),10);const km=!isNaN(a)&&!isNaN(b)&&b>=a?b-a:null;
+ let mins=null;const pm=String(f.periodo||"").split(/\s*[-–a]\s*/);if(pm.length>=2){const x=hm(pm[0]),y=hm(pm[pm.length-1]);if(x!=null&&y!=null)mins=(y-x+1440)%1440||1440}
+ const tt=mins==null?"—":Math.floor(mins/60)+"h"+(mins%60?String(mins%60).padStart(2,"0"):"");
+ return{n:oc.length,km,tt,tp:Object.entries(tp).sort((p,q)=>q[1]-p[1]),data:f.data||"",turno:f.turno||""}}
+function card(s){return `<div class="rsC"><div class="rsH">Resumo do turno${s.data?" · "+E_(s.data):""}</div><div class="rsG"><div><b>${s.n}</b><span>${s.n==1?"ocorrência":"ocorrências"}</span></div><div><b>${s.km==null?"—":s.km.toLocaleString("pt-PT")}</b><span>km</span></div><div><b>${E_(s.tt)}</b><span>de turno</span></div></div>${s.tp.length?`<div class="rsT">${s.tp.map(([t,c])=>`<span>${E_(t)} · ${c}</span>`).join("")}</div>`:""}<div class="rsA"><button type="button" class="sec2 rsS">Guardar imagem</button><button type="button" class="sec2 rsP">Partilhar</button></div></div>`}
+function png(s){const W=1080,H=1350,c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d");const F='-apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif';
+ g.fillStyle="#000";g.fillRect(0,0,W,H);g.fillStyle="#8e8e93";g.font=`600 34px ${F}`;g.fillText("RESUMO DO TURNO",80,140);
+ g.fillStyle="#fff";g.font=`700 64px ${F}`;g.fillText([s.data,s.turno].filter(Boolean).join(" · ")||"Cooperativa",80,225);
+ const st=[[String(s.n),s.n==1?"ocorrência":"ocorrências"],[s.km==null?"—":s.km.toLocaleString("pt-PT"),"km"],[s.tt,"de turno"]];
+ st.forEach((x,i)=>{const X=80+i*320;g.strokeStyle="#262626";g.lineWidth=2;g.beginPath();g.roundRect?g.roundRect(X,300,290,260,28):g.rect(X,300,290,260);g.stroke();g.fillStyle="#fff";g.font=`700 104px ${F}`;g.fillText(x[0],X+30,450);g.fillStyle="#8e8e93";g.font=`500 34px ${F}`;g.fillText(x[1],X+30,515)});
+ g.fillStyle="#8e8e93";g.font=`600 30px ${F}`;g.fillText("TIPOS",80,650);let y=720;
+ s.tp.slice(0,9).forEach(([t,n])=>{g.fillStyle="#fff";g.font=`500 42px ${F}`;let tx=t;while(g.measureText(tx).width>760&&tx.length>3)tx=tx.slice(0,-2);if(tx!==t)tx+="…";g.fillText(tx,80,y);g.font=`700 42px ${F}`;g.textAlign="right";g.fillText(String(n),W-80,y);g.textAlign="left";g.fillStyle="#1d1d1d";g.fillRect(80,y+28,W-160,2);y+=78});
+ if(!s.tp.length){g.fillStyle="#5a5a5a";g.font=`500 40px ${F}`;g.fillText("Sem ocorrências registadas",80,y)}
+ g.fillStyle="#3a3a3a";g.font=`500 28px ${F}`;g.fillText("Cooperativa "+APPV,80,H-80);
+ return new Promise(r=>c.toBlob(r,"image/png"))}
+const fname=s=>"Resumo_turno_"+(s.data||new Date().toISOString().slice(0,10)).replace(/[^\d]/g,"-")+".png";
+async function pngSave(s){const bl=await png(s),u=URL.createObjectURL(bl),a=document.createElement("a");a.href=u;a.download=fname(s);document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);toast("Imagem guardada")}
+async function pngShare(s){const bl=await png(s),f=new File([bl],fname(s),{type:"image/png"});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:"Resumo do turno"});return}catch(e){if(e.name==="AbortError")return}}await pngSave(s)}
+const oOut=window.rcpOut;
+if(oOut)window.rcpOut=async function(){const r=await oOut.apply(this,arguments);try{if(PR().gam){const b=document.querySelector("#bs .bsB");if(b&&!b.querySelector(".rsC")){const s=summary();b.insertAdjacentHTML("afterbegin",card(s));b.querySelector(".rsS").onclick=()=>pngSave(s).catch(e=>toast("Erro: "+e.message));b.querySelector(".rsP").onclick=()=>pngShare(s).catch(e=>toast("Erro: "+e.message))}}}catch(e){console.error(e)}return r};
+window.rcpSummary={summary,png};
+
+/* ================= DESLIZAR OCORRÊNCIAS ================= */
+let undo=null;
+function undoT(txt,onUndo,onCommit){if(undo)undo.commit();const e=document.createElement("div");e.id="undoT";e.setAttribute("role","status");e.innerHTML=`<span>${E_(txt)}</span><button type="button">Desfazer</button>`;document.body.appendChild(e);
+ const u={done:false,commit(){if(u.done)return;u.done=true;clearTimeout(u.t);e.remove();undo=null;onCommit()},undo(){if(u.done)return;u.done=true;clearTimeout(u.t);e.remove();undo=null;onUndo()}};
+ e.querySelector("button").onclick=()=>{vib(10);u.undo()};u.t=setTimeout(()=>u.commit(),5000);undo=u}
+addEventListener("pagehide",()=>{if(undo)undo.commit()});
+const snapAll=ex=>document.querySelectorAll("#ocs details.oc.sw").forEach(d=>{if(d!==ex)setX(d,0,true)});
+function setX(d,x,anim){const sm=d.querySelector(":scope>summary>.swc");if(!sm)return;sm.classList.toggle("anim",!!anim);sm.style.transform=x?`translateX(${x}px)`:"";d._x=x;
+ const A_=d.querySelector(".swA");if(A_){A_.querySelector(".swS").style.visibility=x>0?"visible":"hidden";A_.querySelector(".swD").style.visibility=x<0?"visible":"hidden"}
+ if(x)d.classList.add("sw");else if(anim)setTimeout(()=>{if(!d._x)d.classList.remove("sw")},260);else d.classList.remove("sw")}
+function ocIdx(d){return[...document.querySelectorAll("#ocs details.oc")].indexOf(d)}
+async function delOc(d){const box=$("ocs"),nx=d.nextSibling,i=ocIdx(d);let aid=null;try{collect();aid=((d.querySelector("[data-k=aid]")||{}).value)||null}catch(e){}
+ vib([15,30,15]);d.style.maxHeight=d.offsetHeight+"px";d.classList.add("gone");requestAnimationFrame(()=>{d.style.maxHeight="0px"});
+ await new Promise(r=>setTimeout(r,220));d.remove();d.classList.remove("gone");d.style.maxHeight="";setX(d,0);try{upd();save()}catch(e){}ringSoon();
+ undoT("Ocorrência apagada",()=>{box.insertBefore(d,nx&&nx.parentNode===box?nx:null);try{upd();save()}catch(e){}ringSoon();toast("Ocorrência reposta")},()=>{try{if(aid&&window.__apoio&&window.__apoio.del)window.__apoio.del(aid)}catch(e){}})}
+async function shareOc(d){setX(d,0,true);let t="";try{collect();const aid=(d.querySelector("[data-k=aid]")||{}).value;const ap=aid&&window.__apoio&&window.__apoio.data?window.__apoio.data(aid):null;
+  t=window.apoioBuild?window.apoioBuild(d,ap||{iv:[],rel:""},false):""}catch(e){console.error(e)}
+ if(!t){toast("Nada para partilhar");return}vib(10);
+ if(navigator.share){try{await navigator.share({title:"Ocorrência",text:t});return}catch(e){if(e.name==="AbortError")return}}
+ try{await navigator.clipboard.writeText(t);toast("Texto anonimizado copiado")}catch(e){const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Texto anonimizado copiado")}catch(_){toast("Não foi possível copiar")}ta.remove()}}
+function swWire(d){try{acAll()}catch(e){}if(d._sw||!d.matches("details.oc"))return;const sm=d.querySelector(":scope>summary");if(!sm)return;d._sw=1;
+ const w=document.createElement("span");w.className="swc";while(sm.firstChild)w.appendChild(sm.firstChild);sm.appendChild(w);sm.classList.add("swR");
+ const a=document.createElement("span");a.className="swA";a.setAttribute("aria-hidden","true");a.innerHTML='<button type="button" class="swS" tabindex="-1">Partilhar</button><button type="button" class="swD" tabindex="-1">Apagar</button>';sm.insertBefore(a,w);
+ a.querySelector(".swS").onclick=e=>{e.preventDefault();e.stopPropagation();shareOc(d)};a.querySelector(".swD").onclick=e=>{e.preventDefault();e.stopPropagation();delOc(d)};
+ let st=0,x0=0,y0=0,b0=0,pid=null,dx=0,arm=0,moved=false;const RV=96;
+ sm.addEventListener("pointerdown",e=>{if(e.target.closest(".swA")||d.open||(e.pointerType==="mouse"&&e.button!==0))return;st=1;x0=e.clientX;y0=e.clientY;b0=d._x||0;pid=e.pointerId;moved=false;arm=0});
+ sm.addEventListener("pointermove",e=>{if(!st||e.pointerId!==pid)return;const mx=e.clientX-x0,my=e.clientY-y0;
+  if(st===1){if(Math.abs(mx)<8&&Math.abs(my)<8)return;if(Math.abs(mx)>Math.abs(my)*1.3){st=2;moved=true;snapAll(d);try{sm.setPointerCapture(pid)}catch(_){}}else{st=0;return}}
+  dx=b0+mx;const W=d.offsetWidth;setX(d,dx,false);const th=Math.abs(dx)>W*.5?2:Math.abs(dx)>RV*.6?1:0;if(th===2&&arm<2)vib(14);arm=th;e.preventDefault()});
+ const end=e=>{if(st!==2){st=0;return}st=0;const W=d.offsetWidth;
+  if(dx<-W*.5){setX(d,-W,true);delOc(d)}else if(dx>W*.5){setX(d,0,true);shareOc(d)}
+  else if(dx<-RV*.6)setX(d,-RV,true);else if(dx>RV*.6)setX(d,RV,true);else setX(d,0,true)};
+ sm.addEventListener("pointerup",end);sm.addEventListener("pointercancel",e=>{if(st===2)end(e);st=0});
+ sm.addEventListener("click",e=>{if(e.target.closest(".swA")){e.preventDefault();return}if(moved||d._x){e.preventDefault();e.stopPropagation();if(!moved)setX(d,0,true);moved=false}},true)}
+const wireAll=()=>document.querySelectorAll("#ocs details.oc").forEach(swWire);
+if($("ocs"))new MutationObserver(m=>{m.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===1)swWire(n)}));}).observe($("ocs"),{childList:true});
+document.addEventListener("pointerdown",e=>{if(!e.target.closest("#ocs details.oc.sw"))snapAll(null)},true);
+
+/* ================= SUGERIR MELHORIA ================= */
+function suggest(){const b=BS().open("Sugerir melhoria",`<p>Diz o que mudarias na app. A sugestão segue por email${CFGs()?"":" ou pela partilha do telemóvel"}. Não incluas dados de ocorrências.</p><div class="sgF"><label>O que mudar<textarea class="s1" maxlength="1000" autocomplete="off" placeholder="Ex.: o campo X devia ficar antes do Y"></textarea></label><label>Porquê<textarea class="s2" maxlength="1000" autocomplete="off" placeholder="O que ganhamos com isso"></textarea></label><label>Nome (opcional)<input class="s3" maxlength="60" autocomplete="name" autocapitalize="words"></label></div><div class="sgE" style="color:#ff453a;font-size:13px;min-height:18px"></div><div class="sbtn"><button type="button" class="pri go">${CFGs()?"Enviar por email":"Partilhar"}</button><button type="button" class="tx cp">Copiar texto</button></div>`);
+ const txt=()=>{const a=b.querySelector(".s1").value.trim(),w=b.querySelector(".s2").value.trim(),n=b.querySelector(".s3").value.trim();return a?`O que mudar:\n${a}\n\nPorquê:\n${w||"—"}\n\nNome: ${n||"—"}\nVersão da app: Cooperativa ${APPV}\nData: ${new Date().toLocaleDateString("pt-PT")}`:""};
+ const SUBJ="Cooperativa – sugestão";
+ b.querySelector(".go").onclick=async()=>{const t=txt();if(!t){b.querySelector(".sgE").textContent="Escreve o que queres mudar.";return}const em=CFGs();
+  if(em){location.href="mailto:"+encodeURIComponent(em)+"?subject="+encodeURIComponent(SUBJ)+"&body="+encodeURIComponent(t);return}
+  if(navigator.share){try{await navigator.share({title:SUBJ,text:SUBJ+"\n\n"+t});BS().close();toast("Obrigado pela sugestão");return}catch(e){if(e.name==="AbortError")return}}
+  try{await navigator.clipboard.writeText(SUBJ+"\n\n"+t);toast("Sugestão copiada")}catch(e){toast("Não foi possível copiar")}};
+ b.querySelector(".cp").onclick=async()=>{const t=txt();if(!t){b.querySelector(".sgE").textContent="Escreve o que queres mudar.";return}try{await navigator.clipboard.writeText(SUBJ+"\n\n"+t);toast("Sugestão copiada")}catch(e){toast("Não foi possível copiar")}}}
+function CFGs(){try{const e=String((typeof CFG!=="undefined"&&CFG&&CFG.sugestoesEmail)||"").trim();return/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)?e:""}catch(e){return""}}
+window.rcpSuggest=suggest;
+
+/* ================= CAMPOS ================= */
+function grow(t){t.style.height="auto";t.style.height=Math.max(44,t.scrollHeight+2)+"px"}
+document.addEventListener("input",e=>{if(e.target.matches&&e.target.matches("textarea.grow"))grow(e.target)},true);
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches&&e.target.matches("textarea.grow")){e.preventDefault();e.target.blur()}},true);
+document.addEventListener("paste",e=>{const t=e.target;if(t.matches&&t.matches("textarea.grow"))setTimeout(()=>{t.value=t.value.replace(/\s*\n\s*/g,", ");grow(t);t.dispatchEvent(new Event("input",{bubbles:true}))},0)},true);
+document.addEventListener("toggle",e=>{if(e.target.matches&&e.target.matches("details"))e.target.querySelectorAll("textarea.grow").forEach(grow);if(e.target.open)setX(e.target,0)},true);
+const acAll=()=>document.querySelectorAll('input:not([type=hidden]):not([type=checkbox]):not([type=radio]):not([type=file]):not([autocomplete]),textarea:not([autocomplete])').forEach(e=>{e.setAttribute('autocomplete','off')});
+const growAll=()=>{acAll();document.querySelectorAll("textarea.grow").forEach(grow)};
+try{const oR=render;render=function(){const r=oR.apply(this,arguments);try{growAll();wireAll();ringSoon()}catch(e){}return r}}catch(e){}
+addEventListener("resize",()=>growAll());
+
+/* arranque */
+acUI();gam();wireAll();growAll();
+const ob=new MutationObserver(()=>{if($("tp-cfg")&&!$("acG"))acUI()});ob.observe(document.body,{childList:true});
+document.addEventListener("rcp-unlock",()=>ring());
+(async()=>{const a=A(),L=legacy();
+ if(!a&&!L.ap&&!L.hk){const raw=rnd(32);setA({mode:"none",to:1,raw:b64(raw)});try{await unlockRaw(raw)}catch(e){console.error(e);document.documentElement.classList.remove("locked")}}
+ else show()})();
 })();
 </script>
 </body></html>
