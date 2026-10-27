@@ -426,6 +426,47 @@ html.nogam #rcpRing,html.nogam .rsC{display:none!important}
 #ocs details.oc>summary.swR>.swc>*{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #ocs details.oc .swA{background:linear-gradient(90deg,#0a84ff 50%,#ff3b30 50%)}
 #ocs .swA button{width:50%;background:transparent!important}
+/* v13 */
+.ocA{display:flex;gap:10px;margin:4px 0 16px}
+.ocT{flex:1;min-height:58px;border:0;border-radius:16px;background:var(--fg2);color:var(--bg);font:inherit;font-size:18px;font-weight:700;letter-spacing:.2px}
+.ocT[hidden]{display:none}
+.ocD{flex:1;display:flex;align-items:center;min-height:58px;padding:0 16px;border-radius:16px;background:var(--s2);color:var(--mu);font-size:15px}
+.ocD[hidden]{display:none}
+.ocM{flex:0 0 58px;min-height:58px;border:0;border-radius:16px;background:var(--s2);color:var(--fg2);display:grid;place-items:center}
+.ocM svg{width:24px;height:24px}
+label.chHid{position:absolute!important;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;margin:0;padding:0}
+.qp{display:none!important}
+.chB{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;margin:6px 0 10px;padding:0 16px;border:0;border-radius:16px;background:var(--s2);color:var(--fg);font:inherit;text-align:left}
+.chB .chK{flex:0 0 84px;font-size:13px;color:var(--mu)}
+.chB .chV{flex:1;font-size:17px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chB .chV.ph{font-weight:400;color:var(--mu)}
+.chB .chA{color:var(--mu);font-size:20px}
+.chS{width:100%;min-height:48px;margin:0 0 14px;border-radius:12px}
+.chG{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-bottom:8px}
+.chC{min-height:84px;padding:12px 14px;border:1px solid transparent;border-radius:18px;background:var(--s2);color:var(--fg);font:inherit;font-size:16px;font-weight:600;text-align:left;display:flex;flex-direction:column;justify-content:space-between;gap:6px;word-break:break-word}
+.chC small{font-size:12px;font-weight:400;color:var(--mu)}
+.chC.on{border-color:var(--fg2)}
+.chC.chN{border:1px dashed var(--ln2);background:none}
+.chC.chX{background:none;border:1px solid var(--ln2);color:#ff453a}
+.chE{grid-column:1/-1;color:var(--mu);font-size:14px;padding:8px 2px}
+.chC:active,.ocT:active,.ocM:active,.chB:active{transform:scale(.97);transition:transform .08s}
+.hint{animation:hint13 1.6s ease 1}
+@keyframes hint13{0%,100%{box-shadow:0 0 0 0 transparent}35%{box-shadow:0 0 0 5px color-mix(in srgb,var(--fg2) 40%,transparent)}}
+.lkB.bio.pulse{animation:hint13 1.6s ease infinite}
+.dcQ{font-size:17px;line-height:1.4;color:var(--fg2);margin:0 0 14px;padding:12px 14px;border-left:3px solid var(--ln2)}
+.dcF label{display:block;margin:0 0 12px;font-size:13px;color:var(--mu)}
+.dcF input,.dcF textarea{width:100%;margin-top:4px}
+.dcF .dcS{font-size:13px;color:var(--mu);margin:-6px 0 12px}
+.dcU{font-size:14px;color:var(--mu);margin:0 0 14px}
+.dcU b{color:var(--fg)}
+.dcL{display:flex;align-items:center;justify-content:center;height:120px}
+.dcL span{width:72px;height:72px;border-radius:50%;background:var(--fg2);animation:mic13 1.2s ease-in-out infinite}
+@keyframes mic13{0%,100%{transform:scale(.85);opacity:.9}50%{transform:scale(1);opacity:.5}}
+.dcI{min-height:48px;text-align:center;color:var(--fg2);font-size:17px}
+#avB .p{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.hint,.lkB.bio.pulse,.dcL span{animation:none}}
+#ocs details.oc{scroll-margin-top:118px}
+#undoT{min-width:min(340px,calc(100vw - 32px));justify-content:space-between}#undoT>span{flex:1}
 </style></head><body>
 <button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 <div id="nav"><span>Cooperativa</span></div>
@@ -555,7 +596,7 @@ function ocRow(o={},open=false){const d=document.createElement("details");d.clas
  d.querySelectorAll("[data-k]").forEach(i=>{if(o[i.dataset.k]!==undefined){i.type=="checkbox"?i.checked=o[i.dataset.k]:i.value=o[i.dataset.k]}});
  const eco=d.querySelector("[data-k=eco]");eco.addEventListener("blur",()=>{const n=eco.value.replace(/\D/g,"");if(n)eco.value="ECO-"+n;upd()});
  d.querySelectorAll("[data-k=ini],[data-k=fim]").forEach(i=>i.addEventListener("blur",()=>{i.value=fmtHora(i.value);upd()}));
- d.querySelector(".x").onclick=()=>{if(confirm("Remover esta ocorrência?")){d.remove();upd()}};
+ d.querySelector(".x").onclick=()=>{if(window.rcpDelOc)rcpDelOc(d);else{d.remove();upd()}};
  $("ocs").appendChild(d);if(window.acSetup)acSetup(d);}
 function escH(t){return String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function ocTxt(o){return[o.mor,o.tipo,o.res].map(s=>(s||"").trim()).filter(Boolean).join(" - ")}
@@ -614,8 +655,8 @@ $("cAdd").onclick=()=>{const c={nome:$("cNome").value.trim(),posto:$("cPosto").v
 $("vAdd").onclick=()=>{const v={mat:$("vMat").value.trim().toUpperCase(),mm:$("vMM").value.trim(),int:$("vInt").value.trim()};if(!v.mat)return;
  editV>=0?E.viaturas[editV]=v:E.viaturas.push(v);editV=-1;["vMat","vMM","vInt"].forEach(k=>$(k).value="");eqSave()};
 document.addEventListener("click",e=>{const d=e.target.dataset;if(!d)return;
- if(d.cr!==undefined&&confirm("Remover colega?")){E.colegas.splice(+d.cr,1);eqSave()}
- if(d.vr!==undefined&&confirm("Remover viatura?")){E.viaturas.splice(+d.vr,1);eqSave()}
+ if(d.cr!==undefined){const ix=+d.cr,it=E.colegas.splice(ix,1)[0];eqSave();window.rcpUndo&&rcpUndo("Colega removido",()=>{E.colegas.splice(Math.min(ix,E.colegas.length),0,it);eqSave()},()=>{})}
+ if(d.vr!==undefined){const ix=+d.vr,it=E.viaturas.splice(ix,1)[0];eqSave();window.rcpUndo&&rcpUndo("Viatura removida",()=>{E.viaturas.splice(Math.min(ix,E.viaturas.length),0,it);eqSave()},()=>{})}
  if(d.ce!==undefined){const c=E.colegas[editC=+d.ce];$("cNome").value=c.nome;$("cPosto").value=c.posto;$("cNum").value=c.num;$("cSig").value=c.sigla;eqRender()}
  if(d.ve!==undefined){const v=E.viaturas[editV=+d.ve];$("vMat").value=v.mat;$("vMM").value=v.mm;$("vInt").value=v.int;eqRender()}});
 $("exp").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(Object.keys(CFG).length?{...E,config:CFG}:E,null,2)],{type:"application/json"}));a.download="equipa_viaturas.json";document.body.appendChild(a);a.click();a.remove()};
@@ -784,7 +825,7 @@ document.querySelectorAll("#ocs .oc").forEach(acSetup);
 (function(){const sel=$("thSel");if(!sel)return;for(const k in RCP_THEMES){const o=document.createElement("option");o.value=k;o.textContent=RCP_THEMES[k].n;sel.appendChild(o)}
  sel.value=localStorage.getItem("rcp_theme")||"vantablack";if(!sel.value)sel.value="vantablack";sel.onchange=()=>{localStorage.setItem("rcp_theme",sel.value);rcpTheme(sel.value)}})();
 /* ---- atalhos PWA (?a=) ---- */
-const a=new URLSearchParams(location.search).get("a");
+const a=null;window.__rcpA=new URLSearchParams(location.search).get("a");if(window.__rcpA)history.replaceState(null,"",location.pathname);
 if(a){history.replaceState(null,"",location.pathname);setTimeout(()=>{
  if(a==="ocorrencia"){$("addOc").click();const i=document.querySelector("#ocs .oc:last-child [data-k=ini]");if(i)i.focus()}
  else if(a==="pdf")$("gerar").click();
@@ -831,7 +872,7 @@ function remember(){const c=cur();if(!c.nomeA&&!c.matA)return;const a=get();if(a
 function apply(o,force){const a=get();if(!a)return o;if(force||(!(o.f.nomeA||"").trim()&&!(o.f.matA||"").trim()))AF.forEach(k=>{o.f[k]=a[k]||""});return o}
 const oB=blank;blank=function(){return apply(oB.apply(this,arguments),true)};
 const oS=save;save=function(){const r=oS.apply(this,arguments);try{remember()}catch(e){}return r};
-$("afF").onclick=()=>{if(confirm("Esquecer o arvorado fixo?")){localStorage.removeItem(AK);lbl()}};
+$("afF").onclick=()=>{const old=localStorage.getItem(AK);localStorage.removeItem(AK);lbl();window.rcpUndo&&rcpUndo("Arvorado esquecido",()=>{if(old!=null)localStorage.setItem(AK,old);lbl()},()=>{})};
 // rascunho antigo sem arvorado: preencher
 try{const c=cur();if(get()&&!c.nomeA&&!c.matA){apply(S);render();if(window.cbAll)cbAll();oS()}}catch(e){}
 lbl();
@@ -889,7 +930,7 @@ async function shrink(file){const u=URL.createObjectURL(file);try{const img=awai
 async function fAdd(a,file){if(!KEYC)throw Error("bloqueado");const bl=await shrink(file),iv=crypto.getRandomValues(new Uint8Array(12));const ct=await crypto.subtle.encrypt({name:"AES-GCM",iv},KEYC,await bl.arrayBuffer());const id=a+"_"+newId();await fPut({id,iv:b64(iv),ct});return id}
 function fUrl(id){if(!URLS[id])URLS[id]=(async()=>{const r=await fGet(id);if(!r||!KEYC)throw Error("sem foto");const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(r.iv)},KEYC,r.ct);return URL.createObjectURL(new Blob([pt],{type:"image/jpeg"}))})();return URLS[id]}
 function fView(id,onDel){const o=document.createElement("div");o.id="ftV";o.innerHTML='<img alt="Foto"><div class="ftA"><button type="button" class="fd">Apagar foto</button><button type="button" class="fx">Fechar</button></div>';document.body.appendChild(o);
- fUrl(id).then(u=>o.querySelector("img").src=u).catch(()=>{});o.querySelector(".fx").onclick=()=>o.remove();o.querySelector(".fd").onclick=()=>{if(confirm("Apagar esta foto?")){o.remove();onDel()}}}
+ fUrl(id).then(u=>o.querySelector("img").src=u).catch(()=>{});o.querySelector(".fx").onclick=()=>o.remove();o.querySelector(".fd").onclick=()=>{o.hidden=true;if(window.rcpUndo)rcpUndo("Foto apagada",()=>{o.hidden=false},()=>{o.remove();onDel()});else{o.remove();onDel()}}}
 function fotoWire(el,v,a){const th=el.querySelector(".thb"),inp=el.querySelector(".ftI");if(!th)return;v.fotos=v.fotos||[];
  const cnt=()=>{let c=el.querySelector("summary .fc");const n=v.fotos.length;if(!n){if(c)c.remove();return}if(!c){c=document.createElement("i");c.className="fc";el.querySelector("summary").appendChild(c)}c.textContent=" · 📷 "+n};
  const draw=()=>{th.innerHTML="";v.fotos.forEach(id=>{const b=document.createElement("button");b.type="button";b.className="th";b.setAttribute("aria-label","Ver foto");const im=document.createElement("img");im.alt="";b.appendChild(im);th.appendChild(b);
@@ -931,7 +972,7 @@ function edit(x){const a=x.dataset.aid,d=cur(a),b=x.querySelector(".apb");const 
  <div class="acts"><button type="button" class="cpy">Copiar para o Coordenador</button><button type="button" class="done">Expediente feito — apagar estes dados</button></div>`;
  b.querySelectorAll("details.iv").forEach((el,i)=>{const v=d.iv[i];delete v._o;el.querySelectorAll("[data-f]").forEach(f=>{f.value=v[f.dataset.f]||"";f.addEventListener("input",()=>{v[f.dataset.f]=f.value;if(f.dataset.f==="nome")el.querySelector("summary i").textContent=f.value||"(sem nome)";mark(a);summ(x)});f.addEventListener("change",()=>{v[f.dataset.f]=f.value;mark(a)})});
   el.querySelectorAll(".pills button").forEach(p=>p.onclick=()=>{v.papel=v.papel===p.dataset.p?"":p.dataset.p;el.querySelectorAll(".pills button").forEach(q=>q.classList.toggle("on",q.dataset.p===v.papel));el.querySelector("summary b").textContent=v.papel||"Interveniente";mark(a)});
-  el.querySelector(".rmIv").onclick=()=>{if(confirm("Remover este interveniente?")){(d.iv[i].fotos||[]).forEach(id=>fDel(id).catch(()=>{}));d.iv.splice(i,1);mark(a);edit(x);summ(x)}}});
+  el.querySelector(".rmIv").onclick=()=>{const it=d.iv[i];el.hidden=true;const go=()=>{const j=d.iv.indexOf(it);if(j<0)return;(it.fotos||[]).forEach(id=>fDel(id).catch(()=>{}));d.iv.splice(j,1);mark(a);edit(x);summ(x)};if(window.rcpUndo)rcpUndo("Interveniente removido",()=>{el.hidden=false},go);else go()}});
  b.querySelectorAll("details.iv").forEach((el,i)=>fotoWire(el,d.iv[i],a));
  b.querySelector(".addIv").onclick=()=>{d.iv.forEach(v=>delete v._o);d.iv.push({papel:"",_o:1});mark(a);edit(x);summ(x)};
  const ta=b.querySelector(".rel");ta.value=d.rel||"";ta.oninput=()=>{d.rel=ta.value;mark(a);summ(x)};
@@ -1204,7 +1245,7 @@ async function showHist(){await hPurge().catch(()=>{});const all=await hAll().ca
   `<p>O histórico está desligado. Ao ativar, cada PDF gerado fica guardado cifrado neste telemóvel (os últimos ${MAXH}, durante ${DAYS} dias). Abre com o acesso da app.</p><div class="sbtn"><button type="button" class="pri act">Ativar histórico</button></div>`);
  const a=b.querySelector(".act");if(a)a.onclick=async()=>{if(await hSetup()){if(LAST)await hAdd(LAST.bytes,LAST.name);showHist()}};
  b.onclick=async e=>{const t=e.target.closest("button");if(!t)return;const d=t.dataset;
-  try{if(d.d){if(confirm("Apagar este PDF do histórico?")){await htx("readwrite",s=>s.delete(d.d));showHist()}}
+  try{if(d.d){const rs=b.querySelectorAll(`[data-id="${d.d}"],[data-a="${d.d}"]`);rs.forEach(r=>r.hidden=true);const go=()=>htx("readwrite",s=>s.delete(d.d)).catch(()=>{});if(window.rcpUndo)rcpUndo("PDF apagado do histórico",()=>rs.forEach(r=>r.hidden=false),go);else{await go();showHist()}}
    else if(d.o||d.s){const r=await hGet(d.o||d.s);if(!r){showHist();return}if(d.o)viewPdf(r.bytes);else{const m=await share(r.bytes,r.name);if(m!=="cancelado")toast("PDF "+m)}showHist()}}catch(x){toast("Erro: "+x.message)}}}
 window.rcpHist={show:showHist,add:hAdd,all:hAll,purge:hPurge,forget:()=>{PRIV=null},priv:()=>unlockPriv(),wipe:async()=>{PRIV=null;localStorage.removeItem(HK);try{await htx("readwrite",s=>s.clear())}catch(e){}}};
 hPurge().catch(()=>{});
@@ -1226,7 +1267,7 @@ function turnEnd(){const d=S&&S.f&&S.f.data,h=S&&S.f&&S.f.hor;if(!d||!h)return n
 const av=document.createElement("div");av.id="avB";av.hidden=true;av.setAttribute("role","alert");av.innerHTML='<span></span><button type="button" class="p">Gerar PDF</button><button type="button" class="x2" aria-label="Fechar">✕</button>';document.body.appendChild(av);
 av.querySelector(".p").onclick=()=>{av.hidden=true;$("gerar").click()};av.querySelector(".x2").onclick=()=>av.hidden=true;
 async function notify(txt){try{if(!("Notification"in window)||Notification.permission!=="granted")return;const r=navigator.serviceWorker&&await navigator.serviceWorker.getRegistration();
- const o={body:txt,icon:"icon-192.png",badge:"icon-192.png",tag:"rcp-fim-turno",vibrate:[200,100,200],renotify:true};if(r&&r.showNotification)await r.showNotification("Cooperativa",o);else new Notification("Cooperativa",o)}catch(e){}}
+ const o={body:txt,icon:"icon-192.png",badge:"icon-192.png",tag:"rcp-fim-turno",vibrate:[200,100,200],renotify:true,data:{a:"fim"},actions:[{action:"fim",title:"Gerar e partilhar"}]};if(r&&r.showNotification)await r.showNotification("Cooperativa",o);else new Notification("Cooperativa",o)}catch(e){}}
 function tick(){try{night();if(!P().aviso)return;const end=turnEnd();if(!end)return;const now=Date.now(),ms=end-now,key=S.f.data+"|"+S.f.hor;
  if(ms>0&&ms<=15*60e3&&localStorage.getItem(AVK)!==key){localStorage.setItem(AVK,key);const m=Math.max(1,Math.round(ms/60e3));const txt=`Faltam ${m} min para o fim do turno. Fecha o relatório.`;
   av.querySelector("span").textContent=txt;av.hidden=false;vib([200,100,200]);notify(txt)}}catch(e){}}
@@ -1251,8 +1292,8 @@ async function bkExport(){const pw=await askPin("Cópia de segurança","Escolhe 
 async function bkImport(f){let j;try{j=JSON.parse(await f.text());if(j.tipo!=="copia-cifrada")throw 0}catch(e){toast("Ficheiro não é uma cópia da Cooperativa.");return}
  const pw=await askPin("Importar cópia","Introduz a palavra-passe da cópia.",{text:true,min:1,btn:"Importar"});if(!pw)return;
  let o;try{const k=await pbk(pw,ub(j.salt));o=JSON.parse(td.decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(j.iv)},k,ub(j.ct))))}catch(e){toast("Palavra-passe errada ou ficheiro danificado.");return}
- const ks=Object.keys(o.data||{}).filter(k=>BK.includes(k));if(!confirm(`Substituir listas e definições por esta cópia (${new Date(o.t).toLocaleDateString("pt-PT")})? O rascunho e o Apoio não são tocados.`))return;
- ks.forEach(k=>localStorage.setItem(k,o.data[k]));toast("Cópia importada. A recarregar…");setTimeout(()=>location.reload(),900)}
+ const ks=Object.keys(o.data||{}).filter(k=>BK.includes(k));const bak={};BK.forEach(k=>bak[k]=localStorage.getItem(k));ks.forEach(k=>localStorage.setItem(k,o.data[k]));
+ const re=()=>setTimeout(()=>location.reload(),150);if(window.rcpUndo)rcpUndo(`Cópia de ${new Date(o.t).toLocaleDateString("pt-PT")} importada`,()=>{BK.forEach(k=>{bak[k]==null?localStorage.removeItem(k):localStorage.setItem(k,bak[k])});toast("Importação anulada")},re);else re()}
 window.rcpBackup={exp:bkExport,imp:bkImport,keys:BK};
 
 /* ---- Definições: novas secções ---- */
@@ -1284,7 +1325,7 @@ repUI();night();tick();
 })();
 </script>
 <script>(function(){"use strict";
-const APPV="v12";
+const APPV="v13";
 const $=id=>document.getElementById(id),te=new TextEncoder();
 const E_=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const LSg=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},LSs=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
@@ -1352,11 +1393,19 @@ function show(){const a=A();try{BS()&&BS().close(true)}catch(e){}try{$("sheet")&
  if(a.mode==="bio"){const fb=a.fb.kind;lkT.textContent="Desbloqueia com impressão digital ou Face ID.";
   lkF.innerHTML=`<button type="button" class="lkB bio">Usar impressão digital / Face ID</button><button type="button" class="lnk alt">Usar ${fb==="pin"?"PIN":"palavra-passe"}</button>`;
   lkF.querySelector(".bio").onclick=bioUnlock;lkF.querySelector(".alt").onclick=()=>{lkT.textContent=fb==="pin"?"Introduz o PIN de recurso.":"Introduz a palavra-passe de recurso.";secForm(fb,fb==="pin"?"PIN":"Palavra-passe",async v=>unlockRaw(await secOpen(a.fb,v)))};
-  if(!show._auto&&document.visibilityState==="visible"){show._auto=1}}}
-async function bioUnlock(){const a=A();lkE.textContent="";try{let raw;
+  if(!show._auto){show._auto=1;autoBio()}}}/* só ao abrir; ao regressar trata o visibilitychange; «Bloquear agora» não reabre */
+let bioBusy=false,bioGesture=false;
+function autoBio(){const a=A();if(!a||a.mode!=="bio"||bioGesture||bioBusy)return;
+ if(document.visibilityState!=="visible")return;/* tenta quando a app ficar visível */
+ setTimeout(()=>{if(document.documentElement.classList.contains("locked")&&!bioBusy)bioUnlock(true)},60)}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&document.documentElement.classList.contains("locked"))autoBio()});
+async function bioUnlock(auto){auto=auto===true;if(bioBusy)return;bioBusy=true;const a=A(),t0=performance.now();lkE.textContent="";try{let raw;
   if(a.prf){const out=await bioGet(a.cred,ub(a.prfSalt));if(!out)throw bad("Este telemóvel não devolveu a chave biométrica. Usa o recurso.");raw=await unwrapK(await prfKey(out),a.wp)}
   else{await bioGet(a.cred,null);const k=await devKey(false);if(!k)throw bad("Chave do dispositivo em falta. Usa o recurso.");raw=await unwrapK(k,a.wd)}
-  await unlockRaw(raw)}catch(e){err(e.userMsg||(e.name==="NotAllowedError"?"Cancelado ou não reconhecido.":"Falhou: "+(e.message||e)))}}
+  await unlockRaw(raw)}catch(e){const dt=performance.now()-t0,ua=navigator.userActivation;
+  /* sem gesto: o browser recusa logo (NotAllowedError/SecurityError em < 400 ms, sem diálogo) */
+  if(auto&&(e.name==="NotAllowedError"||e.name==="SecurityError")&&dt<400&&!(ua&&ua.isActive)){bioGesture=true;window.__bioGesture=true;lkT.textContent="Toca no botão para usar a impressão digital / Face ID.";const b=lkF.querySelector(".bio");if(b)b.classList.add("pulse")}
+  else err(e.userMsg||(e.name==="NotAllowedError"?"Cancelado ou não reconhecido.":"Falhou: "+(e.message||e)))}finally{bioBusy=false}}
 async function unlockRaw(raw){const k=await aes(raw);
  try{if(window.__apoio&&window.__apoio.useKey){const ok=await window.__apoio.useKey(k);if(ok===false)throw bad("Chave não corresponde aos dados guardados.")}}catch(e){throw e.userMsg?e:bad("Não foi possível abrir os dados.")}
  DK=k;DKraw=raw;document.documentElement.classList.remove("locked");lkF.innerHTML="";lkE.textContent="";vib(10);
@@ -1365,11 +1414,11 @@ async function migrate(pin){const L=legacy();const raw=rnd(32),nk=await aes(raw)
  let apOk=true;if(L.ap){apOk=await window.__apoio.migrate(pin,nk);if(!apOk)throw bad("PIN errado")}
  let hkOk=true;if(L.hk){hkOk=false;try{const k=await pbk(pin,ub(L.h.salt));const pk=await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(L.h.iv)},k,ub(L.h.ct));const w=await wrapK(nk,new Uint8Array(pk));LSs("rcp_hist_k_v1",{v:2,pub:L.h.pub,iv:w.iv,ct:w.ct});hkOk=true}catch(e){}
   if(!hkOk&&!L.ap)throw bad("PIN errado")}
- setA({mode:/^\d{4,6}$/.test(pin)?"pin":"pass",to:1,w:await secWrap(/^\d{4,6}$/.test(pin)?"pin":"pass",pin,raw)});
+ setA({mode:/^\d{4,6}$/.test(pin)?"pin":"pass",to:15,w:await secWrap(/^\d{4,6}$/.test(pin)?"pin":"pass",pin,raw)});
  await unlockRaw(raw);toast(hkOk?"Dados migrados. O mesmo PIN abre agora a app.":"Dados migrados. O histórico de PDFs continua com o PIN antigo.")}
 async function forgot(){const L=legacy();if(!confirm("Apagar os dados cifrados (intervenientes, relatos, fotografias e histórico de PDFs)?\n\nO relatório em curso, as listas e as definições ficam. Não é possível desfazer."))return;
  try{window.__apoio&&window.__apoio.wipeAll&&await window.__apoio.wipeAll()}catch(e){}try{window.rcpHist&&window.rcpHist.wipe&&await window.rcpHist.wipe()}catch(e){}
- localStorage.removeItem("rcp_hist_k_v1");await devDel();const raw=rnd(32);setA({mode:"none",to:(A()||{}).to||1,raw:b64(raw)});await unlockRaw(raw);
+ localStorage.removeItem("rcp_hist_k_v1");await devDel();const raw=rnd(32);setA({mode:"none",to:(A()||{}).to??15,raw:b64(raw)});await unlockRaw(raw);
  toast("Dados cifrados apagados. Escolhe um novo método de acesso.");setTimeout(()=>{try{$("cfgB").click();const t=document.querySelector('#sheet [data-t="cfg"]');t&&t.click();setTimeout(()=>{const g=$("acG");g&&g.scrollIntoView({block:"start"})},150)}catch(e){}},300)}
 LO.querySelector(".fg").onclick=forgot;
 function lockNow(){const a=A();if(!a||a.mode==="none"){toast("Escolhe primeiro um método de acesso");return false}
@@ -1378,7 +1427,7 @@ function need(){if(DK)return Promise.resolve(DK);show();return new Promise(r=>wa
 document.addEventListener("visibilitychange",()=>{const a=A();if(!a||a.mode==="none")return;
  if(document.visibilityState==="hidden"){hiddenAt=Date.now();if(+a.to===0&&DK)lockNow()}
  else if(DK&&hiddenAt&&Date.now()-hiddenAt>=(+a.to||0)*60000)lockNow()});
-async function setMode(mode,o){o=o||{};if(!DKraw)throw new Error("App bloqueada");const cur=A()||{},to=cur.to==null?1:cur.to;let a;
+async function setMode(mode,o){o=o||{};if(!DKraw)throw new Error("App bloqueada");const cur=A()||{},to=cur.to==null?15:cur.to;let a;
  if(mode==="none")a={mode,to,raw:b64(DKraw)};
  else if(mode==="pin"||mode==="pass")a={mode,to,w:await secWrap(mode,o.sec,DKraw)};
  else if(mode==="bio"){const salt=rnd(32);const c=await bioCreate(salt);a={mode,to,cred:c.id,fb:await secWrap(o.kind,o.sec,DKraw)};
@@ -1386,7 +1435,7 @@ async function setMode(mode,o){o=o||{};if(!DKraw)throw new Error("App bloqueada"
   if(out){a.prf=true;a.prfSalt=b64(salt);Object.assign(a,{wp:await wrapK(await prfKey(out),DKraw)})}
   else{a.prf=false;a.wd=await wrapK(await devKey(true),DKraw)}}
  if(mode!=="bio")await devDel();setA(a);return a}
-window.rcpLock={show,lockNow,need,setMode,get mode(){return(A()||{}).mode||"none"},get unlocked(){return!!DK},bioAvail,_A:A};
+window.rcpLock={show,lockNow,need,setMode,autoBio,get bioGesture(){return bioGesture},get mode(){return(A()||{}).mode||"none"},get unlocked(){return!!DK},bioAvail,_A:A};
 
 /* ---- definições: Acesso ---- */
 const MODES=[["none","Sem bloqueio","Qualquer pessoa com o telemóvel abre a app"],["pin","PIN","4 a 6 dígitos"],["pass","Palavra-passe","6 ou mais caracteres"],["bio","Impressão digital / Face ID","Com PIN ou palavra-passe de recurso"]];
@@ -1405,7 +1454,7 @@ async function chooseMode(m){if(m===(A()||{}).mode)return;await need();
   vib([12,60,12]);toast("Acesso: "+MODES.find(x=>x[0]===m)[1]);paintAc()}catch(e){console.error(e);toast(e.name==="NotAllowedError"?"Biometria cancelada. Nada mudou.":"Não foi possível: "+(e.message||e))}}
 async function paintAc(){const g=$("acG");if(!g)return;const a=A()||{mode:"none",to:1},bio=await bioAvail();
  g.querySelector(".acM").innerHTML=MODES.map(([k,t,s])=>`<button type="button" data-m="${k}" class="${a.mode===k?"on":""}" ${k==="bio"&&!bio?"disabled":""}><span>${t}<small>${k==="bio"&&!bio?"Indisponível neste telemóvel/browser":s}</small></span><span class="ck">✓</span></button>`).join("");
- g.querySelector(".acW").hidden=a.mode!=="none";$("acTo").value=String(a.to==null?1:a.to);$("acTo").disabled=a.mode==="none";$("acNow").disabled=a.mode==="none"}
+ g.querySelector(".acW").hidden=a.mode!=="none";$("acTo").value=String(a.to==null?15:a.to);$("acTo").disabled=a.mode==="none";$("acNow").disabled=a.mode==="none"}
 function acUI(){const cfg=$("tp-cfg");if(!cfg||$("acG"))return;
  cfg.insertAdjacentHTML("afterbegin",`<div id="acG"><span class="sub">Acesso à app</span><div class="acM" role="radiogroup"></div>
 <div class="acW">Sem bloqueio: a chave que cifra o Apoio, as fotografias e o histórico fica guardada sem proteção neste telemóvel.</div>
@@ -1414,7 +1463,7 @@ function acUI(){const cfg=$("tp-cfg");if(!cfg||$("acG"))return;
 <span class="sub">Gamificação</span><div class="grp"><label class="row sw" style="flex-direction:row">Anel de progresso e resumo do turno<input type="checkbox" id="gamSw"></label></div>
 <span class="sub">Ajuda a melhorar</span><div class="grp"><button type="button" class="row" id="sgB" style="flex-direction:row">Sugerir melhoria<span style="margin-left:auto;color:#8a8a8a">›</span></button></div></div>`);
  $("acG").querySelector(".acM").onclick=e=>{const b=e.target.closest("[data-m]");if(b&&!b.disabled)chooseMode(b.dataset.m)};
- $("acTo").onchange=e=>{const a=A();if(a){a.to=+e.target.value;setA(a)}};$("acNow").onclick=()=>lockNow();
+ $("acTo").onchange=e=>{const a=A();if(a){a.to=+e.target.value;a.toSet=1;setA(a)}};$("acNow").onclick=()=>lockNow();
  $("gamSw").checked=PR().gam;$("gamSw").onchange=e=>{setPR("gam",e.target.checked);gam()};$("sgB").onclick=suggest;paintAc()}
 
 /* ================= ANEL DE PROGRESSO ================= */
@@ -1510,7 +1559,7 @@ function suggest(){const b=BS().open("Sugerir melhoria",`<p>Diz o que mudarias n
   try{await navigator.clipboard.writeText(SUBJ+"\n\n"+t);toast("Sugestão copiada")}catch(e){toast("Não foi possível copiar")}};
  b.querySelector(".cp").onclick=async()=>{const t=txt();if(!t){b.querySelector(".sgE").textContent="Escreve o que queres mudar.";return}try{await navigator.clipboard.writeText(SUBJ+"\n\n"+t);toast("Sugestão copiada")}catch(e){toast("Não foi possível copiar")}}}
 function CFGs(){try{const e=String((typeof CFG!=="undefined"&&CFG&&CFG.sugestoesEmail)||"").trim();return/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)?e:""}catch(e){return""}}
-window.rcpSuggest=suggest;
+window.rcpSuggest=suggest;window.rcpUndo=undoT;window.rcpDelOc=delOc;window.rcpRingNow=()=>ring();
 
 /* ================= CAMPOS ================= */
 function grow(t){t.style.height="auto";t.style.height=Math.max(44,t.scrollHeight+2)+"px"}
@@ -1528,8 +1577,171 @@ acUI();gam();wireAll();growAll();
 const ob=new MutationObserver(()=>{if($("tp-cfg")&&!$("acG"))acUI()});ob.observe(document.body,{childList:true});
 document.addEventListener("rcp-unlock",()=>ring());
 (async()=>{const a=A(),L=legacy();
- if(!a&&!L.ap&&!L.hk){const raw=rnd(32);setA({mode:"none",to:1,raw:b64(raw)});try{await unlockRaw(raw)}catch(e){console.error(e);document.documentElement.classList.remove("locked")}}
+ if(a&&!a.toSet){a.to=15;a.toSet=1;setA(a)}/* v13: novo padrão 15 min (uma vez) */
+ if(!a&&!L.ap&&!L.hk){const raw=rnd(32);setA({mode:"none",to:15,toSet:1,raw:b64(raw)});try{await unlockRaw(raw)}catch(e){console.error(e);document.documentElement.classList.remove("locked")}}
  else show()})();
+})();
+</script>
+<script>(function(){"use strict";
+/* ===== v13: menos toques ===== */
+const $=id=>document.getElementById(id);
+const vib=x=>{try{window.rcpVib&&rcpVib(x)}catch(e){}};
+const BS=()=>window.rcpBS;
+const E_=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(t){const e=document.getElementById("apToast")||Object.assign(document.createElement("div"),{id:"apToast"});if(!e.parentNode)document.body.appendChild(e);e.textContent=t;e.hidden=false;clearTimeout(e._t);e._t=setTimeout(()=>e.hidden=true,2600)}
+const fire=i=>{i.dispatchEvent(new Event("input",{bubbles:true}));i.dispatchEvent(new Event("change",{bubbles:true}))};
+const pad=n=>String(n).padStart(2,"0");
+const nowH=()=>{const d=new Date();return fmtHora(pad(d.getHours())+pad(d.getMinutes()))};
+const ocs=()=>[...document.querySelectorAll("#ocs details.oc")];
+const persist=()=>{try{upd();save()}catch(e){}};
+const N=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim();
+
+/* ---------- catálogo de tipos/resultados (sem inventar: histórico + config + rascunho) ---------- */
+function catalog(k){const m={},add=(v,n)=>{v=String(v||"").trim();if(!v)return;const key=N(v);if(!m[key])m[key]={v,n:0};m[key].n+=n};
+ let q={};try{q=JSON.parse(localStorage.getItem("rcp_rapidos_v1"))||{}}catch(e){}
+ const h=q[k]||{};for(const v in h)add(v,+h[v]||0);
+ const c=(typeof CFG!=="undefined"&&CFG)?CFG[k==="tipo"?"tipos":"resultados"]:null;if(Array.isArray(c))c.forEach(v=>add(v,0));
+ ocs().forEach(d=>{const i=d.querySelector(`[data-k=${k}]`);if(i)add(i.value,0)});
+ return Object.values(m).sort((a,b)=>b.n-a.n||a.v.localeCompare(b.v,"pt"))}
+
+/* ---------- 6. cartões de escolha ---------- */
+function pick(k,inp,after){const cat=catalog(k);const ttl=k==="tipo"?"Tipo de ocorrência":"Resultado";
+ const b=BS().open(ttl,`<input type="search" class="chS" placeholder="Procurar ou escrever outro…" autocomplete="off" enterkeyhint="done" aria-label="Procurar"><div class="chG" role="listbox"></div>`);
+ const S_=b.querySelector(".chS"),G=b.querySelector(".chG");
+ const set=v=>{inp.value=v;fire(inp);persist();vib(10);BS().close(true);after&&after()};
+ const draw=()=>{const raw=S_.value.trim(),q=N(raw);const L=cat.filter(c=>!q||N(c.v).includes(q));let h=L.map(c=>`<button type="button" class="chC${c.v===inp.value.trim()?" on":""}" data-v="${E_(c.v)}" role="option"><span>${E_(c.v)}</span>${c.n?`<small>${c.n}×</small>`:"<small>&nbsp;</small>"}</button>`).join("");
+  if(raw&&!cat.some(c=>N(c.v)===q))h+=`<button type="button" class="chC chN" data-v="${E_(raw)}"><span>Usar «${E_(raw)}»</span><small>novo</small></button>`;
+  if(!L.length&&!raw)h+=`<div class="chE">Ainda não há ${k==="tipo"?"tipos":"resultados"} guardados. Escreve acima; os que usares passam a aparecer aqui, os mais usados primeiro.</div>`;
+  if(inp.value.trim()&&!raw)h+=`<button type="button" class="chC chX" data-x="1"><span>Limpar</span><small>${E_(inp.value.trim())}</small></button>`;
+  G.innerHTML=h};
+ G.onclick=e=>{const t=e.target.closest("button");if(!t)return;set(t.dataset.x?"":t.dataset.v)};
+ S_.oninput=draw;S_.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();const f=G.querySelector("button:not(.chX)");if(f)f.click()}};
+ draw();if(!cat.length)setTimeout(()=>S_.focus(),60)}
+function chWire(d){["tipo","res"].forEach(k=>{const inp=d.querySelector(`[data-k=${k}]`);if(!inp||inp._ch)return;inp._ch=1;const lab=inp.closest("label");lab.classList.add("chHid");inp.tabIndex=-1;
+ const b=document.createElement("button");b.type="button";b.className="chB";b.dataset.for=k;b.innerHTML=`<span class="chK">${k==="tipo"?"Tipo":"Resultado"}</span><span class="chV"></span><span class="chA" aria-hidden="true">›</span>`;lab.before(b);
+ const show=()=>{const v=inp.value.trim(),s=b.querySelector(".chV");s.textContent=v||(k==="tipo"?"Escolher tipo":"Escolher resultado");s.classList.toggle("ph",!v);b.setAttribute("aria-label",(k==="tipo"?"Tipo: ":"Resultado: ")+(v||"por escolher"))};
+ b.onclick=()=>pick(k,inp,show);inp.addEventListener("input",show);inp.addEventListener("focus",()=>{inp.blur();pick(k,inp,show)});show()})}
+
+/* ---------- 4/5. barra de ações da ocorrência: Terminar + microfone ---------- */
+const MIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+function actWire(d){if(d.querySelector(".ocA"))return;const inn=d.querySelector(".in");if(!inn)return;
+ const w=document.createElement("div");w.className="ocA";w.innerHTML=`<button type="button" class="ocT">Terminar</button><span class="ocD" hidden></span><button type="button" class="ocM" aria-label="Ditar tipo, resultado e morada">${MIC}</button>`;inn.prepend(w);
+ const f=d.querySelector("[data-k=fim]");const st=()=>{const v=f.value.trim();w.querySelector(".ocT").hidden=!!v;const dd=w.querySelector(".ocD");dd.hidden=!v;dd.textContent=v?"Terminada às "+v.replace(" ",":"):""};
+ f.addEventListener("input",st);st();
+ w.querySelector(".ocT").onclick=()=>terminar(d,st);w.querySelector(".ocM").onclick=()=>listen(d)}
+function terminar(d,st){const f=d.querySelector("[data-k=fim]"),old=f.value,n=ocs().indexOf(d)+1;f.value=nowH();fire(f);st&&st();d.open=false;vib([12,40,12]);persist();
+ if(window.rcpUndo)rcpUndo(`Ocorrência ${n} terminada às ${f.value.replace(" ",":")}`,()=>{f.value=old;fire(f);st&&st();d.open=true;persist()},()=>{})}
+function wire(d){if(!d||d.nodeType!==1||!d.matches("#ocs details.oc"))return;try{chWire(d);actWire(d)}catch(e){console.error(e)}}
+const wireAll=()=>ocs().forEach(wire);
+new MutationObserver(m=>m.forEach(r=>r.addedNodes.forEach(n=>setTimeout(()=>wire(n),0)))).observe($("ocs"),{childList:true});
+try{const oR=render;render=function(){const r=oR.apply(this,arguments);try{wireAll()}catch(e){}return r}}catch(e){}
+
+/* ---------- 3. nova ocorrência num toque ---------- */
+function novaOc(){if(ocs().length>=10){toast("Já tens 10 ocorrências (limite do PDF).");return null}
+ ocs().forEach(x=>x.open=false);ocRow({},true);const d=ocs().pop();wire(d);
+ const i=d.querySelector("[data-k=ini]");i.value=nowH();fire(i);persist();vib(12);
+ d.scrollIntoView({block:"start",behavior:"smooth"});
+ toast(`Ocorrência ${ocs().length} às ${i.value.replace(" ",":")} · a procurar a morada…`);
+ setTimeout(()=>{const g=d.querySelector(".gps");if(g&&!g.disabled&&navigator.geolocation&&navigator.onLine)g.click();else if(!navigator.onLine)toast("Sem rede: escreve a morada.")},120);
+ return d}
+$("addOc").onclick=()=>novaOc();
+window.rcpNovaOc=novaOc;
+
+/* ---------- 5. ditado ---------- */
+const TH=0.8,STOP=new Set("e o a os as de do da dos das na no nas nos em um uma com para pelo pela tipo resultado ocorrencia morada local foi ficou".split(" "));
+function lev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=Array.from({length:n+1},(_,j)=>j);for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+const sim=(a,b)=>{const m=Math.max(a.length,b.length);return m?1-lev(a,b)/m:0};
+function best(T,cands,used){let r=null;
+ for(const c of cands){const ct=N(c.v),cw=ct.split(" ").filter(Boolean);if(!cw.length)continue;const ini=cw.every(x=>x.length===1);
+  for(let L=Math.max(1,cw.length-1);L<=cw.length+1;L++)for(let i=0;i+L<=T.length;i++){let bad=false;for(let u=i;u<i+L;u++)if(used.has(u))bad=true;if(bad)continue;
+   const win=T.slice(i,i+L).map(t=>t.n);let s=ct.length<4?(win.join(" ")===ct?1:0):sim(win.join(" "),ct);
+   if(ini&&L===cw.length&&win.map(w=>w[0]).join(" ")===ct&&win.every(w=>w.length>1))s=Math.max(s,.86);/* "N.V." = "não verificado" */
+   if(s>=TH&&(!r||s>r.s||(s===r.s&&L>r.L)))r={v:c.v,s,i,L}}}
+ return r}
+const RUA=/^(rua|r|avenida|av|travessa|tv|praca|largo|estrada|rotunda|alameda|beco|caminho|urbanizacao|bairro|calcada|viela|quinta|lugar|via|rampa|escadas|parque)$/;
+function parse(text){const T=text.split(/\s+/).map(o=>({o:o.replace(/^[,.;:]+|[,.;:]+$/g,""),n:N(o)})).filter(t=>t.n);const used=new Set();
+ const mark=r=>{if(r)for(let u=r.i;u<r.i+r.L;u++)used.add(u)};
+ const tp=best(T,catalog("tipo"),used);mark(tp);const rs=best(T,catalog("res"),used);mark(rs);
+ let mi=-1;for(let i=0;i<T.length;i++)if(!used.has(i)&&RUA.test(T[i].n)){mi=i;break}
+ let mor="";if(mi>=0){let j=mi;while(j<T.length&&!used.has(j))j++;let sp=T.slice(mi,j);while(sp.length>1&&STOP.has(sp[sp.length-1].n))sp.pop();mor=sp.map(t=>t.o).join(" ");for(let u=mi;u<mi+sp.length;u++)used.add(u)}
+ const rest=T.filter((t,i)=>!used.has(i)).filter(t=>!STOP.has(t.n)).map(t=>t.o).join(" ");
+ return{text,tipo:tp?tp.v:"",res:rs?rs.v:"",morSpoken:mor,rest}}
+async function geocode(q){if(!q||!navigator.onLine)return null;const b=(typeof CFG!=="undefined"&&CFG&&CFG.mapsBias)||null;
+ const p={q:q+", Portugal",format:"jsonv2",addressdetails:"1",limit:"1",countrycodes:"pt","accept-language":"pt"};
+ if(b&&b.latitude){const d=.15;p.viewbox=[b.longitude-d,b.latitude+d,b.longitude+d,b.latitude-d].join(",");p.bounded="1"}
+ try{const r=await fetch("https://nominatim.openstreetmap.org/search?"+new URLSearchParams(p),{referrerPolicy:"strict-origin-when-cross-origin"});if(!r.ok)return null;const j=await r.json();const x=j&&j[0];if(!x)return null;const a=x.address||{};
+  const road=a.road||a.pedestrian||a.footway||a.square||"";if(!road)return null;const hn=(q.match(/\b(\d{1,4}[a-zA-Z]?)\b/)||[])[1]||"";
+  return{mor:road+(hn?" "+hn:""),lat:(+x.lat).toFixed(6),lng:(+x.lon).toFixed(6),cands:[a.suburb,a.city_district,a.village,a.town,a.quarter].filter(Boolean)}}catch(e){return null}}
+function listen(d){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){toast("Ditado indisponível neste browser. Usa o microfone do teclado.");return}
+ let r;try{r=new SR()}catch(e){toast("Ditado indisponível.");return}r.lang="pt-PT";r.interimResults=true;r.continuous=false;r.maxAlternatives=1;
+ const b=BS().open("A ouvir…",`<p>Diz, por exemplo: «furto, resolvido, Rua do Exemplo 10».</p><div class="dcL"><span></span></div><p class="dcI"></p><div class="sbtn"><button type="button" class="sec2 st">Parar</button></div>`);
+ let fin="",done=false;r.onresult=e=>{let t="";for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;fin=t;b.querySelector(".dcI").textContent=t};
+ r.onerror=e=>{done=true;BS().close(true);toast(e.error==="not-allowed"||e.error==="service-not-allowed"?"Microfone recusado. Ativa-o nas definições do browser.":e.error==="no-speech"?"Não ouvi nada. Tenta outra vez.":e.error==="network"?"O ditado precisa de rede.":"Ditado falhou ("+e.error+").")};
+ r.onend=()=>{if(done)return;done=true;const t=fin.trim();if(t)confirmSheet(d,t);else{BS().close(true);toast("Não ouvi nada. Tenta outra vez.")}};
+ b.querySelector(".st").onclick=()=>{try{r.stop()}catch(e){}};try{r.start();vib(10)}catch(e){BS().close(true);toast("Não foi possível iniciar o ditado.")}}
+async function confirmSheet(d,text){const p=parse(text);const g=p.morSpoken?await geocode(p.morSpoken):null;
+ const dl=k=>catalog(k).map(c=>`<option value="${E_(c.v)}">`).join("");
+ const un=[p.rest,p.morSpoken&&!g?p.morSpoken:""].filter(Boolean).join(" · ");
+ const b=BS().open("Confirmar ditado",`<p class="dcQ">«${E_(text)}»</p><div class="dcF">
+ <label>Tipo<input class="dT" list="dcLT" value="${E_(p.tipo)}" placeholder="não reconhecido" autocomplete="off"></label><datalist id="dcLT">${dl("tipo")}</datalist>
+ <label>Resultado<input class="dR" list="dcLR" value="${E_(p.res)}" placeholder="não reconhecido" autocomplete="off"></label><datalist id="dcLR">${dl("res")}</datalist>
+ <label>Morada<textarea class="dM grow" rows="1" placeholder="${p.morSpoken?"não encontrada no mapa":"não ditada"}" autocomplete="off">${E_(g?g.mor:"")}</textarea></label>
+ ${g&&g.cands.length?`<p class="dcS">Freguesia/ECO pela morada encontrada (${E_(g.cands[0])}).</p>`:""}</div>
+ ${un?`<p class="dcU">Não reconhecido (fica por preencher): <b>${E_(un)}</b></p>`:""}
+ <div class="sbtn"><button type="button" class="pri ok">Confirmar</button><button type="button" class="sec2 ag">Repetir</button></div>`);
+ b.querySelector(".ag").onclick=()=>{BS().close(true);setTimeout(()=>listen(d),200)};
+ b.querySelector(".ok").onclick=()=>{const set=(k,v)=>{const i=d.querySelector(`[data-k=${k}]`);if(i&&v){i.value=v;fire(i)}};
+  const t=b.querySelector(".dT").value.trim(),r=b.querySelector(".dR").value.trim(),m=b.querySelector(".dM").value.trim();
+  set("tipo",t);set("res",r);if(m){set("mor",m);if(g&&m===g.mor){set("lat",g.lat);set("lng",g.lng);try{g.cands.length&&rcpGeo.setFreg(d,g.cands)}catch(e){}}}
+  persist();vib([10,30,10]);BS().close(true);toast("Ocorrência preenchida pelo ditado")}}
+window.rcpParse=parse;
+
+/* ---------- 2. abrir no sítio certo + 7. atalhos ---------- */
+function openRight(){const L=ocs();let t=null;for(let i=L.length-1;i>=0;i--){const f=L[i].querySelector("[data-k=fim]");if(f&&!f.value.trim()){t=L[i];break}}
+ if(t){L.forEach(x=>{if(x!==t)x.open=false});t.open=true;setTimeout(()=>t.scrollIntoView({block:"start",behavior:"smooth"}),80);return t}
+ const ba=$("barAdd"),tg=ba&&ba.offsetParent?ba:$("addOc");if(tg===$("addOc"))tg.scrollIntoView({block:"center",behavior:"smooth"});try{tg.focus({preventScroll:true})}catch(e){}tg.classList.remove("hint");void tg.offsetWidth;tg.classList.add("hint");setTimeout(()=>tg.classList.remove("hint"),1700);return null}
+function action(a){if(a==="nova"||a==="ocorrencia")novaOc();
+ else if(a==="pdf")$("gerar").click();
+ else if(a==="colega"){try{rcpSheet.open("col");$("cNome").focus()}catch(e){}}
+ else if(a==="viatura"){try{rcpSheet.open("via");$("vMat").focus()}catch(e){}}
+ else if(a==="fim")showFim("Fim do turno. Fecha o relatório.")}
+let first=true;
+function onUnlock(){setTimeout(()=>{const a=window.__rcpA;window.__rcpA=null;
+ if(a)action(a);else if(first||!(window.rcpBS&&document.querySelector("#bs:not([hidden])")))openRight();first=false},first?120:60)}
+document.addEventListener("rcp-unlock",onUnlock);
+if(window.rcpLock&&rcpLock.unlocked)onUnlock();
+
+/* ---------- 8. fim de turno: gerar e partilhar ---------- */
+const complete=()=>{try{return window.rcpVerify().filter(x=>x.lvl==="err").length===0}catch(e){return false}};
+let PRE=null;
+const stateKey=()=>{try{collect();save()}catch(e){}return localStorage.getItem(KEY)};
+let Q=Promise.resolve();
+function build(){const run=async()=>{const sv=window.rcpOut;let got=null;window.rcpOut=async(o,n)=>{got={bytes:new Uint8Array(o),name:n}};try{await gerar()}finally{window.rcpOut=sv}return got};const p=Q.then(run,run);Q=p.catch(()=>{});return p}/* em série: nunca dois a trocar rcpOut */
+let preP=null;
+async function pre(){const k=stateKey();if(PRE&&PRE.key===k)return PRE;if(preP&&preP.key===k)return preP.p;const p=build().then(g=>{if(g)PRE={key:k,...g};return PRE}).catch(e=>{console.error(e);return PRE});preP={key:k,p};return p}
+async function genShare(){const k=stateKey();let g=PRE&&PRE.key===k?PRE:null;if(!g&&preP&&preP.key===k)g=await preP.p;if(g&&g.key!==k)g=null;
+ if(!g){toast("A gerar o PDF…");g=await build();if(!g)return}
+ const f=new File([g.bytes],g.name,{type:"application/pdf"});let m="";
+ if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:g.name});m="partilhado"}catch(e){m=e.name==="AbortError"?"cancelado":"falhou"}}
+ try{await window.rcpOut(g.bytes,g.name)}catch(e){console.error(e)}/* histórico, resumo e botões de partilhar/descarregar */
+ if(m==="partilhado")toast("PDF partilhado");else if(m==="falhou")toast("O telemóvel não abriu a partilha. Usa «Partilhar».")}
+const av=$("avB");
+function avSync(){if(!av||av.hidden)return;const p=av.querySelector(".p"),ok=complete();p.textContent=ok?"Gerar e partilhar":"Verificar";p.classList.toggle("ok",ok);if(ok)pre()}
+function showFim(t){if(!av)return;av.querySelector("span").textContent=t;av.hidden=false;avSync()}
+if(av){new MutationObserver(avSync).observe(av,{attributes:true,attributeFilter:["hidden"]});
+ av.querySelector(".p").onclick=()=>{av.hidden=true;if(!complete()){window.rcpShowVerify(window.rcpVerify());return}vib(12);genShare().catch(e=>toast("Erro: "+e.message))}}
+if(navigator.serviceWorker)navigator.serviceWorker.addEventListener("message",e=>{if(e.data&&e.data.a==="fim")showFim("Fim do turno. Fecha o relatório.")});
+window.rcpFim={show:showFim,genShare,pre,complete};
+
+/* ---------- 9. Limpar com desfazer ---------- */
+$("limpar").onclick=()=>{const old=localStorage.getItem(KEY);localStorage.removeItem(KEY);S=blank();render();vib(12);scrollTo({top:0,behavior:"smooth"});
+ if(window.rcpUndo)rcpUndo("Relatório limpo",()=>{if(old!=null){localStorage.setItem(KEY,old);try{S=JSON.parse(old)}catch(e){}render();toast("Relatório reposto")}},()=>{});
+ let o=null;try{o=window.__apoio&&__apoio.st&&__apoio.st()}catch(e){}
+ if(o&&o.items&&Object.keys(o.items).length)setTimeout(()=>{const b=BS().open("Apoio ao expediente",`<p>Ainda tens intervenientes e relatos guardados (cifrados). O relatório pode ser reposto com «Desfazer», mas estes dados, se os apagares, não.</p><div class="sbtn"><button type="button" class="sec2 k">Manter</button><button type="button" class="tx del" style="color:#ff453a">Apagar dados do Apoio…</button></div>`);
+  b.querySelector(".k").onclick=()=>BS().close(true);b.querySelector(".del").onclick=()=>{if(confirm("Apagar os intervenientes, relatos e fotografias do Apoio ao expediente? Não é possível desfazer.")){window.apoioWipeItems();BS().close(true);toast("Apoio ao expediente apagado")}}},350)};
+
+wireAll();
 })();
 </script>
 </body></html>

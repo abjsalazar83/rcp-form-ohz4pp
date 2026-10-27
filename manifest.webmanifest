@@ -1,87 +1,87 @@
 {
- "id": "./",
- "name": "Cooperativa",
- "short_name": "Cooperativa",
- "description": "Cooperativa — relatório de viatura, preenchimento offline",
- "lang": "pt-PT",
- "start_url": "./",
- "scope": "./",
- "display": "fullscreen",
- "display_override": [
-  "fullscreen",
-  "standalone"
- ],
- "background_color": "#000000",
- "theme_color": "#000000",
- "orientation": "portrait",
- "icons": [
-  {
-   "src": "icon-192.png",
-   "sizes": "192x192",
-   "type": "image/png",
-   "purpose": "any"
-  },
-  {
-   "src": "icon-512.png",
-   "sizes": "512x512",
-   "type": "image/png",
-   "purpose": "any"
-  },
-  {
-   "src": "icon-maskable-512.png",
-   "sizes": "512x512",
-   "type": "image/png",
-   "purpose": "maskable"
-  }
- ],
- "shortcuts": [
-  {
-   "name": "Nova ocorrência",
-   "short_name": "Nova ocorrência",
-   "url": "./?a=ocorrencia",
-   "icons": [
+  "id": "./",
+  "name": "Cooperativa",
+  "short_name": "Cooperativa",
+  "description": "Cooperativa — relatório de viatura, preenchimento offline",
+  "lang": "pt-PT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": [
+    "fullscreen",
+    "standalone"
+  ],
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
     {
-     "src": "sc-ocorrencia.png",
-     "sizes": "96x96",
-     "type": "image/png"
-    }
-   ]
-  },
-  {
-   "name": "Gerar PDF",
-   "short_name": "Gerar PDF",
-   "url": "./?a=pdf",
-   "icons": [
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
-     "src": "sc-pdf.png",
-     "sizes": "96x96",
-     "type": "image/png"
-    }
-   ]
-  },
-  {
-   "name": "Adicionar colega",
-   "short_name": "Adicionar colega",
-   "url": "./?a=colega",
-   "icons": [
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
-     "src": "sc-colega.png",
-     "sizes": "96x96",
-     "type": "image/png"
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-   ]
-  },
-  {
-   "name": "Adicionar viatura",
-   "short_name": "Adicionar viatura",
-   "url": "./?a=viatura",
-   "icons": [
+  ],
+  "shortcuts": [
     {
-     "src": "sc-viatura.png",
-     "sizes": "96x96",
-     "type": "image/png"
+      "name": "Nova ocorrência",
+      "short_name": "Nova ocorrência",
+      "url": "./?a=nova",
+      "icons": [
+        {
+          "src": "sc-ocorrencia.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Gerar PDF",
+      "short_name": "Gerar PDF",
+      "url": "./?a=pdf",
+      "icons": [
+        {
+          "src": "sc-pdf.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Adicionar colega",
+      "short_name": "Adicionar colega",
+      "url": "./?a=colega",
+      "icons": [
+        {
+          "src": "sc-colega.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Adicionar viatura",
+      "short_name": "Adicionar viatura",
+      "url": "./?a=viatura",
+      "icons": [
+        {
+          "src": "sc-viatura.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }
