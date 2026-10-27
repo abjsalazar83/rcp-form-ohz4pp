@@ -239,19 +239,49 @@ textarea.rel{min-height:180px;font-size:15px;line-height:1.5}
 .apb .done{background:none;color:var(--mu);border:1px dashed var(--ln2)}
 .apb .addIv{background:none;color:var(--fg2);border:1px dashed var(--ln2)}
 #apToast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:12px 18px;border-radius:99px;font-size:14px;font-weight:600;z-index:999;max-width:90vw;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+
+/* v10 */
+#dTur,#dCond{margin-top:2px}
+#ocs details.oc{border:0;border-left:3px solid var(--ln2);padding:0 0 0 14px;margin:0 0 26px;border-radius:0;background:none}
+#ocs details.oc:first-child{border-top:0}
+#ocs details.oc[open]{border-left-color:var(--fg2)}
+#ocs details.oc>summary{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:10px 40px 10px 0;min-height:56px}
+#ocs details.oc>summary .n{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2);margin:0}
+#ocs details.oc>summary .st{display:flex;flex-direction:column;gap:2px;min-width:0}
+#ocs details.oc>summary .st .sm{flex:none;color:var(--fg);font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#ocs details.oc>summary .st .sb{color:var(--mu);font-size:14px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ocs details.oc[open]>summary{border-bottom:1px solid var(--ln);margin-bottom:6px}
+#ocs details.oc>.in{padding:6px 0 4px}
+.ocF{background:none;border:1px solid var(--ln2);color:var(--fg2);font-weight:600;width:100%}
+details.eqd{margin:8px 0 4px}
+details.eqd>.in{padding:6px 0 0}
+#colQ,#vQ{width:100%}
+.fts{display:flex;flex-direction:column;gap:10px}
+.thb{display:flex;flex-wrap:wrap;gap:8px}
+.thb:empty{display:none}
+.th{width:76px;height:76px;min-height:0;padding:0;border-radius:10px;overflow:hidden;border:1px solid var(--ln2);background:var(--s2)}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.ftB{flex-direction:row;align-items:center;justify-content:center;min-height:46px;border:1px dashed var(--ln2);border-radius:12px;color:var(--fg2);font-size:15px;cursor:pointer}
+details.mais>summary{list-style:none;cursor:pointer;color:var(--mu);font-size:13px;text-decoration:underline;padding:4px 0;position:relative}
+details.mais>summary::-webkit-details-marker{display:none}details.mais>summary::after{content:none}
+details.mais>.g{padding-top:10px}
+#ftV{position:fixed;inset:0;z-index:300;background:#000;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+#ftV img{flex:1;min-height:0;width:100%;object-fit:contain}
+#ftV .ftA{display:flex;gap:10px;padding:12px 14px}#ftV .ftA button{flex:1}
 </style></head><body>
 <button id="cfgB" type="button" aria-label="Definições" title="Definições"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
 <header><h1>Cooperativa</h1><small>Relatório de Viatura · offline</small></header>
 <main>
 
 <section><h2>Turno</h2><div class="g">
+<div class="seg" id="horSeg"><label><input type="radio" name="horR" value="0745"><span>Manhã</span></label><label><input type="radio" name="horR" value="1545"><span>Tarde</span></label><label><input type="radio" name="horR" value="2345"><span>Noite</span></label></div><input type="hidden" id="hor">
+<details class="oc" id="dTur"><summary>Detalhes do turno<span class="sum" id="sumTur"></span></summary><div class="in">
 <label>Data<input type="date" id="data"></label>
-<div><span class="sub" style="margin-top:0">Horário</span>
-<div class="seg" id="horSeg"><label><input type="radio" name="horR" value="0745"><span>Manhã</span></label><label><input type="radio" name="horR" value="1545"><span>Tarde</span></label><label><input type="radio" name="horR" value="2345"><span>Noite</span></label></div>
-<input type="hidden" id="hor"></div>
 <div class="g2"><label>Turno<select id="turno"><option value="">—</option><option>01º Turno</option><option>02º Turno</option><option>03º Turno</option></select></label>
 <label>Indicativo<input id="indicativo" inputmode="decimal"></label></div>
 <label>Período (DATA/HORA)<input id="periodo" placeholder="15H45 - 00H00"></label>
+<div class="prev" id="autoT"></div>
+</div></details>
 </div></section>
 
 <section><h2>Equipa</h2>
@@ -269,7 +299,7 @@ textarea.rel{min-height:180px;font-size:15px;line-height:1.5}
 <div class="cb" data-cb="V"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Matrícula, marca ou modelo" aria-label="Matrícula, marca ou modelo"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><div class="g2"><label>Marca<input id="marca"></label><label>Modelo<input id="modelo"></label></div><label>Matrícula<input id="matricula" style="text-transform:uppercase"></label></div></details></div>
 <div class="g2"><label>KM iniciais<input id="kmi" inputmode="numeric"></label><label>KM finais<input id="kmf" inputmode="numeric"></label></div><div class="kmt" id="kmt" hidden></div>
 <label>Combustível (Lt)<input id="comb" inputmode="decimal"></label>
-<span class="sub" style="margin:0">Condutor/Tripulante <span style="text-transform:none">(vazio = motorista)</span></span><div class="cb" data-cb="C"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><label>Condutor/Tripulante<input id="condutor" placeholder="(= motorista)"></label></div></details></div>
+<details class="oc" id="dCond"><summary>Condutor/Tripulante<span class="sum" id="sumCond"></span></summary><div class="in"><label class="sw">Condutor diferente do motorista<input type="checkbox" id="condSw"></label><input type="hidden" id="condDif"><div id="condBox" hidden><div class="cb" data-cb="C"><input class="cbQ" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nome, nº ou posto" aria-label="Nome, nº ou posto"><div class="chip" hidden><span class="ct"></span><button type="button" class="sv2">+ Guardar na lista</button><button type="button" class="cx" aria-label="Limpar">×</button></div><div class="cbL acl" hidden></div><details class="ed"><summary>editar</summary><div class="g"><label>Condutor/Tripulante<input id="condutor" placeholder="(= motorista)"></label></div></details></div></div><div class="prev">Desligado: o PDF usa o motorista como condutor/tripulante.</div></div></details>
 </div></section>
 
 <section><h2>Ocorrências</h2><div id="ocs"></div>
@@ -294,11 +324,11 @@ textarea.rel{min-height:180px;font-size:15px;line-height:1.5}
 
 <div id="msg"></div>
 </main>
-<datalist id="fregL"></datalist><div id="shBg" hidden></div><div id="sheet" role="dialog" aria-modal="true" aria-label="Definições" hidden><div class="shH"><b>Definições</b><button id="shX" type="button">Fechar</button></div><div class="tabs" role="tablist"><button type="button" data-t="col" role="tab">Colegas</button><button type="button" data-t="via" role="tab">Viaturas</button><button type="button" data-t="cfg" role="tab">Configuração</button><button type="button" data-t="ei" role="tab">Exportar/Importar</button></div><div class="shB"><div class="tp" id="tp-col"><span class="sub">Colegas</span><div class="lst" id="colList"></div>
+<datalist id="fregL"></datalist><div id="shBg" hidden></div><div id="sheet" role="dialog" aria-modal="true" aria-label="Definições" hidden><div class="shH"><b>Definições</b><button id="shX" type="button">Fechar</button></div><div class="tabs" role="tablist"><button type="button" data-t="col" role="tab">Colegas</button><button type="button" data-t="via" role="tab">Viaturas</button><button type="button" data-t="cfg" role="tab">Configuração</button><button type="button" data-t="ei" role="tab">Exportar/Importar</button></div><div class="shB"><div class="tp" id="tp-col"><span class="sub">Colegas</span><input id="colQ" type="search" autocomplete="off" placeholder="Procurar colega"><details class="oc eqd" id="colD"><summary>Lista de colegas<span class="sum" id="colN"></span></summary><div class="in"><div class="lst" id="colList"></div></div></details><span class="sub">Adicionar colega</span>
 <div class="g"><input id="cNome" placeholder="Nome"><input id="cPosto" list="postos" placeholder="Posto"><div class="g2"><input id="cNum" inputmode="numeric" placeholder="Nº matrícula"><input id="cSig" placeholder="Sigla (ex.: - ABCD)"></div>
 <button class="full" id="cAdd" type="button">Guardar colega</button></div>
 <datalist id="postos"><option>Agente</option><option>Agente Principal</option><option>Agente Coordenador</option><option>Chefe</option><option>Chefe Principal</option><option>Chefe Coordenador</option><option>Subcomissário</option><option>Comissário</option></datalist>
-</div><div class="tp" id="tp-via"><span class="sub">Viaturas patrulha</span><div class="lst" id="vList"></div>
+</div><div class="tp" id="tp-via"><span class="sub">Viaturas patrulha</span><input id="vQ" type="search" autocomplete="off" placeholder="Procurar viatura"><details class="oc eqd" id="vD"><summary>Lista de viaturas<span class="sum" id="vN"></span></summary><div class="in"><div class="lst" id="vList"></div></div></details><span class="sub">Adicionar viatura</span>
 <div class="g"><input id="vMat" placeholder="Matrícula" style="text-transform:uppercase"><input id="vMM" placeholder="Marca Modelo"><input id="vInt" placeholder="Nº interno (opcional)">
 <button class="full" id="vAdd" type="button">Guardar viatura</button></div>
 </div><div class="tp" id="tp-cfg"><span class="sub">Unidade e assinaturas</span><div class="g">
@@ -348,7 +378,7 @@ let S;
 function blank(){return{f:defs(),oc:[],autos:Array.from({length:6},()=>({n:"",r:"",m:"",l:""})),mat:MAT.map(m=>({s:true,q:m[3]})),cl:CL.map(c=>c[4])}}
 function save(){collect();localStorage.setItem(KEY,JSON.stringify(S));}
 function fmtHora(v){const d=v.replace(/\D/g,"").slice(0,4);return d.length>=3?d.slice(0,d.length-2).padStart(2,"0")+" "+d.slice(-2):d}
-const FIELDS=["data","turno","hor","periodo","indicativo","divisao","esquadra","catM","matM","nomeM","catA","matA","nomeA","catT","matT","nomeT","sigA","grad","radio","obs1","obs2","obs3","marca","modelo","matricula","condutor","kmi","kmf","comb","anom"];
+const FIELDS=["data","turno","hor","periodo","indicativo","divisao","esquadra","catM","matM","nomeM","catA","matA","nomeA","catT","matT","nomeT","sigA","grad","radio","obs1","obs2","obs3","marca","modelo","matricula","condutor","condDif","kmi","kmf","comb","anom"];
 function collect(){FIELDS.forEach(k=>S.f[k]=$(k).value);
  S.oc=[...document.querySelectorAll("#ocs .oc")].map(e=>{const o={};e.querySelectorAll("[data-k]").forEach(i=>o[i.dataset.k]=i.type=="checkbox"?i.checked:i.value);return o});
  S.mat=MAT.map((m,i)=>({s:$("ms"+i).checked,q:$("mq"+i).value}));
@@ -372,10 +402,9 @@ function escH(t){return String(t||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&l
 function ocTxt(o){return[o.mor,o.tipo,o.res].map(s=>(s||"").trim()).filter(Boolean).join(" - ")}
 function upd(){
  [...document.querySelectorAll("#ocs .oc")].forEach((e,i)=>{const o={};e.querySelectorAll("[data-k]").forEach(x=>o[x.dataset.k]=x.type=="checkbox"?x.checked:x.value);
-  e.querySelector(".n").textContent=(i+1)+".";
-  const h=[o.ini,o.fim].filter(Boolean).join("–");const st=e.querySelector(".st"),a=[h,o.eco].filter(Boolean).join(" · "),b=[(o.mor||"").trim(),(o.tipo||"").trim(),(o.res||"").trim()];
-  const tr=b.slice(1).filter(Boolean),bd=(o.exp?'<span class="bd">Exp.</span>':"")+(o.sup?'<span class="bd">Sup.</span>':"");
-  st.innerHTML=(a||b.some(Boolean)||o.exp||o.sup)?`<span class="sa">${escH(a)}</span>`+(b[0]?`<span class="sm">${a?"· ":""}${escH(b[0])}</span>`:"")+((tr.length||bd)?`<span class="sb">${tr.map(escH).join(" · ")}${bd}</span>`:""):"(vazia)";
+  e.querySelector(".n").textContent="Ocorrência "+(i+1);const st=e.querySelector(".st"),fr=(o.freg||"").trim(),mo=(o.mor||"").trim(),loc=[mo,fr&&!mo.toLowerCase().includes(fr.toLowerCase())?fr:""].filter(Boolean).join(", "),tp=(o.tipo||"").trim();
+  st.innerHTML=(loc||tp)?`<span class="sm">${escH(loc||"Local por indicar")}</span><span class="sb">${escH(tp||"Tipo por indicar")}</span>`:'<span class="sm">(vazia)</span>';
+  const fb=e.querySelector(".ocF");if(fb)fb.textContent="− Fechar ocorrência "+(i+1);
   e.querySelector(".prev").textContent=ocTxt(o)?"PDF: "+ocTxt(o):""});
  $("addOc").disabled=document.querySelectorAll("#ocs .oc").length>=10;save();sums()}
 function sums(){if(!S)return;
@@ -658,13 +687,13 @@ async function derive(pin,salt){const k=await crypto.subtle.importKey("raw",te.e
 async function enc(k,obj){const iv=crypto.getRandomValues(new Uint8Array(12));const ct=await crypto.subtle.encrypt({name:"AES-GCM",iv},k,te.encode(JSON.stringify(obj)));return{iv:b64(iv),ct:b64(ct)}}
 async function dec(k,e){return JSON.parse(td.decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(e.iv)},k,ub(e.ct))))}
 function toast(t){let e=document.getElementById("apToast");if(!e){e=document.createElement("div");e.id="apToast";document.body.appendChild(e)}e.textContent=t;e.hidden=false;clearTimeout(e._t);e._t=setTimeout(()=>e.hidden=true,2600)}
-function purge(){const o=st();if(!o||!o.items)return;const lim=Date.now()-(o.days||7)*864e5;let ch=false;for(const a in o.items)if((o.items[a].t||0)<lim){delete o.items[a];delete D[a];ch=true}if(ch)put(o)}
+function purge(){const o=st();if(!o||!o.items)return;const lim=Date.now()-(o.days||7)*864e5;let ch=false;for(const a in o.items)if((o.items[a].t||0)<lim){delete o.items[a];delete D[a];ch=true}if(ch)put(o);if(typeof fPurge=="function")setTimeout(fPurge,0)}
 function newId(){return Array.from(crypto.getRandomValues(new Uint8Array(6)),b=>b.toString(16).padStart(2,"0")).join("")}
 // ---- persistência ----
 async function flush(){clearTimeout(tmr);if(!KEYC||!dirty.size)return;const o=st();if(!o)return;o.items=o.items||{};
  for(const a of [...dirty]){const d=D[a];dirty.delete(a);if(!d)continue;const e=await enc(KEYC,{iv:d.iv,rel:d.rel});o.items[a]={t:(o.items[a]&&o.items[a].t)||d.t||Date.now(),...e}}put(o)}
 function mark(a){D[a].t=D[a].t||Date.now();dirty.add(a);clearTimeout(tmr);tmr=setTimeout(flush,400)}
-async function lock(){try{await flush()}catch(e){}KEYC=null;D={};dirty.clear();clearTimeout(idle);document.querySelectorAll("details.ap").forEach(x=>{x.open=false;paint(x)})}
+async function lock(){try{await flush()}catch(e){}fRevoke();KEYC=null;D={};dirty.clear();clearTimeout(idle);document.querySelectorAll("details.ap").forEach(x=>{x.open=false;paint(x)})}
 function bump(){if(!KEYC)return;clearTimeout(idle);idle=setTimeout(lock,5*60e3)}
 ["pointerdown","keydown","input","scroll"].forEach(ev=>addEventListener(ev,bump,{passive:true,capture:true}));
 document.addEventListener("visibilitychange",()=>{if(document.hidden&&KEYC)lock()});
@@ -672,9 +701,30 @@ addEventListener("pagehide",()=>{if(KEYC)lock()});
 async function unlock(pin){const o=st();const k=await derive(pin,ub(o.salt));try{const c=await dec(k,o.chk);if(c!=="ok")throw 0}catch(e){return false}
  KEYC=k;D={};for(const a in (o.items||{})){try{D[a]={...(await dec(k,o.items[a])),t:o.items[a].t}}catch(e){}}bump();return true}
 async function setPin(pin){const salt=crypto.getRandomValues(new Uint8Array(16));const k=await derive(pin,salt);const o=st()||{};const n={v:1,days:o.days||7,salt:b64(salt),chk:await enc(k,"ok"),items:{}};put(n);KEYC=k;D={};bump()}
-function wipeAll(){const dd=days();localStorage.removeItem(AK);put({days:dd});KEYC=null;D={};dirty.clear();document.querySelectorAll("details.ap").forEach(x=>{x.open=false;paint(x)})}
-function delItem(a){const o=st();if(o&&o.items){delete o.items[a];put(o)}delete D[a];dirty.delete(a)}
-window.apoioWipeItems=function(){const o=st();if(o){o.items={};put(o)}D={};dirty.clear();document.querySelectorAll("details.ap").forEach(paint)};
+function wipeAll(){fRevoke();tx("readwrite",s=>s.clear()).catch(()=>{});const dd=days();localStorage.removeItem(AK);put({days:dd});KEYC=null;D={};dirty.clear();document.querySelectorAll("details.ap").forEach(x=>{x.open=false;paint(x)})}
+function delItem(a){fDelAid(a);const o=st();if(o&&o.items){delete o.items[a];put(o)}delete D[a];dirty.delete(a)}
+window.apoioWipeItems=function(){fRevoke();tx("readwrite",s=>s.clear()).catch(()=>{});const o=st();if(o){o.items={};put(o)}D={};dirty.clear();document.querySelectorAll("details.ap").forEach(paint)};
+// ---- fotos (IndexedDB, cifradas AES-GCM com a mesma chave) ----
+let DBp=null,URLS={};
+function db(){return DBp||(DBp=new Promise((res,rej)=>{const r=indexedDB.open("rcp_apoio_fotos",1);r.onupgradeneeded=()=>r.result.createObjectStore("f",{keyPath:"id"});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}))}
+async function tx(mode,fn){const d=await db();return new Promise((res,rej)=>{const t=d.transaction("f",mode),q=fn(t.objectStore("f"));let out;if(q)q.onsuccess=()=>out=q.result;t.oncomplete=()=>res(out);t.onerror=()=>rej(t.error)})}
+const fGet=id=>tx("readonly",s=>s.get(id)),fPut=r=>tx("readwrite",s=>s.put(r)),fKeys=()=>tx("readonly",s=>s.getAllKeys());
+const fDel=id=>{if(URLS[id]){URLS[id].then(u=>URL.revokeObjectURL(u)).catch(()=>{});delete URLS[id]}return tx("readwrite",s=>s.delete(id))};
+async function fDelAid(a){try{(await fKeys()).filter(k=>String(k).startsWith(a+"_")).forEach(k=>fDel(k))}catch(e){}}
+async function fPurge(){try{const o=st(),its=(o&&o.items)||{};(await fKeys()).forEach(k=>{const a=String(k).split("_")[0];if(!its[a]&&!D[a])fDel(k)})}catch(e){}}
+function fRevoke(){for(const id in URLS)URLS[id].then(u=>URL.revokeObjectURL(u)).catch(()=>{});URLS={};const v=document.getElementById("ftV");if(v)v.remove()}
+async function shrink(file){const u=URL.createObjectURL(file);try{const img=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>rej(Error("imagem inválida"));i.src=u});
+ const k=Math.min(1,1280/Math.max(img.naturalWidth,img.naturalHeight)),c=document.createElement("canvas");c.width=Math.round(img.naturalWidth*k);c.height=Math.round(img.naturalHeight*k);c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+ return await new Promise((res,rej)=>c.toBlob(b=>b?res(b):rej(Error("falhou")),"image/jpeg",0.82))}finally{URL.revokeObjectURL(u)}}
+async function fAdd(a,file){if(!KEYC)throw Error("bloqueado");const bl=await shrink(file),iv=crypto.getRandomValues(new Uint8Array(12));const ct=await crypto.subtle.encrypt({name:"AES-GCM",iv},KEYC,await bl.arrayBuffer());const id=a+"_"+newId();await fPut({id,iv:b64(iv),ct});return id}
+function fUrl(id){if(!URLS[id])URLS[id]=(async()=>{const r=await fGet(id);if(!r||!KEYC)throw Error("sem foto");const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:ub(r.iv)},KEYC,r.ct);return URL.createObjectURL(new Blob([pt],{type:"image/jpeg"}))})();return URLS[id]}
+function fView(id,onDel){const o=document.createElement("div");o.id="ftV";o.innerHTML='<img alt="Foto"><div class="ftA"><button type="button" class="fd">Apagar foto</button><button type="button" class="fx">Fechar</button></div>';document.body.appendChild(o);
+ fUrl(id).then(u=>o.querySelector("img").src=u).catch(()=>{});o.querySelector(".fx").onclick=()=>o.remove();o.querySelector(".fd").onclick=()=>{if(confirm("Apagar esta foto?")){o.remove();onDel()}}}
+function fotoWire(el,v,a){const th=el.querySelector(".thb"),inp=el.querySelector(".ftI");if(!th)return;v.fotos=v.fotos||[];
+ const cnt=()=>{let c=el.querySelector("summary .fc");const n=v.fotos.length;if(!n){if(c)c.remove();return}if(!c){c=document.createElement("i");c.className="fc";el.querySelector("summary").appendChild(c)}c.textContent=" · 📷 "+n};
+ const draw=()=>{th.innerHTML="";v.fotos.forEach(id=>{const b=document.createElement("button");b.type="button";b.className="th";b.setAttribute("aria-label","Ver foto");const im=document.createElement("img");im.alt="";b.appendChild(im);th.appendChild(b);
+  fUrl(id).then(u=>im.src=u).catch(()=>{b.classList.add("bad")});b.onclick=()=>fView(id,()=>{v.fotos=v.fotos.filter(x=>x!==id);fDel(id).catch(()=>{});mark(a);draw();cnt()})});cnt()};
+ inp.onchange=async()=>{const f=inp.files[0];inp.value="";if(!f)return;try{toast("A guardar foto…");const id=await fAdd(a,f);v.fotos.push(id);mark(a);draw();toast("Foto guardada (cifrada)")}catch(e){toast("Foto: "+e.message)}};draw()}
 // ---- helpers ----
 const E=t=>escH(t);
 function cur(a){return D[a]||(D[a]={iv:[],rel:""})}
@@ -695,14 +745,19 @@ function paint(x){const b=x.querySelector(".apb"),o=st();summ(x);if(!x.open){b.i
   b.querySelector(".go").onclick=go;b.querySelector(".p1").onkeydown=e=>{if(e.key==="Enter")go()};
   b.querySelector(".fg").onclick=()=>{if(confirm("Apagar TODOS os dados do apoio ao expediente e o PIN? (O relatório não é afetado.)"))wipeAll()};return}
  edit(x)}
-function ivHTML(v,i){return `<details class="iv"${v._o?" open":""}><summary><b>${E(v.papel||"Interveniente")}</b><i>${E(v.nome||"(sem nome)")}</i></summary><div class="ivb">
+function ivHTML(v,i){return `<details class="iv"${v._o?" open":""}><summary><b>${E(v.papel||"Interveniente")}</b><i>${E(v.nome||"(sem nome)")}</i>${(v.fotos||[]).length?`<i class="fc"> · 📷 ${v.fotos.length}</i>`:""}</summary><div class="ivb">
  <div class="pills">${PAP.map(p=>`<button type="button" data-p="${p}" class="${v.papel===p?"on":""}">${p}</button>`).join("")}</div>
  <label>Nome<input data-f="nome" autocomplete="off"></label>
- <div class="g2"><label>Documento<select data-f="dtipo"><option value="">—</option>${DOC.map(d=>`<option>${d}</option>`).join("")}</select></label><label>Número<input data-f="dnum" autocomplete="off"></label></div>
- <div class="g2"><label>Data de nascimento<input data-f="nasc" type="date"></label><label>Nacionalidade<input data-f="nac" autocomplete="off"></label></div>
+ <span class="sub" style="margin:4px 0 0">Documento de identificação</span>
+ <div class="g2"><label>Tipo<select data-f="dtipo"><option value="">—</option>${DOC.map(d=>`<option>${d}</option>`).join("")}</select></label><label>Número<input data-f="dnum" autocomplete="off"></label></div>
+ <div class="g2"><label>Validade<input data-f="dval" type="date"></label><label>Data de emissão<input data-f="demi" type="date"></label></div>
+ <label>Data de nascimento<input data-f="nasc" type="date"></label>
+ <span class="sub" style="margin:4px 0 0">Filiação</span>
+ <div class="g2"><label>Pai<input data-f="pai" autocomplete="off"></label><label>Mãe<input data-f="mae" autocomplete="off"></label></div>
  <label>Morada<input data-f="mor" autocomplete="off"></label>
- <label>Contacto<input data-f="tel" inputmode="tel" autocomplete="off"></label>
- <label>Notas<textarea data-f="notas" rows="2"></textarea></label>
+ <label>Telefone<input data-f="tel" type="tel" inputmode="tel" autocomplete="off"></label>
+ <div class="fts"><div class="thb"></div><label class="ftB">📷 Tirar foto<input type="file" class="ftI" accept="image/*" capture="environment" hidden></label></div>
+ <details class="mais"><summary>mais</summary><div class="g"><label>Nacionalidade<input data-f="nac" autocomplete="off"></label><label>Notas<textarea data-f="notas" rows="2"></textarea></label></div></details>
  <button type="button" class="x rmIv">Remover interveniente</button></div></details>`}
 function edit(x){const a=x.dataset.aid,d=cur(a),b=x.querySelector(".apb");const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
  b.innerHTML=`<span class="sub" style="margin:0">Intervenientes</span><div class="ivs">${d.iv.map(ivHTML).join("")}</div><button type="button" class="addIv">+ Interveniente</button>
@@ -712,7 +767,8 @@ function edit(x){const a=x.dataset.aid,d=cur(a),b=x.querySelector(".apb");const 
  <div class="acts"><button type="button" class="cpy">Copiar para o Coordenador</button><button type="button" class="done">Expediente feito — apagar estes dados</button></div>`;
  b.querySelectorAll("details.iv").forEach((el,i)=>{const v=d.iv[i];delete v._o;el.querySelectorAll("[data-f]").forEach(f=>{f.value=v[f.dataset.f]||"";f.addEventListener("input",()=>{v[f.dataset.f]=f.value;if(f.dataset.f==="nome")el.querySelector("summary i").textContent=f.value||"(sem nome)";mark(a);summ(x)});f.addEventListener("change",()=>{v[f.dataset.f]=f.value;mark(a)})});
   el.querySelectorAll(".pills button").forEach(p=>p.onclick=()=>{v.papel=v.papel===p.dataset.p?"":p.dataset.p;el.querySelectorAll(".pills button").forEach(q=>q.classList.toggle("on",q.dataset.p===v.papel));el.querySelector("summary b").textContent=v.papel||"Interveniente";mark(a)});
-  el.querySelector(".rmIv").onclick=()=>{if(confirm("Remover este interveniente?")){d.iv.splice(i,1);mark(a);edit(x);summ(x)}}});
+  el.querySelector(".rmIv").onclick=()=>{if(confirm("Remover este interveniente?")){(d.iv[i].fotos||[]).forEach(id=>fDel(id).catch(()=>{}));d.iv.splice(i,1);mark(a);edit(x);summ(x)}}});
+ b.querySelectorAll("details.iv").forEach((el,i)=>fotoWire(el,d.iv[i],a));
  b.querySelector(".addIv").onclick=()=>{d.iv.forEach(v=>delete v._o);d.iv.push({papel:"",_o:1});mark(a);edit(x);summ(x)};
  const ta=b.querySelector(".rel");ta.value=d.rel||"";ta.oninput=()=>{d.rel=ta.value;mark(a);summ(x)};
  b.querySelector(".rNow").onclick=()=>insAt(ta,"["+hhmm()+"] ");
@@ -734,18 +790,18 @@ function build(oc,d,real){const o=ocData(oc),idx=[...document.querySelectorAll("
  kv.forEach(([k,v])=>{if((v||"").trim())L.push(`${k}: ${v.trim()}`)});
  const cnt={},al=d.iv.map((v,i)=>{const p=v.papel||"Interveniente";const n=String.fromCharCode(65+i);return p+" "+n});
  const sub=t=>{if(real||!t)return t;let r=t;const mp=new Map();d.iv.forEach((v,i)=>{const nm=(v.nome||"").trim();if(!nm)return;[nm,...nm.split(/\s+/).filter(w=>w.length>2)].forEach(w=>{const k=w.toLocaleLowerCase("pt");if(!mp.has(k))mp.set(k,al[i])})});const ks=[...mp.keys()].sort((a,b)=>b.length-a.length);if(ks.length){const re=new RegExp("(?<![\\p{L}\\p{N}])("+ks.map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")(?![\\p{L}\\p{N}])","giu");r=r.replace(re,m=>mp.get(m.toLocaleLowerCase("pt"))||m);al.forEach(x=>{r=r.split(x+" "+x).join(x)});al.forEach(x=>{r=r.split(x+" "+x).join(x)})}
-  d.iv.forEach(v=>{["dnum","tel"].forEach(k=>{const z=(v[k]||"").trim();if(z.length>2)r=r.split(z).join("[omitido]")})});return r};
+  d.iv.forEach(v=>{["dnum","tel","pai","mae","mor"].forEach(k=>{const z=(v[k]||"").trim();if(z.length>2)r=r.split(z).join("[omitido]")})});return r};
  L.push("");L.push("INTERVENIENTES"+(real?"":" (anonimizado)"));
  if(!d.iv.length)L.push("(nenhum registado)");
  d.iv.forEach((v,i)=>{const p=v.papel||"Interveniente";L.push(`- ${real?(p+": "+((v.nome||"").trim()||"(sem nome)")):al[i]}`);
-  const f=[];if(real){if(v.dtipo||v.dnum)f.push("Documento: "+[v.dtipo,v.dnum].filter(Boolean).join(" nº "));if(v.nasc)f.push("Nascimento: "+v.nasc.split("-").reverse().join("/"));if(v.nac)f.push("Nacionalidade: "+v.nac);if(v.mor)f.push("Morada: "+v.mor);if(v.tel)f.push("Contacto: "+v.tel)}
-  else{if(v.dtipo)f.push("Documento: "+v.dtipo+" (nº omitido)");if(age(v.nasc))f.push("Idade: "+age(v.nasc));if(v.nac)f.push("Nacionalidade: "+v.nac)}
+  const f=[],dd=x=>x?x.split("-").reverse().join("/"):"";if(real){if(v.dtipo||v.dnum||v.dval||v.demi)f.push("Documento: "+[[v.dtipo,v.dnum].filter(Boolean).join(" nº "),v.dval?"válido até "+dd(v.dval):"",v.demi?"emitido em "+dd(v.demi):""].filter(Boolean).join(", "));if(v.nasc)f.push("Nascimento: "+dd(v.nasc));if(v.pai||v.mae)f.push("Filiação: "+[v.pai?"pai "+v.pai.trim():"",v.mae?"mãe "+v.mae.trim():""].filter(Boolean).join(" e "));if(v.mor)f.push("Morada: "+v.mor);if(v.tel)f.push("Telefone: "+v.tel);if(v.nac)f.push("Nacionalidade: "+v.nac)}
+  else{if(age(v.nasc))f.push("Idade: "+age(v.nasc));if(v.nac)f.push("Nacionalidade: "+v.nac)}
   if((v.notas||"").trim())f.push("Notas: "+sub(v.notas.trim()));f.forEach(x=>L.push("  "+x))});
  L.push("");L.push("RELATO (por ordem)");const ls=(d.rel||"").split("\n").map(s=>s.trim()).filter(Boolean);if(!ls.length)L.push("(vazio)");
  ls.forEach(l=>{let m=l.match(/^(\[\d\d:\d\d\])?\s*(\[(Observado|Declarado por ([^\]]*))\])?\s*(.*)$/);let h=m[1]?m[1].slice(1,-1)+" ":"",tag="";
   if(m[3]==="Observado")tag="[OBSERVADO PELO AGENTE] ";else if(m[4]!==undefined)tag="[DECLARADO POR "+sub(m[4].trim()||"?").toUpperCase()+"] ";else tag="[SEM MARCA] ";
   L.push("- "+h+tag+sub(m[5]))});
- L.push("");L.push(real?"Inclui dados reais.":"Anonimizado: nomes substituídos; nº de documento, contactos, moradas e datas de nascimento omitidos.");
+ L.push("");L.push(real?"Inclui dados reais. Fotografias não incluídas.":"Anonimizado: nomes substituídos; documento, filiação, morada, telefone e data de nascimento omitidos. Fotografias não incluídas.");
  return L.join("\n")}
 window.apoioBuild=build;
 // ---- integração nas ocorrências ----
@@ -763,6 +819,55 @@ purge();
 // re-render com ids (rascunhos antigos ganham aid)
 try{collect();render();}catch(e){}
 window.__apoio={lock,flush,purge,st:()=>st(),unlocked:()=>!!KEYC};
+})();
+</script>
+<script>(function(){
+/* v10: turno automático. Regra (hora local de abertura):
+   06:30–14:44 → Manhã (hoje) · 14:45–22:44 → Tarde (hoje) · 22:45–23:59 → Noite (hoje)
+   00:00–06:29 → Noite iniciada no dia anterior (preenchimento tardio).
+   Só se aplica a relatórios novos/vazios; um rascunho com dados nunca é alterado. */
+function mig(o){if(o&&o.f&&o.f.condDif!=="1")o.f.condDif=(o.f.condutor&&o.f.condutor.trim()&&o.f.condutor.trim()!==(o.f.nomeM||"").trim())?"1":""}
+try{mig(S);$("condDif").value=S.f.condDif}catch(e){}
+const p2=n=>String(n).padStart(2,"0");
+function autoT(now){const d=new Date(now||Date.now()),m=d.getHours()*60+d.getMinutes();let h;const t=new Date(d);
+ if(m<390){h="2345";t.setDate(t.getDate()-1)}else if(m<885)h="0745";else if(m<1365)h="1545";else h="2345";
+ return{h,iso:t.getFullYear()+"-"+p2(t.getMonth()+1)+"-"+p2(t.getDate())}}
+window.rcpAutoT=autoT;
+const indH=h=>(HOR[h]&&HOR[h].ind)||(typeof indOf=="function"?indOf(h):"")||"";
+function applyT(o,t){t=t||autoT();const H=HOR[t.h];o.f.data=t.iso;o.f.hor=t.h;o.f.turno=H.t;o.f.periodo=H.per;o.f.indicativo=indH(t.h);o._auto=1;return o}
+const DK=["nomeM","matM","nomeT","kmi","kmf","comb","radio","obs1","obs2","obs3","anom","matricula"],OK=["freg","eco","npp","ini","fim","mor","tipo","res"];
+function hasData(o){if(!o||!o.f)return false;if(DK.some(k=>String(o.f[k]||"").trim()))return true;
+ if((o.oc||[]).some(x=>OK.some(k=>String(x[k]||"").trim())||x.exp||x.sup))return true;return(o.autos||[]).some(a=>a.n||a.r||a.m||a.l)}
+window.rcpHasData=hasData;
+const oB=blank;blank=function(){return applyT(oB.apply(this,arguments))};
+function note(){const t=autoT(),nm={"0745":"Manhã","1545":"Tarde","2345":"Noite"};$("autoT").textContent=(S.f.data===t.iso&&S.f.hor===t.h)?"Data e turno escolhidos pela hora de abertura ("+nm[t.h]+"). Podes alterar.":""}
+function check(){collect();const t=autoT();if(hasData(S)){if(S.f.data&&(S.f.data!==t.iso||S.f.hor!==t.h)){const dd=S.f.data.split("-").reverse().join("/");$("msg").textContent="Rascunho do turno de "+dd+" aberto. Usa «Limpar» para começar o turno atual."}}
+ else if(S.f.data!==t.iso||S.f.hor!==t.h){applyT(S,t);render();save()}note()}
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)try{check()}catch(e){}});
+/* condutor = motorista */
+const oC=collect;collect=function(){if($("condDif").value!=="1")$("condutor").value=$("nomeM").value;return oC.apply(this,arguments)};
+const sw=$("condSw");function condUI(){const on=$("condDif").value==="1";sw.checked=on;$("condBox").hidden=!on}
+sw.addEventListener("change",()=>{$("condDif").value=sw.checked?"1":"";$("condutor").value=sw.checked?"":$("nomeM").value;condUI();save();if(window.cbAll)cbAll();sums()});
+const strip=n=>String(n||"").replace(/\s+-\s+\S+$/,"").trim();
+/* resumos */
+const oSu=sums;sums=function(){const r=oSu.apply(this,arguments);try{
+ const d=$("data").value;$("sumTur").textContent=[d?d.split("-").reverse().join("/"):"sem data",$("turno").value,$("indicativo").value,$("periodo").value].filter(Boolean).join(" · ");
+ const on=$("condDif").value==="1";$("sumCond").textContent=on?("Diferente: "+(strip($("condutor").value)||"por escolher")):("= motorista"+($("nomeM").value?" ("+strip($("nomeM").value)+")":""));
+ note()}catch(e){}return r};
+/* ocorrências: botão − no fim */
+const oR=ocRow;ocRow=function(){const r=oR.apply(this,arguments);const d=$("ocs").lastElementChild;const b=document.createElement("button");b.type="button";b.className="ocF";
+ b.onclick=()=>{d.open=false;const y=d.getBoundingClientRect().top;if(y<0)d.scrollIntoView({block:"start"})};d.querySelector(".in").appendChild(b);return r};
+const oRe=render;render=function(){mig(S);
+ const r=oRe.apply(this,arguments);condUI();return r};
+/* Definições: listas colapsadas com contagem e procura */
+const nz=t=>String(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+function flt(q,list,dt,n,tot,w){const k=nz($(q).value.trim()).split(/\s+/).filter(Boolean);let c=0;$(list).querySelectorAll(".li").forEach(e=>{const ok=k.every(x=>nz(e.textContent).includes(x));e.hidden=!ok;if(ok)c++});
+ $(n).textContent=k.length?(c+" de "+tot+" "+w):(tot+" "+w);if(k.length)$(dt).open=true}
+function eqF(){flt("colQ","colList","colD","colN",E.colegas.length,E.colegas.length==1?"colega":"colegas");flt("vQ","vList","vD","vN",E.viaturas.length,E.viaturas.length==1?"viatura":"viaturas")}
+const oE=eqRender;eqRender=function(){const r=oE.apply(this,arguments);try{eqF()}catch(e){}return r};
+["colQ","vQ"].forEach(id=>$(id).addEventListener("input",e=>{e.stopPropagation();eqF()}));
+/* arranque */
+try{collect();render();eqRender();check()}catch(e){console.error(e)}
 })();
 </script>
 </body></html>
