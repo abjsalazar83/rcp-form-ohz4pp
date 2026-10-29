@@ -3,14 +3,14 @@
    Navegação: Network First com 3 s de limite; sem rede responde a app guardada.
    Supabase (outra origem, com cabeçalhos apikey/x-coop-part/x-coop-admin): só rede, nunca guardado em cache.
    A fila de sincronização cifrada da app trata do envio quando houver rede. */
-const V="rcp-v22";
+const V="rcp-v22-2";
 const CORE=["./","index.html","manifest.webmanifest","icon.svg","icon-192.png","icon-512.png","icon-maskable-192.png","icon-maskable-512.png","icon-180.png"];
 const LAZY=["pdf-lib.min.js","rcp-modelo.pdf","sc-ocorrencia.png","sc-pdf.png","sc-viatura.png","sc-colega.png","screenshot-1.webp","screenshot-1.png"];
 const NAV_TIMEOUT=3000;
 self.addEventListener("install",e=>{e.waitUntil((async()=>{const c=await caches.open(V);
  await c.addAll(CORE.map(u=>new Request(u,{cache:"reload"})));
  await Promise.all(LAZY.map(u=>c.add(new Request(u,{cache:"reload"})).catch(()=>{})));
- const k=await caches.keys();const old=k.map(x=>/^rcp-v(\d+)$/.exec(x)).filter(Boolean).map(m=>+m[1]).filter(n=>n!==22);
+ const k=await caches.keys();const old=k.filter(x=>x!==V).map(x=>/^rcp-v(\d+)(?:-\d+)?$/.exec(x)).filter(Boolean).map(m=>+m[1]);
  if(!old.length||Math.max(...old)<22)await self.skipWaiting()})())});
 self.addEventListener("message",e=>{if(e.data&&e.data.t==="skip")self.skipWaiting()});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V&&/^rcp-/.test(x)).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
