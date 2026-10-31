@@ -112,6 +112,10 @@ body.m-rel.pol-ident details.ap{display:block!important}
 body #ocs .oc.noExp details.ap{display:none!important}
 /* v22.4.8: «Apontar» geral só quando alguma ocorrência tem expediente */
 body.noExpAny:not(.m-blo) #v19Ap,body.noExpAny:not(.m-blo) .v21Ap{display:none!important}
+/* v22.4.9: uma só via por ação. Apagar ocorrência: fica o «Apagar» do topo (igual ao gesto); Street View: fica o «Abrir Street View» do mini-mapa quando há local; Bloquear: fica o «Bloquear agora» do Acesso */
+details.oc:has(.ocDel) .x{display:none!important}
+details.oc:has(.svp:not([hidden])) .sv{display:none!important}
+#apLockB{display:none!important}.g2:has(>#apLockB){grid-template-columns:1fr}
 .svp,#w-sv{position:relative;margin:8px 0 4px;border-radius:10px;overflow:hidden;background:var(--s2);height:150px}.svp[hidden],#w-sv[hidden]{display:none}
 .svp iframe,#w-sv iframe{border:0;width:100%;height:100%;display:block}.svo{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:6px 10px;border-radius:8px;text-decoration:none}
 body.pol-noBlo [data-m="blo"],body.pol-noBlo #v19Ap,body.pol-noBlo .v21Ap{display:none!important}
