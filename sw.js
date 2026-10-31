@@ -3,7 +3,7 @@
    Navegação: Network First com 3 s de limite; sem rede responde a app guardada.
    Supabase (outra origem, com cabeçalhos apikey/x-coop-part/x-coop-admin): só rede, nunca guardado em cache.
    A fila de sincronização cifrada da app trata do envio quando houver rede. */
-const V="rcp-v22-4-6";
+const V="rcp-v22-4-7";
 const CORE=["./","index.html","manifest.webmanifest","icon.svg","icon-192.png","icon-512.png","icon-maskable-192.png","icon-maskable-512.png","icon-180.png"];
 const LAZY=["pdf-lib.min.js","rcp-modelo.pdf","sc-ocorrencia.png","sc-pdf.png","sc-viatura.png","sc-colega.png","screenshot-1.webp","screenshot-1.png"];
 const NAV_TIMEOUT=3000;
